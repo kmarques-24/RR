@@ -61,8 +61,6 @@ extern "C" void app_main(void)
 
     // Initialising peripherals
     initialise(state);
-    //test_drive_code();
-    
     // loop forever to keep spiffs mounted
     while (1) {
         vTaskDelay(pdMS_TO_TICKS(1000));
@@ -132,7 +130,7 @@ void initialise(rr_state_t state)
         init_encoder(&right_encoder);
         encoder_service();
     }
-    
     initialise_drivetrain();
-    // launch_rr_os_service();
+    uros_service();
+    launch_rr_os_service();
 }

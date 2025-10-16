@@ -2,7 +2,8 @@ idf_component_register(SRCS "drivetrain.cpp" "wireless_driving.cpp" "twai_test_m
                      "twai_service.cpp" "main.cpp"
                      "events.cpp" "led.cpp"
                      "imu_service.cpp"
-                     "encoder_service.cpp"                    
+                     "encoder_service.cpp"
+                     "uros_service.cpp"                    
                     INCLUDE_DIRS "include"
                     )
 spiffs_create_partition_image(storage ../partition FLASH_IN_PROJECT)

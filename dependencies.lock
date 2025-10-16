@@ -50,7 +50,7 @@ dependencies:
   idf:
     source:
       type: idf
-    version: 5.4.1
+    version: 5.4.2
   jgromes/radiolib:
     component_hash: 681ab971a0980f25c27d8dc352a058157a6448bae7a1b835fb8266bc5406b589
     dependencies:
