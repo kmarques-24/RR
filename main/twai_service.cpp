@@ -1,6 +1,7 @@
 #include "driver/gpio.h"
 #include "include/twai_service.h"
 #include "include/events.h"
+#include "freertos/task.h"
 
 #define TAG "TWAI Service"
 

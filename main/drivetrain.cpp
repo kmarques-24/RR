@@ -7,7 +7,7 @@ ledc_timer_config_t ledc_timer = {
     .timer_num = LEDC_TIMER_0,
     .freq_hz = PWM_FREQ,
     .clk_cfg = LEDC_AUTO_CLK,
-    .deconfigure = false
+    //.deconfigure = false // removed - ESP-IDF version does not have this field, should be implicitly false
 };
 
 motor_t left_motor = {

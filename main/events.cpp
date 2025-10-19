@@ -3,6 +3,7 @@
 #include "driver/gpio.h"
 #include "include/twai_service.h"
 #include "include/led.h"
+#include "freertos/queue.h" // added
 
 static const char *TAG = "EVENTS";
 
