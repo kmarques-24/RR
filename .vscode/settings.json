@@ -1,0 +1,14 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "idf.espIdfPath": "/home/km/esp/v5.1.2/esp-idf",
+  "idf.toolsPath": "/home/km/.espressif",
+  "idf.pythonInstallPath": "/usr/bin/python3",
+  "files.associations": {
+    "esp_log.h": "c",
+    "gpio.h": "c"
+  },
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32s3"
+  },
+  "idf.flashType": "DFU"
+}
