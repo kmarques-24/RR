@@ -72,7 +72,10 @@ static const httpd_uri_t index_uri = {
     .uri       = "/",
     .method    = HTTP_GET,
     .handler   = index_get_handler,
-    .user_ctx  = NULL
+    .user_ctx  = NULL,
+    .is_websocket = false,              // default
+    .handle_ws_control_frames = false,  // default
+    .supported_subprotocol = NULL,      // default
 };
 
 static esp_err_t imu_handler(httpd_req_t *req)
@@ -111,7 +114,10 @@ static const httpd_uri_t imu_uri = {
     .uri       = "/imu",         // Access it via http://<esp_ip>/imu
     .method    = HTTP_GET,
     .handler   = imu_handler,
-    .user_ctx  = NULL
+    .user_ctx  = NULL,
+    .is_websocket = false,              // default
+    .handle_ws_control_frames = false,  // default
+    .supported_subprotocol = NULL,      // default
 };
 
 // Handler for accessing encoder data page
@@ -149,7 +155,10 @@ static const httpd_uri_t encoder_uri = {
     .uri       = "/encoder",         // Access it via http://<esp_ip>/imu
     .method    = HTTP_GET,
     .handler   = encoder_handler,
-    .user_ctx  = NULL
+    .user_ctx  = NULL,
+    .is_websocket = false,              // default
+    .handle_ws_control_frames = false,  // default
+    .supported_subprotocol = NULL,      // default
 };
 
 

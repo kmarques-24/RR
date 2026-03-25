@@ -1,4 +1,4 @@
-# Install script for directory: /home/km/esp/v5.1.2/my_projects/RR/components/micro_ros_espidf_component
+# Install script for directory: /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

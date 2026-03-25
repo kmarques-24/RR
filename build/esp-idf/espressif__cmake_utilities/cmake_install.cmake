@@ -1,4 +1,4 @@
-# Install script for directory: /home/km/esp/v5.1.2/my_projects/RR/managed_components/espressif__cmake_utilities
+# Install script for directory: /home/km/Desktop/TestFolder/RR/managed_components/espressif__cmake_utilities
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

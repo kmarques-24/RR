@@ -1,4 +1,4 @@
-# Install script for directory: /home/km/esp/v5.1.2/my_projects/RR/components/esp32_BNO08x
+# Install script for directory: /home/km/Desktop/TestFolder/RR/components/esp32_BNO08x
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

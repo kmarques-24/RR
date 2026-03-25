@@ -1,4 +1,4 @@
-# Install script for directory: /home/km/esp/v5.1.2/my_projects/RR/managed_components/espressif__led_strip
+# Install script for directory: /home/km/Desktop/TestFolder/RR/managed_components/espressif__led_strip
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

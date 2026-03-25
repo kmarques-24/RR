@@ -83,7 +83,7 @@ void init_encoder(encoder_t* encoder)
    encoder->lastEncoding = (gpio_get_level(encoder->pin_a) << 1) | gpio_get_level(encoder->pin_b);
   
    // Enable interrupt service
-   gpio_install_isr_service(0);  // Only needs to be called once in app
+   gpio_install_isr_service(isr_service_installed);  // Only needs to be called once in app
    gpio_isr_handler_add(encoder->pin_a, encoder_isr_handler, (void *)encoder);
    gpio_isr_handler_add(encoder->pin_b, encoder_isr_handler, (void *)encoder);
 }
