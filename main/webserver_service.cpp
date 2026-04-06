@@ -246,6 +246,7 @@ httpd_handle_t start_webserver(void)
     ESP_LOGI(TAG, "Error Starting server!");
     return NULL;
 }
+
 // Stops the WebSocket-enabled HTTP server
 esp_err_t stop_webserver(httpd_handle_t server)
 {

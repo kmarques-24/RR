@@ -30,9 +30,11 @@
 
 static const char *TAG = "MAIN";
 
+void mount_spiffs();
 void initialise(rr_state_t state); 
 void test_drive_code();
 
+// Compile using C linkage rules so app_main keeps its name. Required for ESP-IDF
 extern "C" void app_main(void)
 {
     ESP_LOGI(TAG, "Starting app_main");
@@ -46,7 +48,26 @@ extern "C" void app_main(void)
     state.encoder_enabled = true;
     state.imu_enabled = true;
 
-    // mount spiffs
+    // Mount spiffs
+    mount_spiffs();
+
+    // Initialize peripherals
+    //initialise(state);
+    uros_service(); // just test this for now
+
+    // Loop forever to keep spiffs mounted
+    while (1) {
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
+
+void test_drive_code() {
+    while(1){
+        speed_callback(512, 512);
+    } 
+}
+
+void mount_spiffs() {
     esp_vfs_spiffs_conf_t config = {
         .base_path = "/storage",
         .partition_label = NULL,
@@ -58,63 +79,24 @@ extern "C" void app_main(void)
         ESP_LOGE(TAG, "Failed to initialize SPIFFS (%s)", esp_err_to_name(result));
         return; 
     }
-
-    // Initialising peripherals
-    initialise(state);
-
-    // loop forever to keep spiffs mounted
-    while (1) {
-        vTaskDelay(pdMS_TO_TICKS(1000));
-    }
-}
-
-// ISR handler must not use non-ISR-safe functions like `gpio_get_level` unless GPIO is input-only and stable
-
-/*id initialise_radio()
-
-{
-    CLK, MISO, MOSI, CS
-    RadioLibCustomHAL hal = RadioLibCustomHAL(1, 2, 3, 5);
-    // CS, G0, RST
-    SX1278 radio = new Module(&hal, 5, 7, 4);
-    int status = radio.begin();
-    if (status == RADIOLIB_ERR_NONE)
-    {
-        ESP_LOGI("Radio", "Radio initialised successfully");
-    }
-    else {ESP_LOGE("Radio", "Radio failed to initialise");}
-
-    radio.setFrequency(433.0);
-    radio.setSpreadingFactor(12);
-}
-*/
-
-void test_drive_code(){
-    while(1){
-        speed_callback(512, 512);
-    }
-    
 }
 
 void initialise(rr_state_t state)
 {
-    // WiFi for esp as AP
+    // WiFi for ESP32 as AP
+    // Doesn't work with microros (STA) unless finagled as APSTA
+    /*
     if (state.wifi_enabled){
-        wifi_init_softap();
-        init_ws();
+        wifi_init_softap();     // microros is STA not AP
+        init_ws();              // don't have a websocket
     }
-
-    /* Not using Radio right now if (state.radio_enabled)
-    { 
-        initialise_radio();
-    } 
     */
 
     if (state.imu_enabled)
     {
         init_imu();
         imu_service();
-        ESP_LOGI(TAG, "Imu service started");
+        ESP_LOGI(TAG, "IMU service started");
     }
     
     if (state.led_enabled)
@@ -132,7 +114,35 @@ void initialise(rr_state_t state)
         encoder_service();
     }
 
+    // Not using radio right now
+    /* 
+    if (state.radio_enabled)
+    { 
+        initialise_radio();
+    } 
+    */
+
     initialise_drivetrain();
     uros_service();
     launch_rr_os_service(); // calls initialize_events()
 }
+
+// ISR handler must not use non-ISR-safe functions like `gpio_get_level` unless GPIO is input-only and stable
+/*
+void initialise_radio()
+{
+    CLK, MISO, MOSI, CS
+    RadioLibCustomHAL hal = RadioLibCustomHAL(1, 2, 3, 5);
+    // CS, G0, RST
+    SX1278 radio = new Module(&hal, 5, 7, 4);
+    int status = radio.begin();
+    if (status == RADIOLIB_ERR_NONE)
+    {
+        ESP_LOGI("Radio", "Radio initialised successfully");
+    }
+    else {ESP_LOGE("Radio", "Radio failed to initialise");}
+
+    radio.setFrequency(433.0);
+    radio.setSpreadingFactor(12);
+}
+*/

@@ -47,7 +47,8 @@ void micro_ros_task(void *arg)
 
     #ifdef CONFIG_MICRO_ROS_ESP_XRCE_DDS_MIDDLEWARE
         rmw_init_options_t *rmw_options = rcl_init_options_get_rmw_init_options(&init_options);
-        // Static Agent IP and port can be used instead of autodisvery.
+        // Static Agent IP and port can be used instead of autodiscovery - currently using autodiscovery
+        // IP address and port on my computer autodetermined at 192.168.1.100 and 8888 (sdkconfig)
         RCCHECK(rmw_uros_options_set_udp_address(CONFIG_MICRO_ROS_AGENT_IP, CONFIG_MICRO_ROS_AGENT_PORT, rmw_options));
     #endif
 
@@ -79,7 +80,7 @@ void micro_ros_task(void *arg)
     RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));
     RCCHECK(rclc_executor_add_timer(&executor, &timer));
 
-    msg.data = 0;
+    msg.data = 28;
 
     while (1)
     {
@@ -103,13 +104,17 @@ void micro_ros_task(void *arg)
 // here it's a 32-bit signed integer
 BaseType_t uros_service(void)
 {
+    #if defined(CONFIG_MICRO_ROS_ESP_NETIF_WLAN) || defined(CONFIG_MICRO_ROS_ESP_NETIF_ENET)
+        ESP_ERROR_CHECK(uros_network_interface_initialize());
+    #endif
+    
     BaseType_t status;
     status = xTaskCreate(
         micro_ros_task,
         "uros_task",
-        8192,   // Stack size
+        CONFIG_MICRO_ROS_APP_STACK, // 8192, Stack size
         NULL,
-        5,      // Priority
+        CONFIG_MICRO_ROS_APP_TASK_PRIO, // 5,  Priority
         NULL);
 
     if (status == pdPASS)

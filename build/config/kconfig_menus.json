@@ -5829,8 +5829,8 @@
             }
         ],
         "depends_on": null,
-        "id": "micro-ros-example-app-settings",
-        "title": "micro-ROS example-app settings",
+        "id": "micro-ros-app-settings",
+        "title": "micro-ROS app settings",
         "type": "menu"
     },
     {

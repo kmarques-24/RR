@@ -28,7 +28,8 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
     }
 }
 
-void initalize_NVS(){
+// called in wifi_init_softap()
+void initialize_NVS(){
     // Initialize NVS (Non-Volatile Storage) — required before using WiFi
     esp_err_t ret = nvs_flash_init();
     if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
@@ -42,7 +43,7 @@ void initalize_NVS(){
 void wifi_init_softap(void)
 {
     ESP_LOGI(TAG, "Initializing WiFi SoftAP");
-    initalize_NVS();
+    initialize_NVS();
     ESP_ERROR_CHECK(esp_netif_init());
     ESP_ERROR_CHECK(esp_event_loop_create_default());
     esp_netif_create_default_wifi_ap();

@@ -90,11 +90,11 @@ menu "WiFi Configuration"
             Max number of the STA connects to AP.
 endmenu
 
-menu "micro-ROS example-app settings"
+menu "micro-ROS app settings"
 
     config MICRO_ROS_APP_STACK
         int "Stack the micro-ROS app (Bytes)"
-        default 16000
+        default 8192
         help
         Stack size in Bytes of the micro-ROS app
 

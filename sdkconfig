@@ -503,11 +503,11 @@ CONFIG_ESP_MAX_STA_CONN=4
 # end of WiFi Configuration
 
 #
-# micro-ROS example-app settings
+# micro-ROS app settings
 #
 CONFIG_MICRO_ROS_APP_STACK=16000
 CONFIG_MICRO_ROS_APP_TASK_PRIO=5
-# end of micro-ROS example-app settings
+# end of micro-ROS app settings
 
 #
 # esp32_BNO08x
