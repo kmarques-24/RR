@@ -2,4 +2,3 @@
 0x0 bootloader/bootloader.bin
 0x10000 RR_OS.bin
 0x8000 partition_table/partition-table.bin
-0x110000 storage.bin

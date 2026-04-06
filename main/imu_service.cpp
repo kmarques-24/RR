@@ -1,5 +1,5 @@
 #include "include/imu_service.h"
-#include "include/events.h"
+#include "include/rr_os_service.h"
 #include <fcntl.h>    // for open(), O_WRONLY, O_CREAT, etc.
 #include <unistd.h>   // for close(), write(), etc.
 #include <stdio.h>

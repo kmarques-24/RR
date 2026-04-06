@@ -19,7 +19,6 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "ldgen_libraries"
   "ldgen_libraries.in"
   "project_elf_src_esp32s3.c"
-  "storage.bin"
   "x509_crt_bundle.S"
   "../components/micro_ros_espidf_component/esp32_toolchain.cmake"
   "../components/micro_ros_espidf_component/include"

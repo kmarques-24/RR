@@ -5808,6 +5808,34 @@
     {
         "children": [
             {
+                "children": [],
+                "depends_on": null,
+                "help": "Stack size in Bytes of the micro-ROS app",
+                "id": "MICRO_ROS_APP_STACK",
+                "name": "MICRO_ROS_APP_STACK",
+                "range": null,
+                "title": "Stack the micro-ROS app (Bytes)",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Priority of micro-ros task higher value means higher priority",
+                "id": "MICRO_ROS_APP_TASK_PRIO",
+                "name": "MICRO_ROS_APP_TASK_PRIO",
+                "range": null,
+                "title": "Priority of the micro-ROS app",
+                "type": "int"
+            }
+        ],
+        "depends_on": null,
+        "id": "micro-ros-example-app-settings",
+        "title": "micro-ROS example-app settings",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
                 "children": [
                     {
                         "children": [],

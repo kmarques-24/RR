@@ -23,7 +23,7 @@
 #include "include/imu_service.h"
 #include "include/encoder.h"
 #include "include/led.h"
-#include "include/events.h"
+#include "include/rr_os_service.h"
 #include "include/wifi_service.h"
 #include "include/webserver_service.h"
 #include "include/wireless_driving.h"
@@ -61,6 +61,7 @@ extern "C" void app_main(void)
 
     // Initialising peripherals
     initialise(state);
+
     // loop forever to keep spiffs mounted
     while (1) {
         vTaskDelay(pdMS_TO_TICKS(1000));
@@ -130,7 +131,8 @@ void initialise(rr_state_t state)
         init_encoder(&right_encoder);
         encoder_service();
     }
+
     initialise_drivetrain();
     uros_service();
-    launch_rr_os_service();
+    launch_rr_os_service(); // calls initialize_events()
 }
