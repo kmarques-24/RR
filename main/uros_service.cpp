@@ -4,8 +4,12 @@
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/event_groups.h"
 #include "esp_log.h"
 #include "esp_system.h"
+#include "esp_netif_types.h"
+#include "esp_wifi_types.h"
+#include "esp_event.h"
 
 #include <uros_network_interfaces.h>
 #include <rcl/rcl.h>
@@ -38,7 +42,9 @@ void timer_callback(rcl_timer_t *timer, int64_t last_call_time)
 
 // Based on int32 publisher example
 void micro_ros_task(void *arg)
-{
+{   
+    ESP_LOGI(TAG, "Started uros service. Status: RUNNING (Connected to WiFi)");
+    
     rcl_allocator_t allocator = rcl_get_default_allocator();
     rclc_support_t support;
 
@@ -47,17 +53,38 @@ void micro_ros_task(void *arg)
 
     #ifdef CONFIG_MICRO_ROS_ESP_XRCE_DDS_MIDDLEWARE
         rmw_init_options_t *rmw_options = rcl_init_options_get_rmw_init_options(&init_options);
-        // Static Agent IP and port can be used instead of autodiscovery - currently using autodiscovery
+
+        // adjust retransmission and timeout settings to wait for slow netrwork
+        rmw_uros_options_set_client_key(0xBA5EBA11, rmw_options); // Set a static key to stop the 'cycling'
+
+        // Static Agent IP and port can be used instead of autodiscovery - what we have below
         // IP address and port on my computer autodetermined at 192.168.1.100 and 8888 (sdkconfig)
         RCCHECK(rmw_uros_options_set_udp_address(CONFIG_MICRO_ROS_AGENT_IP, CONFIG_MICRO_ROS_AGENT_PORT, rmw_options));
     #endif
 
     // create init options
     RCCHECK(rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator));
+    // Replace the init line with a retry loop
+    /*
+    while (rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator) != RCL_RET_OK) {
+        ESP_LOGW(TAG, "Waiting for Agent at %s:%s...", CONFIG_MICRO_ROS_AGENT_IP, CONFIG_MICRO_ROS_AGENT_PORT);
+        vTaskDelay(pdMS_TO_TICKS(2000));
+    }
+    */
 
-    // create node
+    // check for laptop to respond
+    /*
+    ESP_LOGI(TAG, "Pinging Agent to verify handshake...");
+    while (rmw_uros_ping_agent(500, 5) != RCL_RET_OK) {
+        ESP_LOGE(TAG, "Agent unreachable via RMW Ping. Waiting for stable connection...");
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+    ESP_LOGI(TAG, "Agent is ALIVE. Proceeding to node creation.");
+    */
+
+    // create node - name can't have spaces
     rcl_node_t node;
-    RCCHECK(rclc_node_init_default(&node, "Rescue Roller Node", "", &support));
+    RCCHECK(rclc_node_init_default(&node, "Rescue_Roller_Node", "", &support));
 
     // create publisher
     RCCHECK(rclc_publisher_init_default(
@@ -80,10 +107,10 @@ void micro_ros_task(void *arg)
     RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));
     RCCHECK(rclc_executor_add_timer(&executor, &timer));
 
-    msg.data = 28;
+    msg.data = 0;
 
     while (1)
-    {
+    {   
         rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100)); // check for work and wait up to 100 ms
         usleep(10000); // pauses task for 10 ms (usleep units are microseconds, so 10000 us)
 
@@ -99,15 +126,14 @@ void micro_ros_task(void *arg)
     vTaskDelete(NULL);
 }
 
-// function
-// BaseType_t is flexible data type that can map int based on platform
-// here it's a 32-bit signed integer
+// Function returning BaseType_t, a flexible data type that can map int based on platform
+//      here it's a 32-bit signed integer
 BaseType_t uros_service(void)
-{
+{   
     #if defined(CONFIG_MICRO_ROS_ESP_NETIF_WLAN) || defined(CONFIG_MICRO_ROS_ESP_NETIF_ENET)
         ESP_ERROR_CHECK(uros_network_interface_initialize());
     #endif
-    
+
     BaseType_t status;
     status = xTaskCreate(
         micro_ros_task,
@@ -117,50 +143,9 @@ BaseType_t uros_service(void)
         CONFIG_MICRO_ROS_APP_TASK_PRIO, // 5,  Priority
         NULL);
 
-    if (status == pdPASS)
+    if (status != pdPASS)
     {
-        ESP_LOGI(TAG, "service started");
-    }
-    else
-    {
-        ESP_LOGI(TAG, "Error starting the service");
+        ESP_LOGI(TAG, "Error starting uros service.");
     }
     return status;
 }
-
-/*
-void app_main(void)
-{
-    #if defined(CONFIG_MICRO_ROS_ESP_NETIF_WLAN) || defined(CONFIG_MICRO_ROS_ESP_NETIF_ENET)
-        ESP_ERROR_CHECK(uros_network_interface_initialize());
-    #endif
-
-    
-    //pin micro-ros task in APP_CPU to make PRO_CPU to deal with wifi:
-    xTaskCreatePinnedToCore(
-        micro_ros_task,
-        "uros_task",
-        CONFIG_MICRO_ROS_APP_STACK,
-        NULL,
-        CONFIG_MICRO_ROS_APP_TASK_PRIO,
-        NULL,
-        1  // Core 1 (APP_CPU)
-    );
-    
-
-    //lets espidf scheduler decide which core to use
-    //code originally from example with intention to pin per comment above
-    
-    xTaskCreate(micro_ros_task,
-            "uros_task",
-            CONFIG_MICRO_ROS_APP_STACK,
-            NULL,
-            CONFIG_MICRO_ROS_APP_TASK_PRIO,
-            NULL);
-    
-
-    The ESP32 is dual-core:
-    PRO_CPU (Core 0): Usually handles the "Protocol" (Wi-Fi and Bluetooth stacks).
-    APP_CPU (Core 1): Usually handles your "Application" logic.
-}
-*/

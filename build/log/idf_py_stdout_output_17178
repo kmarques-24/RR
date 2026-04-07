@@ -1,0 +1,203 @@
+[0/2] Re-checking globbed directories...
+[1/5] cd /home/km/Desktop/TestFolder/RR/build/esp-idf/esptool_py && /home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/km/esp/v5.1.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/km/Desktop/TestFolder/RR/build/partition_table/partition-table.bin /home/km/Desktop/TestFolder/RR/build/RR_OS.bin
+RR_OS.bin binary size 0xd22c0 bytes. Smallest app partition is 0x100000 bytes. 0x2dd40 bytes (18%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/km/Desktop/TestFolder/RR/build/bootloader/esp-idf/esptool_py && /home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/km/esp/v5.1.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/km/Desktop/TestFolder/RR/build/bootloader/bootloader.bin
+Bootloader binary size 0x51c0 bytes. 0x2e40 bytes (36%) free.
+[2/3] cd /home/km/esp/v5.1.2/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/km/esp/v5.1.2/esp-idf -D "SERIAL_TOOL=/home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python;;/home/km/esp/v5.1.2/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/km/Desktop/TestFolder/RR/build -P /home/km/esp/v5.1.2/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 4MB 0x0 bootloader/bootloader.bin 0x10000 RR_OS.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.10.0
+Found 33 serial ports
+Serial port /dev/ttyS9
+/dev/ttyS9 failed to connect: Could not open /dev/ttyS9, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS8
+/dev/ttyS8 failed to connect: Could not open /dev/ttyS8, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS7
+/dev/ttyS7 failed to connect: Could not open /dev/ttyS7, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS6
+/dev/ttyS6 failed to connect: Could not open /dev/ttyS6, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS5
+/dev/ttyS5 failed to connect: Could not open /dev/ttyS5, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS4
+/dev/ttyS4 failed to connect: Could not open /dev/ttyS4, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS31
+/dev/ttyS31 failed to connect: Could not open /dev/ttyS31, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS30
+/dev/ttyS30 failed to connect: Could not open /dev/ttyS30, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS3
+/dev/ttyS3 failed to connect: Could not open /dev/ttyS3, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS29
+/dev/ttyS29 failed to connect: Could not open /dev/ttyS29, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS28
+/dev/ttyS28 failed to connect: Could not open /dev/ttyS28, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS27
+/dev/ttyS27 failed to connect: Could not open /dev/ttyS27, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS26
+/dev/ttyS26 failed to connect: Could not open /dev/ttyS26, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS25
+/dev/ttyS25 failed to connect: Could not open /dev/ttyS25, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS24
+/dev/ttyS24 failed to connect: Could not open /dev/ttyS24, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS23
+/dev/ttyS23 failed to connect: Could not open /dev/ttyS23, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS22
+/dev/ttyS22 failed to connect: Could not open /dev/ttyS22, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS21
+/dev/ttyS21 failed to connect: Could not open /dev/ttyS21, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS20
+/dev/ttyS20 failed to connect: Could not open /dev/ttyS20, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS2
+/dev/ttyS2 failed to connect: Could not open /dev/ttyS2, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS19
+/dev/ttyS19 failed to connect: Could not open /dev/ttyS19, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS18
+/dev/ttyS18 failed to connect: Could not open /dev/ttyS18, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS17
+/dev/ttyS17 failed to connect: Could not open /dev/ttyS17, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS16
+/dev/ttyS16 failed to connect: Could not open /dev/ttyS16, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS15
+/dev/ttyS15 failed to connect: Could not open /dev/ttyS15, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS14
+/dev/ttyS14 failed to connect: Could not open /dev/ttyS14, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS13
+/dev/ttyS13 failed to connect: Could not open /dev/ttyS13, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS12
+/dev/ttyS12 failed to connect: Could not open /dev/ttyS12, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS11
+/dev/ttyS11 failed to connect: Could not open /dev/ttyS11, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS10
+/dev/ttyS10 failed to connect: Could not open /dev/ttyS10, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS1
+/dev/ttyS1 failed to connect: Could not open /dev/ttyS1, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyS0
+/dev/ttyS0 failed to connect: Could not open /dev/ttyS0, the port is busy or doesn't exist.
+(Could not configure port: (5, 'Input/output error'))
+
+Serial port /dev/ttyACM0
+Connecting....
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: 1c:db:d4:44:b0:5c
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x000e2fff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 20928 bytes to 13296...
+Writing at 0x00000000... (100 %)
+Wrote 20928 bytes (13296 compressed) at 0x00000000 in 0.4 seconds (effective 471.5 kbit/s)...
+Hash of data verified.
+Compressed 860864 bytes to 551522...
+Writing at 0x00010000... (2 %)
+Writing at 0x0001c9ec... (5 %)
+Writing at 0x00026b04... (8 %)
+Writing at 0x0002b951... (11 %)
+Writing at 0x0003555c... (14 %)
+Writing at 0x0003bfa4... (17 %)
+Writing at 0x000421e0... (20 %)
+Writing at 0x00048451... (23 %)
+Writing at 0x0004e41a... (26 %)
+Writing at 0x000537ef... (29 %)
+Writing at 0x00059e32... (32 %)
+Writing at 0x0005fcf2... (35 %)
+Writing at 0x00065a28... (38 %)
+Writing at 0x0006b076... (41 %)
+Writing at 0x000707fb... (44 %)
+Writing at 0x00075f7c... (47 %)
+Writing at 0x0007b889... (50 %)
+Writing at 0x0008149e... (52 %)
+Writing at 0x00086f25... (55 %)
+Writing at 0x0008bddb... (58 %)
+Writing at 0x00090ff9... (61 %)
+Writing at 0x00095e49... (64 %)
+Writing at 0x0009b253... (67 %)
+Writing at 0x000a05ee... (70 %)
+Writing at 0x000a5ff8... (73 %)
+Writing at 0x000ab634... (76 %)
+Writing at 0x000b1039... (79 %)
+Writing at 0x000b71f5... (82 %)
+Writing at 0x000bcd4d... (85 %)
+Writing at 0x000c2169... (88 %)
+Writing at 0x000cac8b... (91 %)
+Writing at 0x000d2fbb... (94 %)
+Writing at 0x000d8b75... (97 %)
+Writing at 0x000de51a... (100 %)
+Wrote 860864 bytes (551522 compressed) at 0x00010000 in 5.6 seconds (effective 1235.0 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 117...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (117 compressed) at 0x00008000 in 0.0 seconds (effective 515.9 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

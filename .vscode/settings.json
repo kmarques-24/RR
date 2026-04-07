@@ -10,5 +10,6 @@
   "idf.customExtraVars": {
     "IDF_TARGET": "esp32s3"
   },
-  "idf.flashType": "DFU"
+  "idf.flashType": "DFU",
+  "idf.port": "/dev/ttyACM0"
 }

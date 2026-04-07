@@ -30,6 +30,9 @@
 
 static const char *TAG = "MAIN";
 
+// track wifi connection to computer AP (access point)
+// not static so that uros_service can see it
+
 void mount_spiffs();
 void initialise(rr_state_t state); 
 void test_drive_code();
@@ -38,8 +41,9 @@ void test_drive_code();
 extern "C" void app_main(void)
 {
     ESP_LOGI(TAG, "Starting app_main");
-
+    
     // Creating events queue (Set to True when you want a service working)
+    // state defined in rr_os_service.cpp
     state.connected = false;
     state.twai_active = false;
     state.led_enabled = false;

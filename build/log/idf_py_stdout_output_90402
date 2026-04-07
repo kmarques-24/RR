@@ -1,0 +1,348 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x400490d7
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3818,len:0x1758
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xc00
+load:0x403cc700,len:0x2e04
+entry 0x403c9908
+[0;32mI (26) boot: ESP-IDF v5.1.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr  6 2026 13:24:17[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 4MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (87) boot:  3 storage          Unknown data     01 82 00110000 00100000[0m
+[0;32mI (94) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=22cfch (142588) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=00032d24 vaddr=3fc97200 size=0463ch ( 17980) load[0m
+[0;32mI (137) esp_image: segment 2: paddr=00037368 vaddr=40374000 size=08cb0h ( 36016) load[0m
+[0;32mI (146) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=97d94h (621972) map[0m
+[0;32mI (259) esp_image: segment 4: paddr=000d7dbc vaddr=4037ccb0 size=0a490h ( 42128) load[0m
+[0;32mI (276) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (277) boot: Disabling RNG early entropy source...[0m
+[0;32mI (288) cpu_start: Multicore app[0m
+[0;32mI (288) cpu_start: Pro cpu up.[0m
+[0;32mI (288) cpu_start: Starting app cpu, entry point is 0x40375504[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (306) cpu_start: Pro cpu start user code[0m
+[0;32mI (306) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (307) cpu_start: Application information:[0m
+[0;32mI (309) cpu_start: Project name:     RR_OS[0m
+[0;32mI (314) cpu_start: App version:      9ac8a6f-dirty[0m
+[0;32mI (320) cpu_start: Compile time:     Apr  6 2026 21:22:30[0m
+[0;32mI (326) cpu_start: ELF file SHA256:  a549cd45f8ccd0f6...[0m
+[0;32mI (332) cpu_start: ESP-IDF:          v5.1.2-dirty[0m
+[0;32mI (337) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (342) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (347) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (351) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (359) heap_init: At 3FCA2A70 len 00046CA0 (283 KiB): DRAM[0m
+[0;32mI (365) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM[0m
+[0;32mI (372) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (378) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (385) spi_flash: detected chip: gd[0m
+[0;32mI (388) spi_flash: flash io: dio[0m
+[0;33mW (392) spi_flash: Detected size(8192k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;32mI (406) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (412) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (419) app_start: Starting scheduler on CPU0[0m
+[0;32mI (424) app_start: Starting scheduler on CPU1[0m
+[0;32mI (424) main_task: Started on CPU0[0m
+[0;32mI (434) main_task: Calling app_main()[0m
+[0;32mI (434) MAIN: Starting app_main[0m
+[0;32mI (554) wifi_station_netif: ESP_WIFI_MODE_STA[0m
+[0;32mI (554) pp: pp rom version: e7ae62f[0m
+[0;32mI (554) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (564) wifi:wifi driver task: 3fcae36c, prio:23, stack:6656, core=0[0m
+[0;32mI (574) wifi:wifi firmware version: 91b9630[0m
+[0;32mI (574) wifi:wifi certification version: v7.0[0m
+[0;32mI (574) wifi:config NVS flash: enabled[0m
+[0;32mI (574) wifi:config nano formating: disabled[0m
+[0;32mI (574) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (584) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (584) wifi:Init management short buffer num: 32[0m
+[0;32mI (594) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (594) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (604) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (604) wifi:Init static rx buffer num: 10[0m
+[0;32mI (604) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (614) wifi_init: rx ba win: 6[0m
+[0;32mI (614) wifi_init: tcpip mbox: 32[0m
+[0;32mI (614) wifi_init: udp mbox: 6[0m
+[0;32mI (624) wifi_init: tcp mbox: 6[0m
+[0;32mI (624) wifi_init: tcp tx win: 5744[0m
+[0;32mI (634) wifi_init: tcp rx win: 5744[0m
+[0;32mI (634) wifi_init: tcp mss: 1440[0m
+[0;32mI (634) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (644) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (654) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+[0;32mI (704) wifi:mode : sta (1c:db:d4:44:b0:5c)[0m
+[0;32mI (704) wifi:enable tsf[0m
+[0;32mI (714) wifi_station_netif: wifi_init_sta finished.[0m
+[0;32mI (714) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1[0m
+[0;32mI (724) wifi:state: init -> auth (b0)[0m
+[0;32mI (724) wifi:state: auth -> assoc (0)[0m
+[0;32mI (734) wifi:state: assoc -> run (10)[0m
+[0;32mI (814) wifi:connected with Soul Destroyer, aid = 2, channel 6, BW20, bssid = 02:29:1d:6d:5a:b7[0m
+[0;32mI (814) wifi:security: WPA2-PSK, phy: bgn, rssi: -48[0m
+[0;32mI (824) wifi:pm start, type: 1[0m
+
+[0;32mI (824) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (954) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (1834) esp_netif_handlers: sta ip: 172.20.10.3, mask: 255.255.255.240, gw: 172.20.10.1[0m
+[0;32mI (1834) wifi_station_netif: got ip:172.20.10.3[0m
+[0;32mI (1834) wifi_station_netif: connected to ap SSID:Soul Destroyer password:Connect33#[0m
+[0;32mI (1844) uros_service: Started uros service. Status: RUNNING (Connected to WiFi)[0m
+[0;32mI (1884) wifi:<ba-add>idx:0 (ifx:0, 02:29:1d:6d:5a:b7), tid:0, ssn:2, winSize:64[0m
+Publishing: 28.000000
+Publishing: 29.000000
+Publishing: 30.000000
+Publishing: 31.000000
+Publishing: 32.000000
+Publishing: 33.000000
+Publishing: 34.000000
+Publishing: 35.000000
+Publishing: 36.000000
+Publishing: 37.000000
+Publishing: 38.000000
+Publishing: 39.000000
+Publishing: 40.000000
+Publishing: 41.000000
+Publishing: 42.000000
+Publishing: 43.000000
+Publishing: 44.000000
+Publishing: 45.000000
+Publishing: 46.000000
+Publishing: 47.000000
+Publishing: 48.000000
+Publishing: 49.000000
+Publishing: 50.000000
+Publishing: 51.000000
+Publishing: 52.000000
+Publishing: 53.000000
+Publishing: 54.000000
+Publishing: 55.000000
+Publishing: 56.000000
+Publishing: 57.000000
+Publishing: 58.000000
+Publishing: 59.000000
+Publishing: 60.000000
+Publishing: 61.000000
+Publishing: 62.000000
+Publishing: 63.000000
+Publishing: 64.000000
+Publishing: 65.000000
+Publishing: 66.000000
+Publishing: 67.000000
+Publishing: 68.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 69.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 70.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 71.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 72.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 73.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 74.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 75.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 76.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 77.000000
+Failed status on line 38: 1. Continuing.
+Publishing: 78.000000
+Publishing: 79.000000
+Publishing: 80.000000
+Publishing: 81.000000
+Publishing: 82.000000
+Publishing: 83.000000
+Publishing: 84.000000
+Publishing: 85.000000
+Publishing: 86.000000
+Publishing: 87.000000
+Publishing: 88.000000
+Publishing: 89.000000
+Publishing: 90.000000
+Publishing: 91.000000
+Publishing: 92.000000
+Publishing: 93.000000
+Publishing: 94.000000
+Publishing: 95.000000
+Publishing: 96.000000
+Publishing: 97.000000
+Publishing: 98.000000
+Publishing: 99.000000
+Publishing: 100.000000
+Publishing: 101.000000
+Publishing: 102.000000
+Publishing: 103.000000
+Publishing: 104.000000
+Publishing: 105.000000
+Publishing: 106.000000
+Publishing: 107.000000
+Publishing: 108.000000
+Publishing: 109.000000
+Publishing: 110.000000
+Publishing: 111.000000
+Publishing: 112.000000
+Publishing: 113.000000
+Publishing: 114.000000
+Publishing: 115.000000
+Publishing: 116.000000
+Publishing: 117.000000
+Publishing: 118.000000
+Publishing: 119.000000
+Publishing: 120.000000
+Publishing: 121.000000
+Publishing: 122.000000
+Publishing: 123.000000
+Publishing: 124.000000
+Publishing: 125.000000
+Publishing: 126.000000
+Publishing: 127.000000
+Publishing: 128.000000
+Publishing: 129.000000
+Publishing: 130.000000
+Publishing: 131.000000
+Publishing: 132.000000
+Publishing: 133.000000
+Publishing: 134.000000
+Publishing: 135.000000
+Publishing: 136.000000
+Publishing: 137.000000
+Publishing: 138.000000
+Publishing: 139.000000
+Publishing: 140.000000
+Publishing: 141.000000
+Publishing: 142.000000
+Publishing: 143.000000
+Publishing: 144.000000
+Publishing: 145.000000
+Publishing: 146.000000
+Publishing: 147.000000
+Publishing: 148.000000
+Publishing: 149.000000
+Publishing: 150.000000
+Publishing: 151.000000
+Publishing: 152.000000
+Publishing: 153.000000
+Publishing: 154.000000
+Publishing: 155.000000
+Publishing: 156.000000
+Publishing: 157.000000
+Publishing: 158.000000
+Publishing: 159.000000
+Publishing: 160.000000
+Publishing: 161.000000
+Publishing: 162.000000
+Publishing: 163.000000
+Publishing: 164.000000
+Publishing: 165.000000
+Publishing: 166.000000
+Publishing: 167.000000
+Publishing: 168.000000
+Publishing: 169.000000
+Publishing: 170.000000
+Publishing: 171.000000
+Publishing: 172.000000
+Publishing: 173.000000
+Publishing: 174.000000
+Publishing: 175.000000
+Publishing: 176.000000
+Publishing: 177.000000
+Publishing: 178.000000
+Publishing: 179.000000
+Publishing: 180.000000
+Publishing: 181.000000
+Publishing: 182.000000
+Publishing: 183.000000
+Publishing: 184.000000
+Publishing: 185.000000
+Publishing: 186.000000
+Publishing: 187.000000
+Publishing: 188.000000
+Publishing: 189.000000
+Publishing: 190.000000
+Publishing: 191.000000
+Publishing: 192.000000
+Publishing: 193.000000
+Publishing: 194.000000
+Publishing: 195.000000
+Publishing: 196.000000
+Publishing: 197.000000
+Publishing: 198.000000
+Publishing: 199.000000
+Publishing: 200.000000
+Publishing: 201.000000
+Publishing: 202.000000
+Publishing: 203.000000
+Publishing: 204.000000
+Publishing: 205.000000
+Publishing: 206.000000
+Publishing: 207.000000
+Publishing: 208.000000
+Publishing: 209.000000
+Publishing: 210.000000
+Publishing: 211.000000
+Publishing: 212.000000
+Publishing: 213.000000
+Publishing: 214.000000
+Publishing: 215.000000
+Publishing: 216.000000
+Publishing: 217.000000
+Publishing: 218.000000
+Publishing: 219.000000
+Publishing: 220.000000
+Publishing: 221.000000
+Publishing: 222.000000
+Publishing: 223.000000
+Publishing: 224.000000
+Publishing: 225.000000
+Publishing: 226.000000
+Publishing: 227.000000
+Publishing: 228.000000
+Publishing: 229.000000
+Publishing: 230.000000
+Publishing: 231.000000
+Publishing: 232.000000
+Publishing: 233.000000
+Publishing: 234.000000
+Publishing: 235.000000
+Publishing: 236.000000
+Publishing: 237.000000
+Publishing: 238.000000
+Publishing: 239.000000
+Publishing: 240.000000
+Publishing: 241.000000
+Publishing: 242.000000
+Publishing: 243.000000
+Publishing: 244.000000
+Publishing: 245.000000
+Publishing: 246.000000
+Publishing: 247.000000
+Publishing: 248.000000
+Publishing: 249.000000
+Publishing: 250.000000
+Publishing: 251.000000
+Publishing: 252.000000
+Publishing: 253.000000
+Publishing: 254.000000
+Publishing: 255.000000
+Publishing: 256.000000
+Publishing: 257.000000
+Publishing: 258.000000
