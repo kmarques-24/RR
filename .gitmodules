@@ -5,3 +5,6 @@
 	path = components/micro_ros_espidf_component
 	url = https://github.com/micro-ROS/micro_ros_espidf_component.git
 	branch = humble
+[submodule "components/VL53L5CX-Library"]
+	path = components/VL53L5CX-Library
+	url = https://github.com/kmarques-24/VL53L5CX-Library
