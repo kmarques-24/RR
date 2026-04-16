@@ -67,5 +67,6 @@
 /home/km/Desktop/TestFolder/RR/build/esp-idf/espressif__led_indicator/libespressif__led_indicator.a
 /home/km/Desktop/TestFolder/RR/build/esp-idf/jgromes__radiolib/libjgromes__radiolib.a
 /home/km/Desktop/TestFolder/RR/build/esp-idf/main/libmain.a
+/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/libVL53L5CX-Library.a
 /home/km/Desktop/TestFolder/RR/build/esp-idf/esp32_BNO08x/libesp32_BNO08x.a
 /home/km/Desktop/TestFolder/RR/build/esp-idf/micro_ros_espidf_component/libmicro_ros_espidf_component.a

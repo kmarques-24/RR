@@ -5573,11 +5573,24 @@
                 ],
                 "title": "Rescue Roller ID",
                 "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "This option selects the motor type. 1 is brushed and 2 is brushless.",
+                "id": "Motor_Type",
+                "name": "Motor_Type",
+                "range": [
+                    1,
+                    2
+                ],
+                "title": "Motor Type Brushed=1 or Brushless=2",
+                "type": "int"
             }
         ],
         "depends_on": null,
-        "id": "rescue-roller-configuration",
-        "title": "Rescue Roller Configuration",
+        "id": "custom-rescue-roller-configuration",
+        "title": "Custom: Rescue Roller Configuration",
         "type": "menu"
     },
     {
@@ -5650,8 +5663,8 @@
             }
         ],
         "depends_on": null,
-        "id": "twai-interface-configuration",
-        "title": "TWAI Interface Configuration",
+        "id": "custom-twai-interface-configuration",
+        "title": "Custom: TWAI Interface Configuration",
         "type": "menu"
     },
     {
@@ -5750,8 +5763,8 @@
             }
         ],
         "depends_on": null,
-        "id": "drivetrain-configuration",
-        "title": "DRIVETRAIN Configuration",
+        "id": "custom-drivetrain-configuration",
+        "title": "Custom: DRIVETRAIN Configuration",
         "type": "menu"
     },
     {
@@ -5801,8 +5814,8 @@
             }
         ],
         "depends_on": null,
-        "id": "wifi-configuration",
-        "title": "WiFi Configuration",
+        "id": "custom-wifi-configuration",
+        "title": "Custom: WiFi Configuration",
         "type": "menu"
     },
     {
@@ -5829,8 +5842,8 @@
             }
         ],
         "depends_on": null,
-        "id": "micro-ros-app-settings",
-        "title": "micro-ROS app settings",
+        "id": "custom-micro-ros-app-settings",
+        "title": "Custom: micro-ROS app settings",
         "type": "menu"
     },
     {
@@ -26673,6 +26686,168 @@
                 "depends_on": null,
                 "id": "component-config-wi-fi-provisioning-manager",
                 "title": "Wi-Fi Provisioning Manager",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "The VL53L5CX can measure up to four targets per zone.\nThe user can configure the number of targets returned by the sensor.\nThe minimum distance between two targets to be detected is 600 mm.\nA lower number of target per zone means a lower RAM",
+                        "id": "VL53L5CX_NB_TARGET_PER_ZONE",
+                        "name": "VL53L5CX_NB_TARGET_PER_ZONE",
+                        "range": [
+                            1,
+                            4
+                        ],
+                        "title": "Number of target per zone",
+                        "type": "int"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the ambient per SPAD result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_AMBIENT_PER_SPAD",
+                        "name": "VL53L5CX_DISABLE_AMBIENT_PER_SPAD",
+                        "range": null,
+                        "title": "Disable ambient per SPAD result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the number of SPADs enabled result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_NB_SPADS_ENABLED",
+                        "name": "VL53L5CX_DISABLE_NB_SPADS_ENABLED",
+                        "range": null,
+                        "title": "Disable number of SPADs enabled result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the number of target detected result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_NB_TARGET_DETECTED",
+                        "name": "VL53L5CX_DISABLE_NB_TARGET_DETECTED",
+                        "range": null,
+                        "title": "Disable number of target detected result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the signal per SPAD result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_SIGNAL_PER_SPAD",
+                        "name": "VL53L5CX_DISABLE_SIGNAL_PER_SPAD",
+                        "range": null,
+                        "title": "Disable signal per SPAD result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the range sigma in mm result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_RANGE_SIGMA_MM",
+                        "name": "VL53L5CX_DISABLE_RANGE_SIGMA_MM",
+                        "range": null,
+                        "title": "Disable range sigma in mm result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the distance in mm result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_DISTANCE_MM",
+                        "name": "VL53L5CX_DISABLE_DISTANCE_MM",
+                        "range": null,
+                        "title": "Disable distance in mm result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the reflectance in percent result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_REFLECTANCE_PERCENT",
+                        "name": "VL53L5CX_DISABLE_REFLECTANCE_PERCENT",
+                        "range": null,
+                        "title": "Disable reflectance in percent result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the target status result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_TARGET_STATUS",
+                        "name": "VL53L5CX_DISABLE_TARGET_STATUS",
+                        "range": null,
+                        "title": "Disable target status result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Disable the motion indicator result.\nConsequently, the field is not declared in the results structure, \nand the data is not transferred to the host. \nThe RAM size and I2C/SPI size are reduced.",
+                        "id": "VL53L5CX_DISABLE_MOTION_INDICATOR",
+                        "name": "VL53L5CX_DISABLE_MOTION_INDICATOR",
+                        "range": null,
+                        "title": "Disable motion indicator result",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "VL53L5CX_I2C_TIMEOUT",
+                                "help": null,
+                                "id": "VL53L5CX_I2C_TIMEOUT_VALUE",
+                                "name": "VL53L5CX_I2C_TIMEOUT_VALUE",
+                                "range": null,
+                                "title": "I\u00b2C bus timeout",
+                                "type": "int"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": null,
+                        "id": "VL53L5CX_I2C_TIMEOUT",
+                        "name": "VL53L5CX_I2C_TIMEOUT",
+                        "range": null,
+                        "title": "Enable I\u00b2C bus timeout",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "<choice VL53L5CX_RESET_LEVEL>",
+                                "help": null,
+                                "id": "VL53L5CX_RESET_PIN_LOW",
+                                "name": "VL53L5CX_RESET_PIN_LOW",
+                                "range": null,
+                                "title": "Low",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": "<choice VL53L5CX_RESET_LEVEL>",
+                                "help": null,
+                                "id": "VL53L5CX_RESET_PIN_HIGH",
+                                "name": "VL53L5CX_RESET_PIN_HIGH",
+                                "range": null,
+                                "title": "High",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "The user can choose if during the reset scheme the reset pin is low or high.\nThis allow different circuits and the user can choose accordingly to his needs.",
+                        "id": "component-config-vl53l5cx-reset-pin-state",
+                        "name": "VL53L5CX_RESET_LEVEL",
+                        "title": "Reset Pin State",
+                        "type": "choice"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-vl53l5cx",
+                "title": "VL53L5CX",
                 "type": "menu"
             },
             {

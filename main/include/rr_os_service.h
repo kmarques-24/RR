@@ -10,7 +10,7 @@ typedef enum EVENTS {
     EVENT_DISCONNECT,
 } event_t;
 
-typedef struct rr_state_t {
+typedef struct rr_status_t {
     bool twai_active;
     bool connected;
     uint32_t last_isr_time;
@@ -20,11 +20,11 @@ typedef struct rr_state_t {
     bool radio_enabled;
     bool encoder_enabled;
     bool wifi_enabled;
-} rr_state_t;
+} rr_status_t;
 
-extern rr_state_t state;
+extern rr_status_t status;
 
 void initialise_events();
 void add_event(event_t event);
 void rr_os_event_handler();
-void rr_os_service(void *pvParameter);
+void launch_rr_os_service(void);

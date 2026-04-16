@@ -66,6 +66,6 @@ direct_dependencies:
 - espressif/led_indicator
 - idf
 - jgromes/radiolib
-manifest_hash: e153972ccd3c08ca3e645d50a5af52a81b1459112636f6ff8170589c2f55acef
+manifest_hash: 2a356dcde2356b8bd6148032617f7fb6fba1649703825de38e03b66aec493678
 target: esp32s3
 version: 2.0.0

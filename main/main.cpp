@@ -17,7 +17,7 @@
 
 // Project Headers
 #include "include/pins.h"
-#include "include/drivetrain.hpp"
+#include "include/hardware_drivetrain.h"
 #include "include/twai_service.h"
 #include "include/uros_service.h"
 #include "include/imu_service.h"
@@ -34,7 +34,7 @@ static const char *TAG = "MAIN";
 // not static so that uros_service can see it
 
 void mount_spiffs();
-void initialise(rr_state_t state); 
+void initialise(rr_status_t status); 
 void test_drive_code();
 
 // Compile using C linkage rules so app_main keeps its name. Required for ESP-IDF
@@ -43,20 +43,20 @@ extern "C" void app_main(void)
     ESP_LOGI(TAG, "Starting app_main");
     
     // Creating events queue (Set to True when you want a service working)
-    // state defined in rr_os_service.cpp
-    state.connected = false;
-    state.twai_active = false;
-    state.led_enabled = false;
-    state.radio_enabled = false;
-    state.wifi_enabled = true;
-    state.encoder_enabled = true;
-    state.imu_enabled = true;
+    // status defined in rr_os_service.cpp
+    status.connected = false;
+    status.twai_active = false;
+    status.led_enabled = false;
+    status.radio_enabled = false;
+    status.wifi_enabled = true;
+    status.encoder_enabled = true;
+    status.imu_enabled = true;
 
     // Mount spiffs
     mount_spiffs();
 
     // Initialize peripherals
-    //initialise(state);
+    //initialise(status);
     uros_service(); // just test this for now
 
     // Loop forever to keep spiffs mounted
@@ -85,32 +85,32 @@ void mount_spiffs() {
     }
 }
 
-void initialise(rr_state_t state)
+void initialise(rr_status_t status)
 {
     // WiFi for ESP32 as AP
     // Doesn't work with microros (STA) unless finagled as APSTA
     /*
-    if (state.wifi_enabled){
+    if (status.wifi_enabled){
         wifi_init_softap();     // microros is STA not AP
         init_ws();              // don't have a websocket
     }
     */
 
-    if (state.imu_enabled)
+    if (status.imu_enabled)
     {
         init_imu();
         imu_service();
         ESP_LOGI(TAG, "IMU service started");
     }
     
-    if (state.led_enabled)
+    if (status.led_enabled)
     {
         initialise_led();
         set_led_color(INDEPENDENT_COLOR);
         twai_interrupt_init();
     }
 
-    if (state.encoder_enabled)
+    if (status.encoder_enabled)
     {
         ESP_LOGI(TAG, "Encoder Service Starting");
         init_encoder(&left_encoder);
@@ -120,7 +120,7 @@ void initialise(rr_state_t state)
 
     // Not using radio right now
     /* 
-    if (state.radio_enabled)
+    if (status.radio_enabled)
     { 
         initialise_radio();
     } 

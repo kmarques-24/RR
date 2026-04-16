@@ -667,6 +667,13 @@
 /home/km/Desktop/TestFolder/RR/build/esp-idf/main/CMakeFiles/install.dir
 /home/km/Desktop/TestFolder/RR/build/esp-idf/main/CMakeFiles/install/local.dir
 /home/km/Desktop/TestFolder/RR/build/esp-idf/main/CMakeFiles/install/strip.dir
+/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/CMakeFiles/__idf_VL53L5CX-Library.dir
+/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/CMakeFiles/edit_cache.dir
+/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/CMakeFiles/rebuild_cache.dir
+/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/CMakeFiles/list_install_components.dir
+/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/CMakeFiles/install.dir
+/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/CMakeFiles/install/local.dir
+/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/CMakeFiles/install/strip.dir
 /home/km/Desktop/TestFolder/RR/build/esp-idf/esp32_BNO08x/CMakeFiles/__idf_esp32_BNO08x.dir
 /home/km/Desktop/TestFolder/RR/build/esp-idf/esp32_BNO08x/CMakeFiles/edit_cache.dir
 /home/km/Desktop/TestFolder/RR/build/esp-idf/esp32_BNO08x/CMakeFiles/rebuild_cache.dir
