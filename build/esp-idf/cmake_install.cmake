@@ -439,11 +439,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/km/Desktop/TestFolder/RR/build/esp-idf/VL53L5CX-Library/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/home/km/Desktop/TestFolder/RR/build/esp-idf/esp32_BNO08x/cmake_install.cmake")
 endif()
 
