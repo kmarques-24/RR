@@ -6,16 +6,27 @@ menu "Custom: Rescue Roller Configuration"
         help
             This option selects the ID of the rescue roller. The ID must be unique
             for each rescue roller.
-    config Motor_Type
-        int "Motor Type Brushed=1 or Brushless=2"
-        range 1 2
-        default 1
+
+    config BRUSHLESS_MOTOR
+        bool "Uses brushless (BLDC) motors"
+        default n
         help
-            This option selects the motor type. 1 is brushed and 2 is brushless.
+            Enable for brushless (BLDC) motors. Disable for brushed (BDC) motors.
+
+    config WHEEL_RADIUS_MM
+        int "Wheel radius in mm"
+        default 30
+        help
+            Wheel radius in millimeters for rescue roller. 
+
+    config WHEEL_BASE_MM
+        int "Wheel base in mm (center to center wheel distance)"
+        default 60
+        help
+            Wheel base in mm for rescue roller.
 endmenu
 
 menu "Custom: TWAI Interface Configuration"
-
     orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
 
     config TWAI_TX
@@ -36,37 +47,171 @@ menu "Custom: TWAI Interface Configuration"
 
 endmenu
 
-menu "Custom: DRIVETRAIN Configuration"
-
+menu "Custom: Brushed Motor Configuration"
+    depends on !BRUSHLESS_MOTOR
     orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
-    config LEFT_MOTOR_A
-        int "Left Motor A GPIO number"
-        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 1
+    
+    config CPR
+        int "Motor counts per revolution (CPR)"
+        default 1357
         help
-            This option selects the GPIO pin used for the left motor A signal.
+            Input counts per revolution for specific motor used. Default 1357 was manually counted for Pololu motor
 
-    config LEFT_MOTOR_B
-        int "Left Motor B GPIO number"
+    config LEFT_ENCODER_A
+        int "Left Motor Encoder A GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 40
+        help
+            This option selects the GPIO pin used for the left motor encoder A signal.
+
+    config LEFT_ENCODER_B
+        int "Left Motor Encoder B GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
         default 2
         help
-            This option selects the GPIO pin used for the left motor B signal.
+            This option selects the GPIO pin used for the left motor encoder B signal.
 
-    config RIGHT_MOTOR_A
-        int "Right Motor A GPIO number"
+    config RIGHT_ENCODER_A
+        int "Right Motor Encoder A GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
         default 3
         help
-            This option selects the GPIO pin used for the right motor A signal.
+            This option selects the GPIO pin used for the right motor encoder A signal.
 
-    config RIGHT_MOTOR_B
-        int "Right Motor B GPIO number"
+    config RIGHT_ENCODER_B
+        int "Right Motor Encoder B GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
         default 4
         help
-            This option selects the GPIO pin used for the right motor B signal.
+            This option selects the GPIO pin used for the right motor encoder B signal.
 
+    config LEFT_MOTOR_M1
+        int "Left Motor M1 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 40
+        help
+            This option selects the GPIO pin used for the left motor M1 signal.
+
+    config LEFT_MOTOR_M2
+        int "Left Motor M2 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 2
+        help
+            This option selects the GPIO pin used for the left motor M2 signal.
+
+    config RIGHT_MOTOR_M1
+        int "Right Motor M1 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 3
+        help
+            This option selects the GPIO pin used for the right motor M1 signal.
+
+    config RIGHT_MOTOR_M2
+        int "Right Motor M2 GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 4
+        help
+            This option selects the GPIO pin used for the right motor M2 signal.
+endmenu
+
+menu "Custom: Brushless Motor Configuration"
+    depends on BRUSHLESS_MOTOR
+    orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+    
+    config POLE_PAIRS
+        int "Pole pairs in BLDC motor"
+        default 1
+        help
+            Input pole pairs for specific motor used. Default 1 for jumper MAXON motor.
+
+    config EDGES_PER_SENSOR
+        int "Pole pairs in BLDC motor"
+        range 1 2
+        default 1
+        help
+            Edges triggering per sensor. Default 1 for rising/falling edge.
+
+    config NUM_SENSORS
+        int "Number of Hall sensors per motor to use"
+        default 1
+        help
+            Default 1. Jumper MAXON motor has 3, but 1 gives enough resolution while minimizing interrupts.
+    
+    config GEARBOX_RATIO
+        int "Gearbox ratio number X:1 assuming speed stepped down"
+        default 64
+        help
+            Default 1 for jumper MAXON. Required since pulse resolution multiplies hall counts by ratio.
+
+    config LEFT_ENCODER_U
+        int "Left Motor Encoder U GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 40
+        help
+            This option selects the GPIO pin used for the left motor hall U signal.
+
+    config LEFT_ENCODER_V
+        int "Left Motor Encoder V GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 2
+        help
+            This option selects the GPIO pin used for the left motor hall V signal.
+    
+    config LEFT_ENCODER_W
+        int "Left Motor Encoder W GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 2
+        help
+            This option selects the GPIO pin used for the left motor hall W signal. May be unused.
+
+    config RIGHT_ENCODER_U
+        int "Right Motor Encoder U GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 3
+        help
+            This option selects the GPIO pin used for the right motor hall U signal.
+
+    config RIGHT_ENCODER_V
+        int "Right Motor Encoder V GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 4
+        help
+            This option selects the GPIO pin used for the right motor hall V signal.
+
+    config RIGHT_ENCODER_W
+        int "Right Motor Encoder W GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 4
+        help
+            This option selects the GPIO pin used for the right motor hall W signal. May be unused.
+
+    config LEFT_MOTOR_PWM
+        int "Left Motor PWM GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 40
+        help
+            This option selects the GPIO pin used for the left motor PWM signal.
+
+    config LEFT_MOTOR_DIR
+        int "Left Motor Direction GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 2
+        help
+            This option selects the GPIO pin used for the left motor direction signal.
+
+    config RIGHT_MOTOR_PWM
+        int "Right Motor PWM GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 3
+        help
+            This option selects the GPIO pin used for the right motor PWM signal.
+
+    config RIGHT_MOTOR_DIR
+        int "Right Motor Direction GPIO number"
+        range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+        default 4
+        help
+            This option selects the GPIO pin used for the right motor direction signal.
 endmenu
 
 menu "Custom: WiFi Configuration"
@@ -93,19 +238,4 @@ menu "Custom: WiFi Configuration"
         default 4
         help
             Max number of the STA connects to AP.
-endmenu
-
-menu "Custom: micro-ROS app settings"
-
-    config MICRO_ROS_APP_STACK
-        int "Stack the micro-ROS app (Bytes)"
-        default 8192
-        help
-        Stack size in Bytes of the micro-ROS app
-
-    config MICRO_ROS_APP_TASK_PRIO
-        int "Priority of the micro-ROS app"
-        default 5
-        help
-            Priority of micro-ros task higher value means higher priority
 endmenu

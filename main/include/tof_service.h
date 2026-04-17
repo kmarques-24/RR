@@ -2,7 +2,8 @@
 
 // Header includes
 #include "vl53l5cx_api.h"
-#include "helpers.h"
+#include "utils.h"
+#include <sensor_msgs/msg/point_cloud2.h>
 
 #ifdef __cplusplus
 extern "C" {

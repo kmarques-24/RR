@@ -1,6 +1,6 @@
 #
 # Automatically generated file. DO NOT EDIT.
-# Espressif IoT Development Framework (ESP-IDF) 5.1.2 Project Configuration
+# Espressif IoT Development Framework (ESP-IDF)  Project Configuration
 #
 CONFIG_SOC_MPU_MIN_REGION_SIZE=0x20000000
 CONFIG_SOC_MPU_REGIONS_MAX_NUM=8
@@ -471,7 +471,9 @@ CONFIG_PARTITION_TABLE_MD5=y
 # Custom: Rescue Roller Configuration
 #
 CONFIG_RR_ID=1
-CONFIG_Motor_Type=1
+# CONFIG_BRUSHLESS_MOTOR is not set
+CONFIG_WHEEL_RADIUS_MM=30
+CONFIG_WHEEL_BASE_MM=60
 # end of Custom: Rescue Roller Configuration
 
 #
@@ -486,13 +488,18 @@ CONFIG_TWAI_RX=9
 # end of Custom: TWAI Interface Configuration
 
 #
-# Custom: DRIVETRAIN Configuration
+# Custom: Brushed Motor Configuration
 #
-CONFIG_LEFT_MOTOR_A=1
-CONFIG_LEFT_MOTOR_B=2
-CONFIG_RIGHT_MOTOR_A=3
-CONFIG_RIGHT_MOTOR_B=4
-# end of Custom: DRIVETRAIN Configuration
+CONFIG_CPR=1357
+CONFIG_LEFT_ENCODER_A=40
+CONFIG_LEFT_ENCODER_B=2
+CONFIG_RIGHT_ENCODER_A=3
+CONFIG_RIGHT_ENCODER_B=4
+CONFIG_LEFT_MOTOR_M1=40
+CONFIG_LEFT_MOTOR_M2=2
+CONFIG_RIGHT_MOTOR_M1=3
+CONFIG_RIGHT_MOTOR_M2=4
+# end of Custom: Brushed Motor Configuration
 
 #
 # Custom: WiFi Configuration
@@ -502,13 +509,6 @@ CONFIG_ESP_WIFI_PASSWORD="BotT3st!"
 CONFIG_ESP_WIFI_CHANNEL=1
 CONFIG_ESP_MAX_STA_CONN=4
 # end of Custom: WiFi Configuration
-
-#
-# Custom: micro-ROS app settings
-#
-CONFIG_MICRO_ROS_APP_STACK=8192
-CONFIG_MICRO_ROS_APP_TASK_PRIO=5
-# end of Custom: micro-ROS app settings
 
 #
 # esp32_BNO08x

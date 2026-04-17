@@ -1,5 +1,5 @@
 #include "tof_service.h"
-#include "helpers.h"
+#include "utils.h"
 
 // FreeRTOS and ESP32 includes
 #include "freertos/FreeRTOS.h"
@@ -30,6 +30,32 @@ static StaticSemaphore_t dataMutexBuffer;
 
 // Global instance
 static tof_data_t tof_latest;
+
+void update_tof_msg(sensor_msgs__msg__PointCloud2 *tof_msg)
+{
+    // lock here too to avoid partial data read
+    xSemaphoreTake(dataMutex, portMAX_DELAY);
+    // TODO: match tof data to tof msg
+    tof_msg->header.stamp.sec     = tof_latest.timestamp.secs;
+    tof_msg->header.stamp.nanosec = tof_latest.timestamp.nanosecs;
+
+    /*
+    // For cell at row r, col c in an 8x8 grid with 45° FoV:
+    float fov = 45.0f * M_PI / 180.0f;           // total FoV in radians
+    float cell_angle = fov / 8.0f;                // angle per cell
+
+    float theta_x = (c - 3.5f) * cell_angle;     // horizontal angle from center
+    float theta_y = (r - 3.5f) * cell_angle;     // vertical angle from center
+    float d = distances[r][c] / 1000.0f;         // mm to meters
+
+    // ROS convention: z forward, x right, y up
+    float z = d * cosf(theta_x) * cosf(theta_y); // depth (forward)
+    float x = d * sinf(theta_x);                 // horizontal
+    float y = d * sinf(theta_y);                 // vertical
+    */
+    
+    xSemaphoreGive(dataMutex);
+}
 
 void init_tof_sensor(void)
 {
@@ -111,34 +137,9 @@ void tof_task(void *pvParameter)
         }
 
         /* Wait a few ms to avoid too high polling (function in platform file, not in API) */
-        VL53L5CX_WaitMs(&(Dev.platform), 5); // calles vTaskDelay under hood
+        VL53L5CX_WaitMs(&(Dev.platform), 20); // calles vTaskDelay under hood
+        // 20 ms is 50 Hz. Changed from 5 ms
     }
-}
-
-void update_tof_msg(sensor_msgs__msg__PointCloud2 *tof_msg)
-{
-    // lock here too to avoid partial data read
-    xSemaphoreTake(dataMutex, portMAX_DELAY);
-    // TODO: match tof data to tof msg
-    tof_msg->header.stamp.sec     = tof_latest.timestamp.secs;
-    tof_msg->header.stamp.nanosec = tof_latest.timestamp.nanosecs;
-
-    /*
-    // For cell at row r, col c in an 8x8 grid with 45° FoV:
-    float fov = 45.0f * M_PI / 180.0f;           // total FoV in radians
-    float cell_angle = fov / 8.0f;                // angle per cell
-
-    float theta_x = (c - 3.5f) * cell_angle;     // horizontal angle from center
-    float theta_y = (r - 3.5f) * cell_angle;     // vertical angle from center
-    float d = distances[r][c] / 1000.0f;         // mm to meters
-
-    // ROS convention: z forward, x right, y up
-    float z = d * cosf(theta_x) * cosf(theta_y); // depth (forward)
-    float x = d * sinf(theta_x);                 // horizontal
-    float y = d * sinf(theta_y);                 // vertical
-    */
-    
-    xSemaphoreGive(dataMutex);
 }
 
 BaseType_t tof_service(void)

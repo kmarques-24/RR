@@ -32,7 +32,7 @@ bno08x_quat_t quat;
 bno08x_ang_vel_t omega;
 bno08x_euler_angle_t euler;
 static const char *TAG = "IMU";
-TaskHandle_t estimator_task_handle = NULL;
+//TaskHandle_t estimator_task_handle = NULL;
 
 void update_imu_msg(sensor_msgs__msg__Imu *imu_msg)
 {
@@ -55,6 +55,13 @@ void update_imu_msg(sensor_msgs__msg__Imu *imu_msg)
     xSemaphoreGive(dataMutex);
 }
 
+void get_latest_imu(imu_data_t *imu_data)
+{
+    xSemaphoreTake(dataMutex, portMAX_DELAY);
+    *imu_data = imu_data_latest;
+    xSemaphoreGive(dataMutex);
+}
+
 void init_imu(void)
 {
     ESP_LOGI(TAG, "IMU enabled");
@@ -64,6 +71,7 @@ void init_imu(void)
         ESP_LOGE(TAG, "Init failure, returning from main.");
         return;
     }
+
     dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
     // 10000 us = 10 ms report interval (100 Hz)
         // changed from 100,000us == 100ms report interval
@@ -86,8 +94,9 @@ void imu_loop(void *pvParameter)
             xSemaphoreTake(dataMutex, portMAX_DELAY);
 
             // get timestamp
-            uint32_t imu_time_ms = (uint32_t)(esp_timer_get_time() / 1000);
-            imu_data_latest.timestamp = imu_time_ms;
+            timespec_t time = getTime();
+            imu_data_latest.timestamp.secs = time.secs;
+            imu_data_latest.timestamp.nanosecs = time.nanosecs;
 
             stack_remaining = uxTaskGetStackHighWaterMark(NULL);
             //ESP_LOGI(TAG, "Stack remaining: %u", stack_remaining);
@@ -135,15 +144,6 @@ void imu_loop(void *pvParameter)
             }
 
             xSemaphoreGive(dataMutex); // done updating
-
-            // Notify the estimator
-            if (estimator_task_handle != NULL) {
-                xTaskNotifyGive(estimator_task_handle);
-            }
-        }
-        else 
-        {
-            //ESP_LOGI(TAG, "No data available");
         }
         vTaskDelay(pdMS_TO_TICKS(POLLING_PERIOD_MS)); // polling to save a pin
         // changed from 1000. Can return to this to debug. Should be less than report interval

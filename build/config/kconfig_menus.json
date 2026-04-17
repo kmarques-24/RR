@@ -5577,14 +5577,31 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "This option selects the motor type. 1 is brushed and 2 is brushless.",
-                "id": "Motor_Type",
-                "name": "Motor_Type",
-                "range": [
-                    1,
-                    2
-                ],
-                "title": "Motor Type Brushed=1 or Brushless=2",
+                "help": "Enable for brushless (BLDC) motors. Disable for brushed (BDC) motors.",
+                "id": "BRUSHLESS_MOTOR",
+                "name": "BRUSHLESS_MOTOR",
+                "range": null,
+                "title": "Uses brushless (BLDC) motors",
+                "type": "bool"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Wheel radius in millimeters for rescue roller.",
+                "id": "WHEEL_RADIUS_MM",
+                "name": "WHEEL_RADIUS_MM",
+                "range": null,
+                "title": "Wheel radius in mm",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Wheel base in mm for rescue roller.",
+                "id": "WHEEL_BASE_MM",
+                "name": "WHEEL_BASE_MM",
+                "range": null,
+                "title": "Wheel base in mm (center to center wheel distance)",
                 "type": "int"
             }
         ],
@@ -5671,7 +5688,7 @@
         "children": [
             {
                 "children": [],
-                "depends_on": null,
+                "depends_on": "!BRUSHLESS_MOTOR",
                 "help": null,
                 "id": "ENV_GPIO_RANGE_MIN",
                 "name": "ENV_GPIO_RANGE_MIN",
@@ -5681,7 +5698,7 @@
             },
             {
                 "children": [],
-                "depends_on": null,
+                "depends_on": "!BRUSHLESS_MOTOR",
                 "help": null,
                 "id": "ENV_GPIO_RANGE_MAX",
                 "name": "ENV_GPIO_RANGE_MAX",
@@ -5691,7 +5708,7 @@
             },
             {
                 "children": [],
-                "depends_on": null,
+                "depends_on": "!BRUSHLESS_MOTOR",
                 "help": null,
                 "id": "ENV_GPIO_IN_RANGE_MAX",
                 "name": "ENV_GPIO_IN_RANGE_MAX",
@@ -5701,7 +5718,7 @@
             },
             {
                 "children": [],
-                "depends_on": null,
+                "depends_on": "!BRUSHLESS_MOTOR",
                 "help": null,
                 "id": "ENV_GPIO_OUT_RANGE_MAX",
                 "name": "ENV_GPIO_OUT_RANGE_MAX",
@@ -5711,60 +5728,310 @@
             },
             {
                 "children": [],
-                "depends_on": null,
-                "help": "This option selects the GPIO pin used for the left motor A signal.",
-                "id": "LEFT_MOTOR_A",
-                "name": "LEFT_MOTOR_A",
-                "range": [
-                    0,
-                    48
-                ],
-                "title": "Left Motor A GPIO number",
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "Input counts per revolution for specific motor used. Default 1357 was manually counted for Pololu motor",
+                "id": "CPR",
+                "name": "CPR",
+                "range": null,
+                "title": "Motor counts per revolution (CPR)",
                 "type": "int"
             },
             {
                 "children": [],
-                "depends_on": null,
-                "help": "This option selects the GPIO pin used for the left motor B signal.",
-                "id": "LEFT_MOTOR_B",
-                "name": "LEFT_MOTOR_B",
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor encoder A signal.",
+                "id": "LEFT_ENCODER_A",
+                "name": "LEFT_ENCODER_A",
                 "range": [
                     0,
                     48
                 ],
-                "title": "Left Motor B GPIO number",
+                "title": "Left Motor Encoder A GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
-                "depends_on": null,
-                "help": "This option selects the GPIO pin used for the right motor A signal.",
-                "id": "RIGHT_MOTOR_A",
-                "name": "RIGHT_MOTOR_A",
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor encoder B signal.",
+                "id": "LEFT_ENCODER_B",
+                "name": "LEFT_ENCODER_B",
                 "range": [
                     0,
                     48
                 ],
-                "title": "Right Motor A GPIO number",
+                "title": "Left Motor Encoder B GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
-                "depends_on": null,
-                "help": "This option selects the GPIO pin used for the right motor B signal.",
-                "id": "RIGHT_MOTOR_B",
-                "name": "RIGHT_MOTOR_B",
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor encoder A signal.",
+                "id": "RIGHT_ENCODER_A",
+                "name": "RIGHT_ENCODER_A",
                 "range": [
                     0,
                     48
                 ],
-                "title": "Right Motor B GPIO number",
+                "title": "Right Motor Encoder A GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor encoder B signal.",
+                "id": "RIGHT_ENCODER_B",
+                "name": "RIGHT_ENCODER_B",
+                "range": [
+                    0,
+                    48
+                ],
+                "title": "Right Motor Encoder B GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor M1 signal.",
+                "id": "LEFT_MOTOR_M1",
+                "name": "LEFT_MOTOR_M1",
+                "range": [
+                    0,
+                    48
+                ],
+                "title": "Left Motor M1 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor M2 signal.",
+                "id": "LEFT_MOTOR_M2",
+                "name": "LEFT_MOTOR_M2",
+                "range": [
+                    0,
+                    48
+                ],
+                "title": "Left Motor M2 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor M1 signal.",
+                "id": "RIGHT_MOTOR_M1",
+                "name": "RIGHT_MOTOR_M1",
+                "range": [
+                    0,
+                    48
+                ],
+                "title": "Right Motor M1 GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "!BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor M2 signal.",
+                "id": "RIGHT_MOTOR_M2",
+                "name": "RIGHT_MOTOR_M2",
+                "range": [
+                    0,
+                    48
+                ],
+                "title": "Right Motor M2 GPIO number",
                 "type": "int"
             }
         ],
-        "depends_on": null,
-        "id": "custom-drivetrain-configuration",
-        "title": "Custom: DRIVETRAIN Configuration",
+        "depends_on": "!BRUSHLESS_MOTOR",
+        "id": "custom-brushed-motor-configuration",
+        "title": "Custom: Brushed Motor Configuration",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": null,
+                "id": "ENV_GPIO_RANGE_MIN",
+                "name": "ENV_GPIO_RANGE_MIN",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": null,
+                "id": "ENV_GPIO_RANGE_MAX",
+                "name": "ENV_GPIO_RANGE_MAX",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": null,
+                "id": "ENV_GPIO_IN_RANGE_MAX",
+                "name": "ENV_GPIO_IN_RANGE_MAX",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": null,
+                "id": "ENV_GPIO_OUT_RANGE_MAX",
+                "name": "ENV_GPIO_OUT_RANGE_MAX",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "Input pole pairs for specific motor used. Default 1 for jumper MAXON motor.",
+                "id": "POLE_PAIRS",
+                "name": "POLE_PAIRS",
+                "range": null,
+                "title": "Pole pairs in BLDC motor",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "Edges triggering per sensor. Default 1 for rising/falling edge.",
+                "id": "EDGES_PER_SENSOR",
+                "name": "EDGES_PER_SENSOR",
+                "range": null,
+                "title": "Pole pairs in BLDC motor",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "Default 1. Jumper MAXON motor has 3, but 1 gives enough resolution while minimizing interrupts.",
+                "id": "NUM_SENSORS",
+                "name": "NUM_SENSORS",
+                "range": null,
+                "title": "Number of Hall sensors per motor to use",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "Default 1 for jumper MAXON. Required since pulse resolution multiplies hall counts by ratio.",
+                "id": "GEARBOX_RATIO",
+                "name": "GEARBOX_RATIO",
+                "range": null,
+                "title": "Gearbox ratio number X:1 assuming speed stepped down",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor hall U signal.",
+                "id": "LEFT_ENCODER_U",
+                "name": "LEFT_ENCODER_U",
+                "range": null,
+                "title": "Left Motor Encoder U GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor hall V signal.",
+                "id": "LEFT_ENCODER_V",
+                "name": "LEFT_ENCODER_V",
+                "range": null,
+                "title": "Left Motor Encoder V GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor hall W signal. May be unused.",
+                "id": "LEFT_ENCODER_W",
+                "name": "LEFT_ENCODER_W",
+                "range": null,
+                "title": "Left Motor Encoder W GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor hall U signal.",
+                "id": "RIGHT_ENCODER_U",
+                "name": "RIGHT_ENCODER_U",
+                "range": null,
+                "title": "Right Motor Encoder U GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor hall V signal.",
+                "id": "RIGHT_ENCODER_V",
+                "name": "RIGHT_ENCODER_V",
+                "range": null,
+                "title": "Right Motor Encoder V GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor hall W signal. May be unused.",
+                "id": "RIGHT_ENCODER_W",
+                "name": "RIGHT_ENCODER_W",
+                "range": null,
+                "title": "Right Motor Encoder W GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor PWM signal.",
+                "id": "LEFT_MOTOR_PWM",
+                "name": "LEFT_MOTOR_PWM",
+                "range": null,
+                "title": "Left Motor PWM GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the left motor direction signal.",
+                "id": "LEFT_MOTOR_DIR",
+                "name": "LEFT_MOTOR_DIR",
+                "range": null,
+                "title": "Left Motor Direction GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor PWM signal.",
+                "id": "RIGHT_MOTOR_PWM",
+                "name": "RIGHT_MOTOR_PWM",
+                "range": null,
+                "title": "Right Motor PWM GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": "BRUSHLESS_MOTOR",
+                "help": "This option selects the GPIO pin used for the right motor direction signal.",
+                "id": "RIGHT_MOTOR_DIR",
+                "name": "RIGHT_MOTOR_DIR",
+                "range": null,
+                "title": "Right Motor Direction GPIO number",
+                "type": "int"
+            }
+        ],
+        "depends_on": "BRUSHLESS_MOTOR",
+        "id": "custom-brushless-motor-configuration",
+        "title": "Custom: Brushless Motor Configuration",
         "type": "menu"
     },
     {
@@ -5816,34 +6083,6 @@
         "depends_on": null,
         "id": "custom-wifi-configuration",
         "title": "Custom: WiFi Configuration",
-        "type": "menu"
-    },
-    {
-        "children": [
-            {
-                "children": [],
-                "depends_on": null,
-                "help": "Stack size in Bytes of the micro-ROS app",
-                "id": "MICRO_ROS_APP_STACK",
-                "name": "MICRO_ROS_APP_STACK",
-                "range": null,
-                "title": "Stack the micro-ROS app (Bytes)",
-                "type": "int"
-            },
-            {
-                "children": [],
-                "depends_on": null,
-                "help": "Priority of micro-ros task higher value means higher priority",
-                "id": "MICRO_ROS_APP_TASK_PRIO",
-                "name": "MICRO_ROS_APP_TASK_PRIO",
-                "range": null,
-                "title": "Priority of the micro-ROS app",
-                "type": "int"
-            }
-        ],
-        "depends_on": null,
-        "id": "custom-micro-ros-app-settings",
-        "title": "Custom: micro-ROS app settings",
         "type": "menu"
     },
     {

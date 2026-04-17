@@ -3,15 +3,15 @@
 /* ------ INCLUDES ------ */
 #include "uros_service.h"
 
-// Standard includes
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-
 // Header includes
 #include "estimator.h"
 #include "tof_service.h"
 #include "imu_service.h"
+
+// Standard includes
+#include <string.h>
+#include <stdio.h>
+#include <unistd.h>
 
 // FreeRTOS and ESP32 includes
 #include "freertos/FreeRTOS.h"
@@ -153,7 +153,7 @@ void micro_ros_task(void *arg)
     const unsigned int float_timeout = 1000; // once per sec = 1 Hz
     const unsigned int tof_timeout = 50; // 20 Hz
     const unsigned int odom_timeout = 20; // 50 Hz
-    const unsigned int imu_timeout = 10; // 100 Hz, matches estimator loop
+    const unsigned int imu_timeout = 10; // 100 Hz
     RCCHECK(rclc_timer_init_default(&float_timer, &support, RCL_MS_TO_NS(float_timeout), float_timer_callback));
     RCCHECK(rclc_timer_init_default(&tof_timer, &support, RCL_MS_TO_NS(tof_timeout), tof_timer_callback));
     RCCHECK(rclc_timer_init_default(&odom_timer, &support, RCL_MS_TO_NS(odom_timeout), odom_timer_callback));
@@ -334,9 +334,9 @@ BaseType_t uros_service(void)
     status = xTaskCreate(
         micro_ros_task,
         "uros_task",
-        CONFIG_MICRO_ROS_APP_STACK, // 8192, Stack size
+        8192, // 8192, Stack size
         NULL,
-        CONFIG_MICRO_ROS_APP_TASK_PRIO, // 5,  Priority
+        5, // 5,  Priority
         NULL);
 
     if (status != pdPASS)

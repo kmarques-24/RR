@@ -17,15 +17,13 @@
 
 // Project Headers
 #include "include/pins.h"
-#include "include/hardware_drivetrain.h"
+#include "include/hardware_motors.h"
 #include "include/twai_service.h"
 #include "include/uros_service.h"
 #include "include/imu_service.h"
-#include "include/encoder.h"
+#include "include/hardware_encoders.h"
 #include "include/led.h"
 #include "include/rr_os_service.h"
-#include "include/wifi_service.h"
-#include "include/webserver_service.h"
 #include "include/wireless_driving.h"
 
 static const char *TAG = "MAIN";
@@ -113,8 +111,9 @@ void initialise(rr_status_t status)
     if (status.encoder_enabled)
     {
         ESP_LOGI(TAG, "Encoder Service Starting");
-        init_encoder(&left_encoder);
-        init_encoder(&right_encoder);
+        init_encoders();
+        //init_encoder(&left_encoder);
+        //init_encoder(&right_encoder);
         encoder_service();
     }
 
