@@ -9,6 +9,10 @@
 #include "driver/gpio.h"
 #include "esp_log.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define L_TAG "Esp32S3Hal"
 
 #define RADIO_HOST SPI2_HOST
@@ -211,5 +215,9 @@ private:
     int8_t spiCS;
     spi_device_handle_t spi;
 };
+
+#ifdef __cplusplus
+}
+#endif
 
 */

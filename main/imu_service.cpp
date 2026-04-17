@@ -1,11 +1,19 @@
 #include "include/imu_service.h"
-#include "include/rr_os_service.h"
+#include "BNO08x.hpp"
+
+// Standard includes
 #include <stdio.h>
-#include "esp_log.h"
 #include <string.h>
 #include <math.h>
-#include "esp_timer.h"
-#include "include/wireless_driving.h"
+
+// FreeRTOS and ESP32 includes
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_log.h"
+#include "esp_system.h"
+#include "esp_netif_types.h"
+#include "esp_wifi_types.h"
+#include "esp_event.h"
 
 // Polling and report frequency
 #define POLLING_FREQ_HZ     250
@@ -15,16 +23,39 @@
 
 // IMU data
 static BNO08x imu;
-imu_data_t imu_data_latest;
+static imu_data_t imu_data_latest;
+static SemaphoreHandle_t dataMutex; // protect while writing
+static StaticSemaphore_t dataMutexBuffer;
 
 // Holders
 bno08x_quat_t quat;
 bno08x_ang_vel_t omega;
 bno08x_euler_angle_t euler;
-
 static const char *TAG = "IMU";
+TaskHandle_t estimator_task_handle = NULL;
 
-void init_imu()
+void update_imu_msg(sensor_msgs__msg__Imu *imu_msg)
+{
+    // lock here too to avoid partial data read
+    xSemaphoreTake(dataMutex, portMAX_DELAY);
+
+    imu_msg->orientation.w = imu_data_latest.quat.w; 
+    imu_msg->orientation.x = imu_data_latest.quat.x; 
+    imu_msg->orientation.y = imu_data_latest.quat.y; 
+    imu_msg->orientation.z = imu_data_latest.quat.z; 
+
+    imu_msg->angular_velocity.x = imu_data_latest.ang_vel.x; 
+    imu_msg->angular_velocity.y = imu_data_latest.ang_vel.y; 
+    imu_msg->angular_velocity.z = imu_data_latest.ang_vel.z; 
+    
+    imu_msg->linear_acceleration.x = imu_data_latest.lin_accel.x;
+    imu_msg->linear_acceleration.y = imu_data_latest.lin_accel.y;
+    imu_msg->linear_acceleration.z = imu_data_latest.lin_accel.z;
+
+    xSemaphoreGive(dataMutex);
+}
+
+void init_imu(void)
 {
     ESP_LOGI(TAG, "IMU enabled");
     // initialize imu
@@ -33,6 +64,7 @@ void init_imu()
         ESP_LOGE(TAG, "Init failure, returning from main.");
         return;
     }
+    dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
     // 10000 us = 10 ms report interval (100 Hz)
         // changed from 100,000us == 100ms report interval
     imu.rpt.rv_gyro_integrated.enable(REPORT_PERIOD_US);
@@ -47,16 +79,19 @@ void imu_loop(void *pvParameter)
     UBaseType_t stack_remaining;
     while(1)
     {
-        // get timestamp
-        uint32_t imu_time_ms = (uint32_t)(esp_timer_get_time() / 1000);
-        imu_data_latest.timestamp = imu_time_ms;
-
         // block until new report is detected
         if (imu.data_available())
         {
+            // Lock while imu_data_latest updates
+            xSemaphoreTake(dataMutex, portMAX_DELAY);
+
+            // get timestamp
+            uint32_t imu_time_ms = (uint32_t)(esp_timer_get_time() / 1000);
+            imu_data_latest.timestamp = imu_time_ms;
+
             stack_remaining = uxTaskGetStackHighWaterMark(NULL);
             //ESP_LOGI(TAG, "Stack remaining: %u", stack_remaining);
-            
+
             // Get the latest report from Gyro (orientation & angular velocity, already filtered & fused)
             if (imu.rpt.rv_gyro_integrated.has_new_data())
             {
@@ -97,6 +132,13 @@ void imu_loop(void *pvParameter)
                 imu_data_latest.mag.x = mag_data.x;
                 imu_data_latest.mag.y = mag_data.y;
                 imu_data_latest.mag.z = mag_data.z;
+            }
+
+            xSemaphoreGive(dataMutex); // done updating
+
+            // Notify the estimator
+            if (estimator_task_handle != NULL) {
+                xTaskNotifyGive(estimator_task_handle);
             }
         }
         else 

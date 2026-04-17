@@ -3,8 +3,13 @@ TWAI Service for monitoring CAN bus traffic
 */
 
 #pragma once
+
 #include "driver/twai.h"
 #include "esp_log.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define TWAI_TX (gpio_num_t) CONFIG_TWAI_TX
 #define TWAI_RX (gpio_num_t) CONFIG_TWAI_RX
@@ -28,3 +33,7 @@ void twai_service_msg_receive(twai_message_t *msg);
 void create_msg(twai_message_t *msg, uint32_t id, uint8_t data);
 
 void twai_interrupt_init();
+
+#ifdef __cplusplus
+}
+#endif

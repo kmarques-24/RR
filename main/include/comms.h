@@ -2,6 +2,10 @@
 
 #include <inttypes.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum msg_type {
     VELOCITY,
     DISCONNET,
@@ -22,3 +26,7 @@ typedef struct twai_msg {
         } help;
     };
 } twai_msg_t;
+
+#ifdef __cplusplus
+}
+#endif

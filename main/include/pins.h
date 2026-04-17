@@ -1,5 +1,10 @@
 #pragma once
+
 #include "driver/gpio.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #ifdef ESP32S3_ZERO
 
@@ -31,3 +36,7 @@
 #define USB_DP GPIO_NUM_20  // USB D+ (don't use)
 
 #endif // ESP32S3_ZERO
+
+#ifdef __cplusplus
+}
+#endif

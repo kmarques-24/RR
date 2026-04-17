@@ -3,6 +3,10 @@
 #include <stdbool.h>
 #include <inttypes.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef enum EVENTS {
     EVENT_NONE = 0,
     EVENT_CONNECTION,
@@ -28,3 +32,7 @@ void initialise_events();
 void add_event(event_t event);
 void rr_os_event_handler();
 void launch_rr_os_service(void);
+
+#ifdef __cplusplus
+}
+#endif

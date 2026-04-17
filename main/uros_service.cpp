@@ -1,15 +1,17 @@
 // MicroROS service to publish to laptop agent
 
 /* ------ INCLUDES ------ */
+#include "uros_service.h"
+
 // Standard includes
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
 
 // Header includes
-#include "uros_service.h"
 #include "estimator.h"
 #include "tof_service.h"
+#include "imu_service.h"
 
 // FreeRTOS and ESP32 includes
 #include "freertos/FreeRTOS.h"
@@ -24,12 +26,17 @@
 #include <uros_network_interfaces.h>
 #include <rcl/rcl.h>
 #include <rcl/error_handling.h>
-#include <std_msgs/msg/float32.h>       
-#include <sensor_msgs/msg/range.h>      
-#include <nav_msgs/msg/odometry.h>      
-#include <geometry_msgs/msg/twist.h>    
 #include <rclc/rclc.h>
 #include <rclc/executor.h>
+
+// message types includes
+#include <std_msgs/msg/float32.h>       
+#include <sensor_msgs/msg/point_cloud2.h>  
+#include <sensor_msgs/msg/point_field.h> // component of point cloud   
+#include <nav_msgs/msg/odometry.h>   
+#include <sensor_msgs/msg/imu.h>   
+#include <geometry_msgs/msg/twist.h>    
+
 #ifdef CONFIG_MICRO_ROS_ESP_XRCE_DDS_MIDDLEWARE
 #include <rmw_microros/rmw_microros.h>
 #endif
@@ -40,18 +47,21 @@
 rcl_publisher_t float_pub;      // float for testing: originally based on int32 publisher example
 rcl_publisher_t tof_pub;        // ToF sensor
 rcl_publisher_t odom_pub;       // RR state (odometry)
+rcl_publisher_t imu_pub;        // IMU
 rcl_subscription_t twist_sub;   // Get linear & angular velocity commands. E.g. from keyboard
 
 // Messages
-std_msgs__msg__Float32 float_msg;   // float msg. double underscore is C-naming convention for ROS 2 messages
-sensor_msgs__msg__Range range_msg;  // ToF msg
-nav_msgs__msg__Odometry odom_msg;   // RR state (odometry) msg
-geometry_msgs__msg__Twist twist_msg;    // twist command msg
+std_msgs__msg__Float32 float_msg;           // float msg. double underscore is C-naming convention for ROS 2 messages
+sensor_msgs__msg__PointCloud2 tof_msg;    // ToF msg
+nav_msgs__msg__Odometry odom_msg;           // RR state (odometry) msg
+sensor_msgs__msg__Imu imu_msg;              // IMU msg
+geometry_msgs__msg__Twist twist_msg;        // twist command msg
 
 // Timers
 rcl_timer_t float_timer;
 rcl_timer_t tof_timer;
 rcl_timer_t odom_timer;
+rcl_timer_t imu_timer;
 
 // Tag to identify log statement source
 static const char *TAG = "uros_service";
@@ -74,9 +84,8 @@ void tof_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     RCLC_UNUSED(last_call_time);
     if (timer != NULL)
     {
-        range_msg.range = read_tof_sensor();
-        RCSOFTCHECK(rcl_publish(&tof_pub, &range_msg, NULL));
-        float_msg.data++;
+        update_tof_msg(&tof_msg);
+        RCSOFTCHECK(rcl_publish(&tof_pub, &tof_msg, NULL));
     }
 }
 
@@ -87,10 +96,18 @@ void odom_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     {
         update_odometry_msg(&odom_msg); // pass as pointer to modify multiple fields
         RCSOFTCHECK(rcl_publish(&odom_pub, &odom_msg, NULL));
-        float_msg.data++;
     }
 }
 
+void imu_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
+{
+    RCLC_UNUSED(last_call_time);
+    if (timer != NULL)
+    {
+        update_imu_msg(&imu_msg);
+        RCSOFTCHECK(rcl_publish(&imu_pub, &imu_msg, NULL));
+    }
+}
 
 /* ------ MICRO-ROS TASK ------ */
 void micro_ros_task(void *arg)
@@ -114,6 +131,7 @@ void micro_ros_task(void *arg)
 
     RCCHECK(rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator)); // open comm line with laptop
 
+    // Create node
     rcl_node_t node;
     RCCHECK(rclc_node_init_default(&node, "Rescue_Roller_Node", "", &support)); // create node - name can't have spaces
 
@@ -121,33 +139,50 @@ void micro_ros_task(void *arg)
         // switched from rclc_publisher_init_default to rclc_publisher_init_best_effort
         // best effort is better for continuous data streams where it's ok for a packet to drop in
         // order to keep stream flowing. Otherwise, buffer clogs trying to save failed packets
-    RCCHECK(rclc_publisher_init_best_effort(
-        &float_pub,
-        &node,
-        ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), // helps ROS 2 agent decode bits
-        "float32publisher"));
-    
+        // topic names standard for ROS2 packages
+    RCCHECK(rclc_publisher_init_best_effort(&float_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), 
+        "float_debug")); // topic name
+    RCCHECK(rclc_publisher_init_best_effort(&tof_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, PointCloud2), 
+        "points"));
+    RCCHECK(rclc_publisher_init_best_effort(&odom_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(nav_msgs, msg, Odometry), 
+        "odom"));
+    RCCHECK(rclc_publisher_init_best_effort(&imu_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Imu), 
+        "imu/data"));
+
     // Create timers
-    const unsigned int timer_timeout = 1000; // timer_callback triggered once every second
-    RCCHECK(rclc_timer_init_default(
-        &float_timer,
-        &support,
-        RCL_MS_TO_NS(timer_timeout),
-        float_timer_callback));
+    const unsigned int float_timeout = 1000; // once per sec = 1 Hz
+    const unsigned int tof_timeout = 50; // 20 Hz
+    const unsigned int odom_timeout = 20; // 50 Hz
+    const unsigned int imu_timeout = 10; // 100 Hz, matches estimator loop
+    RCCHECK(rclc_timer_init_default(&float_timer, &support, RCL_MS_TO_NS(float_timeout), float_timer_callback));
+    RCCHECK(rclc_timer_init_default(&tof_timer, &support, RCL_MS_TO_NS(tof_timeout), tof_timer_callback));
+    RCCHECK(rclc_timer_init_default(&odom_timer, &support, RCL_MS_TO_NS(odom_timeout), odom_timer_callback));
+    RCCHECK(rclc_timer_init_default(&imu_timer, &support, RCL_MS_TO_NS(imu_timeout), imu_timer_callback));
     
     // Create executor
     rclc_executor_t executor;
-    RCCHECK(rclc_executor_init(&executor, &support.context, 1, &allocator));
+    RCCHECK(rclc_executor_init(&executor, &support.context, 4, &allocator));
     RCCHECK(rclc_executor_add_timer(&executor, &float_timer));
+    RCCHECK(rclc_executor_add_timer(&executor, &tof_timer));
+    RCCHECK(rclc_executor_add_timer(&executor, &odom_timer));
+    RCCHECK(rclc_executor_add_timer(&executor, &imu_timer));
 
-    // Initialize message data
-    float_msg.data = 0;
+    // Initialize published message data
+    initialize_message_data();
+
+    //TickType_t xLastWakeTime = xTaskGetTickCount(); // vTaskDelayUntil?
+    //const TickType_t xFrequency = pdMS_TO_TICKS(50); // 20 Hz (50 ms)
+
+    // Sync with microros agent on laptop before spinning. Align timestamps
+    rmw_uros_sync_session(1000);
     
     // Spin
     while (1)
     {   
-        rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100)); // check for work and wait up to 100 ms
-        usleep(10000); // pauses task for 10 ms (usleep units are microseconds, so 10000 us)
+        rclc_executor_spin_some(&executor, RCL_MS_TO_NS(5)); // check for work and wait up to 5 ms
+            // 5 ms must be shorter than fastest timer period
+        vTaskDelay(pdMS_TO_TICKS(1)); // wait 1 ms
+            //usleep(10000); // pauses task for 10 ms (usleep units are microseconds, so 10000 us)
 
         // rclc_executor is a checker. spin_some waits for a ROS event and checks out after 100 ms
             // then it microsleeps if someone else has a task before restarting
@@ -159,6 +194,132 @@ void micro_ros_task(void *arg)
     RCCHECK(rcl_publisher_fini(&float_pub, &node));
     RCCHECK(rcl_node_fini(&node));
     vTaskDelete(NULL);
+}
+
+void initialize_message_data(void)
+{
+    // fields auto intialized to 0 unless changed. Some 0s listed for visible redundancy
+
+    //----- float -----
+    float_msg.data = 0;
+    
+    //----- tof -----
+    tof_msg.header.frame_id.data = "tof_link"; // label that points are expressed in tof coordinate frame
+    tof_msg.header.frame_id.size = strlen("tof_link"); // "_link" naming convention: rigid body frame
+    tof_msg.header.frame_id.capacity = strlen("tof_link") + 1; // +1 for null terminator
+    tof_msg.header.stamp.sec = 0;
+    tof_msg.header.stamp.nanosec = 0;
+
+    static sensor_msgs__msg__PointField field_arr[3]; // 3 for x, y, z
+    // point is endpoint of ray relative to sensor. ROS convention is z forward, x right, y up
+    // pointfield stores column definition like in table where each row is a point
+    // float32 is 4 bytes. So a row of x, y, z will have x at byte 0, y at byte 4, z at byte 8
+    field_arr[0].name.data = "x"; field_arr[0].name.size = strlen("x"); 
+    field_arr[0].offset = 0;  
+    field_arr[0].datatype = sensor_msgs__msg__PointField__FLOAT32; 
+    field_arr[0].count = 1;
+
+    field_arr[1].name.data = "y"; 
+    field_arr[1].name.size = strlen("y"); 
+    field_arr[1].offset = 4;  
+    field_arr[1].datatype = sensor_msgs__msg__PointField__FLOAT32; 
+    field_arr[1].count = 1;
+
+    field_arr[2].name.data = "z"; 
+    field_arr[2].name.size = strlen("z");
+    field_arr[2].offset = 8;  
+    field_arr[2].datatype = sensor_msgs__msg__PointField__FLOAT32;
+    field_arr[2].count = 1;
+
+    tof_msg.fields.data = field_arr;
+    tof_msg.fields.size = 3;
+    tof_msg.fields.capacity = 3;
+
+    static uint8_t point_buf[64 * 12]; // 64 points, 12 bytes each (4 bytes per float * 3 floats xyz)
+    tof_msg.data.data = point_buf;
+    tof_msg.data.size = sizeof(point_buf);
+    tof_msg.data.capacity = sizeof(point_buf);
+
+    tof_msg.height = 8; // preserve grid structure. Could also do height=1 width=64 for flat list
+    tof_msg.width = 8;
+    tof_msg.is_bigendian = false; //esp32 little endian
+    tof_msg.is_dense = true;
+    tof_msg.point_step = 12; // byte size of one point (4 bytes per float * 3 floats xyz)
+    tof_msg.row_step = tof_msg.point_step * tof_msg.width;
+
+    //----- odom -----
+    odom_msg.header.frame_id.data = "odom"; // world frame, defined when bot first powered on
+    odom_msg.header.frame_id.size = strlen("odom");
+    odom_msg.header.frame_id.capacity = strlen("odom") + 1;
+    odom_msg.header.stamp.sec = 0;
+    odom_msg.header.stamp.nanosec = 0;
+    
+    odom_msg.child_frame_id.data = "base_link";         // body frame (center of rotation of robot frame) 
+    odom_msg.child_frame_id.size = strlen("base_link"); // want to know body frame expressed in world frame
+    odom_msg.child_frame_id.capacity = strlen("base_link") + 1;
+
+    // position of body in world in m
+    odom_msg.pose.pose.position.x = 0; 
+    odom_msg.pose.pose.position.y = 0;
+    // z is 0 for now on flat surface testing - TODO incorporate
+
+    // rotation of body in world as quat
+    odom_msg.pose.pose.orientation.w = 1;   // init facing forward, no rotation
+    odom_msg.pose.pose.orientation.x = 0;
+    odom_msg.pose.pose.orientation.y = 0;
+    odom_msg.pose.pose.orientation.z = 0;
+
+    // velocity of body in m/s
+    odom_msg.twist.twist.linear.x = 0; // only x matters for diff drive robot whose options are forward/backward
+
+    // angular velocity of body in rad/s
+    odom_msg.twist.twist.angular.z = 0;  // yaw rate
+    // roll & pitch 0 for now on flat surface testing - TODO incorporate
+
+    // Diagonal
+    // [0]  = x variance
+    // [7]  = y variance
+    // [14] = z variance
+    // [21] = roll variance
+    // [28] = pitch variance
+    // [35] = yaw variance
+
+    // guesstimate initial covariances (uncertainties)
+    odom_msg.pose.covariance[0] = 0.001;     // x
+    odom_msg.pose.covariance[7] = 0.001;     // y
+    odom_msg.pose.covariance[35] = 0.005;    // yaw
+
+    odom_msg.twist.covariance[0] = 0.001;    // x rate (velocity uncertainty from encoder calc)
+    odom_msg.twist.covariance[35] = 0.002;   // yaw rate (uncertainty from IMU)
+
+    //----- imu -----
+    imu_msg.header.frame_id.data = "imu_link";
+    imu_msg.header.frame_id.size = strlen("imu_link");
+    imu_msg.header.frame_id.capacity = strlen("imu_link") + 1;
+    imu_msg.header.stamp.sec = 0;
+    imu_msg.header.stamp.nanosec = 0;
+
+    imu_msg.orientation.w = 0;
+    imu_msg.orientation.x = 0;
+    imu_msg.orientation.y = 0;
+    imu_msg.orientation.z = 0;
+    imu_msg.orientation_covariance[0] = 0.004; // roll
+    imu_msg.orientation_covariance[4] = 0.004; // pitch
+    imu_msg.orientation_covariance[8] = 0.004; // yaw
+
+    imu_msg.angular_velocity.x = 0;
+    imu_msg.angular_velocity.y = 0;
+    imu_msg.angular_velocity.z = 0;
+    imu_msg.angular_velocity_covariance[0] = 0.003; // x rate
+    imu_msg.angular_velocity_covariance[4] = 0.003; // y rate
+    imu_msg.angular_velocity_covariance[8] = 0.003; // z rate
+
+    imu_msg.linear_acceleration.x = 0;
+    imu_msg.linear_acceleration.y = 0;
+    imu_msg.linear_acceleration.z = 0;
+    imu_msg.linear_acceleration_covariance[0] = 0.09; // x acc
+    imu_msg.linear_acceleration_covariance[0] = 0.09; // y acc
+    imu_msg.linear_acceleration_covariance[0] = 0.09; // z acc
 }
 
 

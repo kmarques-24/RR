@@ -6,6 +6,10 @@
 #include "driver/gpio.h"
 #include "driver/ledc.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Configuration constants
 #define SPEED_MODE LEDC_LOW_SPEED_MODE
 #define PWM_FREQ 5000
@@ -57,3 +61,7 @@ void speed_callback(int32_t left_velocity, int32_t right_velocity);
  * Configures PWM timer and both motors
  */
 void initialise_drivetrain(void);
+
+#ifdef __cplusplus
+}
+#endif

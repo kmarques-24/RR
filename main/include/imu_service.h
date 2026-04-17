@@ -1,11 +1,16 @@
-#include "BNO08x.hpp"
-#include "freertos/FreeRTOS.h"
+#pragma once
+
+#include "freertos/FreeRTOS.h" // must always include before task.h
 #include "freertos/task.h"
-#include <fcntl.h>    // for open(), O_WRONLY, O_CREAT, etc.
-#include <unistd.h>   // for close(), write(), etc.
+#include <sensor_msgs/msg/imu.h>  
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void init_imu();
-BaseType_t imu_service(void);
+
+extern TaskHandle_t estimator_task_handle;
 
 typedef struct {
     struct {float w, x, y, z;} quat;        // Orientation (quat)
@@ -16,3 +21,9 @@ typedef struct {
     uint32_t timestamp;
 } imu_data_t;
 
+void update_imu_msg(sensor_msgs__msg__Imu *imu_msg);
+BaseType_t imu_service(void);
+
+#ifdef __cplusplus
+}
+#endif

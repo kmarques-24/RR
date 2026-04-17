@@ -7,6 +7,10 @@
 #include <fcntl.h>    // for open(), O_WRONLY, O_CREAT, etc.
 #include <unistd.h>   // for close(), write(), etc.
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct encoder_t {
     volatile int position;
     volatile int lastEncoding;
@@ -28,3 +32,7 @@ extern encoder_t right_encoder;
 void init_encoder(encoder_t* encoder);
 void encoder_task(void);
 BaseType_t encoder_service(void);
+
+#ifdef __cplusplus
+}
+#endif

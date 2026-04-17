@@ -2,6 +2,9 @@
 
 #include "led_indicator.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define BRIGHTNESS 1
 #define LED_PIN 21
@@ -13,3 +16,7 @@
 void initialise_led();
 
 void set_led_color(int32_t color);
+
+#ifdef __cplusplus
+}
+#endif
