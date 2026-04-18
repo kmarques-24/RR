@@ -67,6 +67,8 @@ rcl_timer_t imu_timer;
 // Tag to identify log statement source
 static const char *TAG = "uros_service";
 
+void initialize_message_data(void);
+
 
 /* ------ CALLBACKS ------ */
 void float_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
@@ -222,7 +224,12 @@ void initialize_message_data(void)
     float_msg.data = 0;
     
     //----- tof -----
-    tof_msg.header.frame_id.data = "tof_link"; // label that points are expressed in tof coordinate frame
+    static char frame_id_tof[] = "tof_link";
+    static char field_name_x[] = "x";
+    static char field_name_y[] = "y";
+    static char field_name_z[] = "z";
+
+    tof_msg.header.frame_id.data = frame_id_tof; // label that points are expressed in tof coordinate frame
     tof_msg.header.frame_id.size = strlen("tof_link"); // "_link" naming convention: rigid body frame
     tof_msg.header.frame_id.capacity = strlen("tof_link") + 1; // +1 for null terminator
     tof_msg.header.stamp.sec = 0;
@@ -232,18 +239,18 @@ void initialize_message_data(void)
     // point is endpoint of ray relative to sensor. ROS convention is z forward, x right, y up
     // pointfield stores column definition like in table where each row is a point
     // float32 is 4 bytes. So a row of x, y, z will have x at byte 0, y at byte 4, z at byte 8
-    field_arr[0].name.data = "x"; field_arr[0].name.size = strlen("x"); 
+    field_arr[0].name.data = field_name_x; field_arr[0].name.size = strlen("x"); 
     field_arr[0].offset = 0 * TOF_BYTES_PER_FIELD;  
     field_arr[0].datatype = sensor_msgs__msg__PointField__FLOAT32; 
     field_arr[0].count = 1;
 
-    field_arr[1].name.data = "y"; 
+    field_arr[1].name.data = field_name_y; 
     field_arr[1].name.size = strlen("y"); 
     field_arr[1].offset = 1 * TOF_BYTES_PER_FIELD;  
     field_arr[1].datatype = sensor_msgs__msg__PointField__FLOAT32; 
     field_arr[1].count = 1;
 
-    field_arr[2].name.data = "z"; 
+    field_arr[2].name.data = field_name_z; 
     field_arr[2].name.size = strlen("z");
     field_arr[2].offset = 2 * TOF_BYTES_PER_FIELD;  
     field_arr[2].datatype = sensor_msgs__msg__PointField__FLOAT32;
@@ -266,13 +273,16 @@ void initialize_message_data(void)
     tof_msg.row_step = TOF_POINT_STEP * TOF_GRID_SIZE;
 
     //----- odom -----
-    odom_msg.header.frame_id.data = "odom"; // world frame, defined when bot first powered on
+    static char frame_id_odom[] = "odom";
+    static char child_frame_id[] = "base_link";
+
+    odom_msg.header.frame_id.data = frame_id_odom; // world frame, defined when bot first powered on
     odom_msg.header.frame_id.size = strlen("odom");
     odom_msg.header.frame_id.capacity = strlen("odom") + 1;
     odom_msg.header.stamp.sec = 0;
     odom_msg.header.stamp.nanosec = 0;
     
-    odom_msg.child_frame_id.data = "base_link";         // body frame (center of rotation of robot frame) 
+    odom_msg.child_frame_id.data = child_frame_id;         // body frame (center of rotation of robot frame) 
     odom_msg.child_frame_id.size = strlen("base_link"); // want to know body frame expressed in world frame
     odom_msg.child_frame_id.capacity = strlen("base_link") + 1;
 
@@ -311,7 +321,9 @@ void initialize_message_data(void)
     odom_msg.twist.covariance[35] = 0.002;   // yaw rate (uncertainty from IMU)
 
     //----- imu -----
-    imu_msg.header.frame_id.data = "imu_link";
+    static char frame_id_imu[] = "imu_link";
+
+    imu_msg.header.frame_id.data = frame_id_imu;
     imu_msg.header.frame_id.size = strlen("imu_link");
     imu_msg.header.frame_id.capacity = strlen("imu_link") + 1;
     imu_msg.header.stamp.sec = 0;

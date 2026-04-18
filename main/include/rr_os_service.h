@@ -26,7 +26,7 @@ typedef struct rr_status_t {
     bool wifi_enabled;
 } rr_status_t;
 
-extern rr_status_t status;
+extern rr_status_t rr_status;
 
 void initialise_events();
 void add_event(event_t event);

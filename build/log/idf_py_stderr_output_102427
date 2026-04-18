@@ -1,0 +1,1 @@
+ninja: error: '/home/km/Desktop/TestFolder/RR/main/wireless_driving.cpp', needed by 'esp-idf/main/CMakeFiles/__idf_main.dir/wireless_driving.cpp.obj', missing and no known rule to make it

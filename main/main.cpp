@@ -24,7 +24,6 @@
 #include "include/hardware_encoders.h"
 #include "include/led.h"
 #include "include/rr_os_service.h"
-#include "include/wireless_driving.h"
 
 static const char *TAG = "MAIN";
 
@@ -32,7 +31,7 @@ static const char *TAG = "MAIN";
 // not static so that uros_service can see it
 
 void mount_spiffs();
-void initialise(rr_status_t status); 
+void initialise(rr_status_t rr_status); 
 void test_drive_code();
 
 // Compile using C linkage rules so app_main keeps its name. Required for ESP-IDF
@@ -41,20 +40,20 @@ extern "C" void app_main(void)
     ESP_LOGI(TAG, "Starting app_main");
     
     // Creating events queue (Set to True when you want a service working)
-    // status defined in rr_os_service.cpp
-    status.connected = false;
-    status.twai_active = false;
-    status.led_enabled = false;
-    status.radio_enabled = false;
-    status.wifi_enabled = true;
-    status.encoder_enabled = true;
-    status.imu_enabled = true;
+    // rr_status defined in rr_os_service.cpp
+    rr_status.connected = false;
+    rr_status.twai_active = false;
+    rr_status.led_enabled = false;
+    rr_status.radio_enabled = false;
+    rr_status.wifi_enabled = true;
+    rr_status.encoder_enabled = true;
+    rr_status.imu_enabled = true;
 
     // Mount spiffs
     mount_spiffs();
 
     // Initialize peripherals
-    //initialise(status);
+    //initialise(rr_status);
     uros_service(); // just test this for now
 
     // Loop forever to keep spiffs mounted
@@ -83,32 +82,32 @@ void mount_spiffs() {
     }
 }
 
-void initialise(rr_status_t status)
+void initialise(rr_status_t rr_status)
 {
     // WiFi for ESP32 as AP
     // Doesn't work with microros (STA) unless finagled as APSTA
     /*
-    if (status.wifi_enabled){
+    if (rr_status.wifi_enabled){
         wifi_init_softap();     // microros is STA not AP
         init_ws();              // don't have a websocket
     }
     */
 
-    if (status.imu_enabled)
+    if (rr_status.imu_enabled)
     {
         init_imu();
         imu_service();
         ESP_LOGI(TAG, "IMU service started");
     }
     
-    if (status.led_enabled)
+    if (rr_status.led_enabled)
     {
         initialise_led();
         set_led_color(INDEPENDENT_COLOR);
         twai_interrupt_init();
     }
 
-    if (status.encoder_enabled)
+    if (rr_status.encoder_enabled)
     {
         ESP_LOGI(TAG, "Encoder Service Starting");
         init_encoders();
@@ -119,7 +118,7 @@ void initialise(rr_status_t status)
 
     // Not using radio right now
     /* 
-    if (status.radio_enabled)
+    if (rr_status.radio_enabled)
     { 
         initialise_radio();
     } 
@@ -138,8 +137,8 @@ void initialise_radio()
     RadioLibCustomHAL hal = RadioLibCustomHAL(1, 2, 3, 5);
     // CS, G0, RST
     SX1278 radio = new Module(&hal, 5, 7, 4);
-    int status = radio.begin();
-    if (status == RADIOLIB_ERR_NONE)
+    int rr_status = radio.begin();
+    if (rr_status == RADIOLIB_ERR_NONE)
     {
         ESP_LOGI("Radio", "Radio initialised successfully");
     }

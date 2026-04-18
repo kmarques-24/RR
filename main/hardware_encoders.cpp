@@ -19,6 +19,8 @@ portMUX_TYPE enc_mux = portMUX_INITIALIZER_UNLOCKED;
 encoder_t left_encoder;
 encoder_t right_encoder;
 
+void init_encoder(encoder_t* encoder);
+
 // ISR handler must not use non-ISR-safe functions like `gpio_get_level` unless GPIO is input-only and stable
 void IRAM_ATTR encoder_isr_handler(void *arg)
 {
@@ -39,8 +41,8 @@ void IRAM_ATTR encoder_isr_handler(void *arg)
 
     // Read and increment together
     taskENTER_CRITICAL_ISR(&enc_mux);
-    if (increment_count) encoder->count += increment;
-    else if (decrement_count) encoder->count -= increment;
+    if (increment_count) encoder->count = encoder->count + increment;
+    else if (decrement_count) encoder->count = encoder->count - increment;
     if (encoder->count >= CONFIG_CPR) encoder->count = 0; // wrap forward
     if (encoder->count < 0) encoder->count = CONFIG_CPR - 1; // wrap backward
     encoder->prevEncoding = encoding;

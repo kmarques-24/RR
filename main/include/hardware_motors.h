@@ -24,18 +24,13 @@ typedef struct {
     gpio_num_t pwm_m2;
     ledc_channel_t channel1;
     ledc_channel_t channel2;
-} motor_t;
-
-// External declarations for global variables
-extern ledc_timer_config_t ledc_timer;
-extern motor_t left_motor;
-extern motor_t right_motor;
+} motor_config_t;
 
 /**
  * @brief Initializes a motor with PWM configuration
  * @param m Motor structure containing pin and channel info
  */
-void initialise_motor(motor_t m);
+void initialise_motor(motor_config_t m);
 
 /**
  * @brief Sets speed and direction for a motor
@@ -43,7 +38,7 @@ void initialise_motor(motor_t m);
  * @param speed PWM duty cycle (0-1023)
  * @param forward Direction (true = forward, false = reverse)
  */
-void set_motor_speed(motor_t m, int speed, bool forward);
+void set_motor_speed(motor_config_t m, int speed, bool forward);
 
 /**
  * @brief Callback for velocity control

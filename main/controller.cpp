@@ -38,8 +38,8 @@ static const char *TAG = "Controller";
 float setpoint_linvel_x; // desired speed
 float setpoint_angvel_z; // desired yaw rate
 
-motor_controller_t left_motor;
-motor_controller_t right_motor;
+motor_controller_t left_motor_ctrl;
+motor_controller_t right_motor_ctrl;
 
 static SemaphoreHandle_t dataMutex; // protect while writing
 static StaticSemaphore_t dataMutexBuffer;
@@ -57,9 +57,10 @@ void drive_commanded_twist(const geometry_msgs__msg__Twist *twist_msg)
 void init_PID(void)
 {
     ESP_LOGI(TAG, "Controller enabled");
-    // left motor and right motor controller fields are 0
-    left_motor = (motor_controller_t){0};
-    right_motor = (motor_controller_t){0};
+    // left motor and right motor controller fields are 0 already,
+    // but memset is useful if we need to reset
+    memset(&left_motor_ctrl,  0, sizeof(motor_controller_t));
+    memset(&right_motor_ctrl, 0, sizeof(motor_controller_t));
     dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
 }
 
@@ -96,38 +97,38 @@ void controller_task(void *pvParameter)
         float vel_left_curr = left_encoder.countVelocity * METERS_PER_COUNT;
         float vel_right_curr = right_encoder.countVelocity * METERS_PER_COUNT;
         
-        left_motor.error = vel_left_des - vel_left_curr; // convention always desired - current
-        right_motor.error = vel_right_des - vel_right_curr;
+        left_motor_ctrl.error = vel_left_des - vel_left_curr; // convention always desired - current
+        right_motor_ctrl.error = vel_right_des - vel_right_curr;
 
         // Multiplying dt makes errorSum time consistent if dt varies
         // Kept here since controller dt could vary with scheduling
-        left_motor.errorSum += left_motor.error * dt;
-        right_motor.errorSum += right_motor.error * dt;
-        if (left_motor.errorSum > WINDUP_CAP) left_motor.errorSum = WINDUP_CAP;
-        if (left_motor.errorSum < -WINDUP_CAP) left_motor.errorSum = -WINDUP_CAP;
-        if (right_motor.errorSum > WINDUP_CAP) right_motor.errorSum = WINDUP_CAP;
-        if (right_motor.errorSum < -WINDUP_CAP) right_motor.errorSum = -WINDUP_CAP;
+        left_motor_ctrl.errorSum += left_motor_ctrl.error * dt;
+        right_motor_ctrl.errorSum += right_motor_ctrl.error * dt;
+        if (left_motor_ctrl.errorSum > WINDUP_CAP) left_motor_ctrl.errorSum = WINDUP_CAP;
+        if (left_motor_ctrl.errorSum < -WINDUP_CAP) left_motor_ctrl.errorSum = -WINDUP_CAP;
+        if (right_motor_ctrl.errorSum > WINDUP_CAP) right_motor_ctrl.errorSum = WINDUP_CAP;
+        if (right_motor_ctrl.errorSum < -WINDUP_CAP) right_motor_ctrl.errorSum = -WINDUP_CAP;
 
-        int32_t left_duty = (int32_t)round((Kp * left_motor.error) 
-                        + (Kd * (left_motor.error - left_motor.prevError)/dt) 
-                        + (Ki * left_motor.errorSum));
-        left_motor.prevError = left_motor.error;
+        int32_t left_duty = (int32_t)round((Kp * left_motor_ctrl.error) 
+                        + (Kd * (left_motor_ctrl.error - left_motor_ctrl.prevError)/dt) 
+                        + (Ki * left_motor_ctrl.errorSum));
+        left_motor_ctrl.prevError = left_motor_ctrl.error;
 
-        int32_t right_duty = (int32_t)round((Kp * right_motor.error) 
-                        + (Kd * (right_motor.error - right_motor.prevError)/dt) 
-                        + (Ki * right_motor.errorSum));
-        right_motor.prevError = right_motor.error;
+        int32_t right_duty = (int32_t)round((Kp * right_motor_ctrl.error) 
+                        + (Kd * (right_motor_ctrl.error - right_motor_ctrl.prevError)/dt) 
+                        + (Ki * right_motor_ctrl.errorSum));
+        right_motor_ctrl.prevError = right_motor_ctrl.error;
 
         // If setpoint is 0 and I'm basically at 0, stop
         if (fabsf(vel_left_des) < 0.001f && fabsf(vel_left_curr) <= STOP_THRESHOLD)
         {
             left_duty = 0;
-            left_motor.errorSum = 0; // don't holdover!
+            left_motor_ctrl.errorSum = 0; // don't holdover!
         }
         if (fabsf(vel_right_des) < 0.001f && fabsf(vel_right_curr) <= STOP_THRESHOLD)
         {
             right_duty = 0;
-            right_motor.errorSum = 0; // don't holdover!
+            right_motor_ctrl.errorSum = 0; // don't holdover!
         }
 
         // speed function already pwm capped
