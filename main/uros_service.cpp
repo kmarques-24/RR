@@ -77,7 +77,7 @@ void float_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     RCLC_UNUSED(last_call_time);
     if (timer != NULL)
     {
-        printf("Publishing: %f\n", float_msg.data); // debug statement to read via idf.py monitor
+        //ESP_LOGI(TAG, "Publishing: %f\n", float_msg.data); // debug statement to read via idf.py monitor
         RCSOFTCHECK(rcl_publish(&float_pub, &float_msg, NULL)); // where actual publishing happens
         float_msg.data++;
     }
@@ -88,8 +88,23 @@ void tof_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     RCLC_UNUSED(last_call_time);
     if (timer != NULL)
     {
+        // ESP_LOGI("TOF_CB","data.size=%u row_step=%u h=%u w=%u total=%u",
+        //     (unsigned)tof_msg.data.size, (unsigned)tof_msg.row_step,
+        //     (unsigned)tof_msg.height, (unsigned)tof_msg.width,
+        //     (unsigned)(tof_msg.row_step * tof_msg.height));
         update_tof_msg(&tof_msg);
-        RCSOFTCHECK(rcl_publish(&tof_pub, &tof_msg, NULL));
+
+        //RCSOFTCHECK(rcl_publish(&tof_pub, &tof_msg, NULL));
+        rcl_ret_t r = rcl_publish(&tof_pub, &tof_msg, NULL);
+        if (r != RCL_RET_OK) {
+        if (rcl_error_is_set()) {
+            rcl_error_string_t err = rcl_get_error_string();
+            ESP_LOGE("TOF_CB", "publish failed: %ld | %s", (long)r, err.str);
+        } else {
+            ESP_LOGE("TOF_CB", "publish failed: %ld | no error string set", (long)r);
+        }
+        rcl_reset_error();
+    }
     }
 }
 
@@ -147,7 +162,7 @@ void micro_ros_task(void *arg)
         RCCHECK(rmw_uros_options_set_udp_address(CONFIG_MICRO_ROS_AGENT_IP, CONFIG_MICRO_ROS_AGENT_PORT, rmw_options));
     #endif
 
-    // Make sure IP is right if failing here
+    // Make sure IP is right and agent is started if failing here
     RCCHECK(rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator)); // open comm line with laptop
 
     // Create node
@@ -163,7 +178,8 @@ void micro_ros_task(void *arg)
         ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "float_debug")); // topic name
     if (rr_status.tof_enabled) 
     {
-        RCCHECK(rclc_publisher_init_best_effort(&tof_pub, &node,
+        // changed from init_best_effort to allow message to be broken into packets
+        RCCHECK(rclc_publisher_init_default(&tof_pub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, PointCloud2), "points"));
     }
     if (rr_status.estimator_enabled) 
@@ -269,28 +285,33 @@ void initialize_message_data(void)
     static char field_name_z[] = "z";
 
     tof_msg.header.frame_id.data = frame_id_tof; // label that points are expressed in tof coordinate frame
-    tof_msg.header.frame_id.size = strlen("tof_link"); // "_link" naming convention: rigid body frame
-    tof_msg.header.frame_id.capacity = strlen("tof_link") + 1; // +1 for null terminator
+    tof_msg.header.frame_id.size = sizeof(frame_id_tof) - 1; // "_link" naming convention: rigid body frame
+    tof_msg.header.frame_id.capacity = sizeof(frame_id_tof); // capacity includes null terminator, do -1 for size
     tof_msg.header.stamp.sec = 0;
     tof_msg.header.stamp.nanosec = 0;
 
-    static sensor_msgs__msg__PointField field_arr[TOF_FIELDS]; // 3 for x, y, z
     // point is endpoint of ray relative to sensor. ROS convention is z forward, x right, y up
     // pointfield stores column definition like in table where each row is a point
     // float32 is 4 bytes. So a row of x, y, z will have x at byte 0, y at byte 4, z at byte 8
-    field_arr[0].name.data = field_name_x; field_arr[0].name.size = strlen("x"); 
+    static sensor_msgs__msg__PointField field_arr[TOF_FIELDS]; // 3 for x, y, z
+
+    field_arr[0].name.data = field_name_x; 
+    field_arr[0].name.size = sizeof(field_name_x) - 1; 
+    field_arr[0].name.capacity = sizeof(field_name_x);
     field_arr[0].offset = 0 * TOF_BYTES_PER_FIELD;  
     field_arr[0].datatype = sensor_msgs__msg__PointField__FLOAT32; 
     field_arr[0].count = 1;
 
     field_arr[1].name.data = field_name_y; 
-    field_arr[1].name.size = strlen("y"); 
+    field_arr[1].name.size = sizeof(field_name_y) - 1; 
+    field_arr[1].name.capacity = sizeof(field_name_y);
     field_arr[1].offset = 1 * TOF_BYTES_PER_FIELD;  
     field_arr[1].datatype = sensor_msgs__msg__PointField__FLOAT32; 
     field_arr[1].count = 1;
 
     field_arr[2].name.data = field_name_z; 
-    field_arr[2].name.size = strlen("z");
+    field_arr[2].name.size = sizeof(field_name_z) - 1;
+    field_arr[2].name.capacity = sizeof(field_name_z);
     field_arr[2].offset = 2 * TOF_BYTES_PER_FIELD;  
     field_arr[2].datatype = sensor_msgs__msg__PointField__FLOAT32;
     field_arr[2].count = 1;
@@ -322,8 +343,8 @@ void initialize_message_data(void)
     odom_msg.header.stamp.nanosec = 0;
     
     odom_msg.child_frame_id.data = child_frame_id;         // body frame (center of rotation of robot frame) 
-    odom_msg.child_frame_id.size = strlen("base_link"); // want to know body frame expressed in world frame
-    odom_msg.child_frame_id.capacity = strlen("base_link") + 1;
+    odom_msg.child_frame_id.size = sizeof(frame_id_odom) - 1; // want to know body frame expressed in world frame
+    odom_msg.child_frame_id.capacity = sizeof(frame_id_odom);
 
     // position of body in world in m
     odom_msg.pose.pose.position.x = 0; 
@@ -363,8 +384,8 @@ void initialize_message_data(void)
     static char frame_id_imu[] = "imu_link";
 
     imu_msg.header.frame_id.data = frame_id_imu;
-    imu_msg.header.frame_id.size = strlen("imu_link");
-    imu_msg.header.frame_id.capacity = strlen("imu_link") + 1;
+    imu_msg.header.frame_id.size = sizeof(frame_id_imu) - 1;
+    imu_msg.header.frame_id.capacity = sizeof(frame_id_imu);
     imu_msg.header.stamp.sec = 0;
     imu_msg.header.stamp.nanosec = 0;
 
@@ -387,8 +408,8 @@ void initialize_message_data(void)
     imu_msg.linear_acceleration.y = 0;
     imu_msg.linear_acceleration.z = 0;
     imu_msg.linear_acceleration_covariance[0] = 0.09; // x acc
-    imu_msg.linear_acceleration_covariance[0] = 0.09; // y acc
-    imu_msg.linear_acceleration_covariance[0] = 0.09; // z acc
+    imu_msg.linear_acceleration_covariance[4] = 0.09; // y acc
+    imu_msg.linear_acceleration_covariance[8] = 0.09; // z acc
 }
 
 
@@ -403,7 +424,7 @@ BaseType_t uros_service(void)
     status = xTaskCreate(
         micro_ros_task,
         "uros_task",
-        8192, // 8192, Stack size
+        12288, // Originally stack size 8192, increased while diagnosing tof publish errors
         NULL,
         5, // 5,  Priority
         NULL);
