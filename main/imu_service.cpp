@@ -84,7 +84,7 @@ void init_imu(void)
 
 void imu_task(void *pvParameter)
 {
-    UBaseType_t stack_remaining;
+    //UBaseType_t stack_remaining;
     while(1)
     {
         // block until new report is detected
@@ -98,7 +98,7 @@ void imu_task(void *pvParameter)
             imu_data_latest.timestamp.secs = time.secs;
             imu_data_latest.timestamp.nanosecs = time.nanosecs;
 
-            stack_remaining = uxTaskGetStackHighWaterMark(NULL);
+            //stack_remaining = uxTaskGetStackHighWaterMark(NULL);
             //ESP_LOGI(TAG, "Stack remaining: %u", stack_remaining);
 
             // Get the latest report from Gyro (orientation & angular velocity, already filtered & fused)

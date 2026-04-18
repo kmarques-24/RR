@@ -87,6 +87,7 @@ void init_tof_sensor(void)
         .master = {
             .clk_speed = VL53L5CX_MAX_CLK_SPEED,
         },
+        .clk_flags = 0,
     };
 
     // Configure and install driver
