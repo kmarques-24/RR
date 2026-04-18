@@ -5655,33 +5655,33 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "This option selects the GPIO pin used for the TX signal. Connect the\nTX signal to your transceiver.",
-                "id": "TWAI_TX",
-                "name": "TWAI_TX",
+                "help": "Selects the GPIO pin used for the ToF SDA signal.",
+                "id": "TOF_SDA",
+                "name": "TOF_SDA",
                 "range": [
                     0,
                     48
                 ],
-                "title": "TX GPIO number",
+                "title": "ToF SDA GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "This option selects the GPIO pin used for the RX signal. Connect the\nRX signal to your transceiver.",
-                "id": "TWAI_RX",
-                "name": "TWAI_RX",
+                "help": "Selects the GPIO pin used for the ToF SCL signal.",
+                "id": "TOF_SCL",
+                "name": "TOF_SCL",
                 "range": [
                     0,
                     48
                 ],
-                "title": "RX GPIO number",
+                "title": "ToF SCL GPIO number",
                 "type": "int"
             }
         ],
         "depends_on": null,
-        "id": "custom-twai-interface-configuration",
-        "title": "Custom: TWAI Interface Configuration",
+        "id": "custom-tof-sensor-configuration",
+        "title": "Custom: ToF Sensor Configuration",
         "type": "menu"
     },
     {
@@ -6083,6 +6083,80 @@
         "depends_on": null,
         "id": "custom-wifi-configuration",
         "title": "Custom: WiFi Configuration",
+        "type": "menu"
+    },
+    {
+        "children": [
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ENV_GPIO_RANGE_MIN",
+                "name": "ENV_GPIO_RANGE_MIN",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ENV_GPIO_RANGE_MAX",
+                "name": "ENV_GPIO_RANGE_MAX",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ENV_GPIO_IN_RANGE_MAX",
+                "name": "ENV_GPIO_IN_RANGE_MAX",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": null,
+                "id": "ENV_GPIO_OUT_RANGE_MAX",
+                "name": "ENV_GPIO_OUT_RANGE_MAX",
+                "range": null,
+                "title": null,
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "This option selects the GPIO pin used for the TX signal. Connect the\nTX signal to your transceiver.",
+                "id": "TWAI_TX",
+                "name": "TWAI_TX",
+                "range": [
+                    0,
+                    48
+                ],
+                "title": "TX GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "This option selects the GPIO pin used for the RX signal. Connect the\nRX signal to your transceiver.",
+                "id": "TWAI_RX",
+                "name": "TWAI_RX",
+                "range": [
+                    0,
+                    48
+                ],
+                "title": "RX GPIO number",
+                "type": "int"
+            }
+        ],
+        "depends_on": null,
+        "id": "custom-twai-interface-configuration",
+        "title": "Custom: TWAI Interface Configuration",
         "type": "menu"
     },
     {

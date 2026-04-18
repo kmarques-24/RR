@@ -39,7 +39,7 @@ NOTICE: [6/6] idf (5.1.2)
 -- Found Python3: /home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python (found version "3.10.12") found components: Interpreter 
 -- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS
 -- Performing Test C_COMPILER_SUPPORTS_WFORMAT_SIGNEDNESS - Success
--- App "RR_OS" version: 0fccb36-dirty
+-- App "RR_OS" version: 1b55fb4-dirty
 -- Adding linker script /home/km/Desktop/TestFolder/RR/build/esp-idf/esp_system/ld/memory.ld
 -- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_system/ld/esp32s3/sections.ld.in
 -- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld

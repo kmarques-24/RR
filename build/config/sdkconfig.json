@@ -1199,6 +1199,8 @@
     "SPI_SLAVE_ISR_IN_IRAM": true,
     "TEMP_SENSOR_ENABLE_DEBUG_LOG": false,
     "TEMP_SENSOR_SUPPRESS_DEPRECATE_WARN": false,
+    "TOF_SCL": 9,
+    "TOF_SDA": 8,
     "TWAI_ERRATA_FIX_LISTEN_ONLY_DOM": true,
     "TWAI_ISR_IN_IRAM": false,
     "TWAI_RX": 9,

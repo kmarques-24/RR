@@ -82,7 +82,7 @@ void init_imu(void)
     ESP_LOGI(TAG, "IMU enabled");
 }
 
-void imu_loop(void *pvParameter)
+void imu_task(void *pvParameter)
 {
     UBaseType_t stack_remaining;
     while(1)
@@ -154,8 +154,8 @@ BaseType_t imu_service(void)
 {
     BaseType_t status;
     status = xTaskCreate(
-        imu_loop,
-        "imu_loop",
+        imu_task,
+        "imu_task",
         4096,
         NULL,
         5,

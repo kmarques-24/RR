@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include "esp_timer.h"
 
 #define TAG "ENCODER_SERVICE"
 

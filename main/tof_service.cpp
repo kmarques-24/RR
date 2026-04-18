@@ -14,6 +14,7 @@
 #include <sensor_msgs/msg/point_cloud2.h>
 
 // Standard includes
+#include <math.h>
 #include <string.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -21,7 +22,7 @@
 static const char *TAG = "ToF";
 
 //VL53L5CX ranging variables
-static uint8_t 				status, loop, isAlive, isReady, i;
+static uint8_t status, isAlive;
 static VL53L5CX_Configuration 	Dev;			/* Sensor configuration */
 static VL53L5CX_ResultsData 	Results;		/* Results data from VL53L5CX */
 
@@ -35,42 +36,52 @@ void update_tof_msg(sensor_msgs__msg__PointCloud2 *tof_msg)
 {
     // lock here too to avoid partial data read
     xSemaphoreTake(dataMutex, portMAX_DELAY);
-    // TODO: match tof data to tof msg
+
     tof_msg->header.stamp.sec     = tof_latest.timestamp.secs;
     tof_msg->header.stamp.nanosec = tof_latest.timestamp.nanosecs;
 
-    /*
-    // For cell at row r, col c in an 8x8 grid with 45° FoV:
-    float fov = 45.0f * M_PI / 180.0f;           // total FoV in radians
-    float cell_angle = fov / 8.0f;                // angle per cell
+    // For cell at row r, col c in an 8x8 grid
+    // 65 deg diagonal field of view per datasheet -> eq to get vertical/horizontal -> 48.5 deg
+    // https://discussions.unity.com/t/calculate-diagonal-field-of-view/772042/4
+    // search "camera diagonal FOV from horizontal vertical FOV", rearrange & solve
 
-    float theta_x = (c - 3.5f) * cell_angle;     // horizontal angle from center
-    float theta_y = (r - 3.5f) * cell_angle;     // vertical angle from center
-    float d = distances[r][c] / 1000.0f;         // mm to meters
+    uint8_t *ptr = tof_msg->data.data; // rest of function just updates data
 
-    // ROS convention: z forward, x right, y up
-    float z = d * cosf(theta_x) * cosf(theta_y); // depth (forward)
-    float x = d * sinf(theta_x);                 // horizontal
-    float y = d * sinf(theta_y);                 // vertical
-    */
-    
+    for (int r = 0; r < TOF_GRID_SIZE; r++) {
+        for (int c = 0; c < TOF_GRID_SIZE; c++) {
+            int i = r * TOF_GRID_SIZE + c;
+
+            // d is length of ray and hypotenuse of triangle
+            float d = tof_latest.results.distance_mm[i] / 1000.0f;  // mm to m
+            float theta_x = (c - TOF_GRID_CENTER) * TOF_CELL_ANGLE_RAD; // horizontal angle from center in rad
+            float theta_y = (r - TOF_GRID_CENTER) * TOF_CELL_ANGLE_RAD; // vertical angle from center in rad
+
+            // ROS convention: z forward, x right, y up
+            float z = d * cosf(theta_x) * cosf(theta_y); // depth (forward)
+            float x = d * sinf(theta_x); // horizontal
+            float y = d * sinf(theta_y); // vertical
+
+            memcpy(ptr + 0 * TOF_BYTES_PER_FIELD, &x, TOF_BYTES_PER_FIELD);
+            memcpy(ptr + 1 * TOF_BYTES_PER_FIELD, &y, TOF_BYTES_PER_FIELD);
+            memcpy(ptr + 2 * TOF_BYTES_PER_FIELD, &z, TOF_BYTES_PER_FIELD);
+
+            ptr += TOF_POINT_STEP;
+        }
+    }
     xSemaphoreGive(dataMutex);
 }
 
 void init_tof_sensor(void)
 {
-    esp_err_t status;
-    uint8_t isAlive;
-
-    // 1. Define the Legacy I2C configuration
+    // Legacy I2C config
     Dev.platform.port = I2C_NUM_1;
     Dev.platform.address = VL53L5CX_DEFAULT_I2C_ADDRESS >> 1; // 7-bit address
     Dev.platform.reset_gpio = GPIO_NUM_5;
 
     i2c_config_t conf = {
         .mode = I2C_MODE_MASTER,
-        .sda_io_num = 1,           // SDA GPIO
-        .scl_io_num = 2,           // SCL GPIO
+        .sda_io_num = (gpio_num_t)CONFIG_TOF_SDA, // SDA GPIO
+        .scl_io_num = (gpio_num_t)CONFIG_TOF_SCL, // SCL GPIO
         .sda_pullup_en = GPIO_PULLUP_ENABLE,
         .scl_pullup_en = GPIO_PULLUP_ENABLE,
         .master = {
@@ -78,14 +89,14 @@ void init_tof_sensor(void)
         },
     };
 
-    // 2. Configure and Install the driver
+    // Configure and install driver
     ESP_ERROR_CHECK(i2c_param_config(Dev.platform.port, &conf));
     ESP_ERROR_CHECK(i2c_driver_install(Dev.platform.port, conf.mode, 0, 0, 0));
 
-    /* 3. (Optional) Reset sensor using your new platform function */
+    //(Optional) Reset sensor using new platform function
     VL53L5CX_Reset_Sensor(&(Dev.platform));
 
-    /* 4. Check if sensor is alive */
+    // Check if sensor is alive 
     status = vl53l5cx_is_alive(&Dev, &isAlive);
     if(!isAlive || status)
     {
@@ -93,7 +104,7 @@ void init_tof_sensor(void)
         return;
     }
 
-    /* 5. (Mandatory) Init VL53L5CX sensor */
+    // (Mandatory) Init VL53L5CX sensor
     status = vl53l5cx_init(&Dev);
     if(status)
     {
@@ -103,30 +114,39 @@ void init_tof_sensor(void)
 
     ESP_LOGI("TOF", "VL53L5CX ULD ready! (Version: %s)", VL53L5CX_API_REVISION);
 
+    status = vl53l5cx_set_resolution(&Dev, VL53L5CX_RESOLUTION_8X8);
+    if(status)
+	{
+		printf("vl53l5cx_set_resolution failed, status %u\n", status);
+		return;
+	}
+
     // mutex
     dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
 }
 
-void start_ranging(void)
+uint8_t start_ranging(void)
 {
-    status = vl53l5cx_start_ranging(&Dev);
+    return vl53l5cx_start_ranging(&Dev);
 }
 
-void stop_ranging(void)
+uint8_t stop_ranging(void)
 {
-    status = vl53l5cx_stop_ranging(&Dev);
+    return vl53l5cx_stop_ranging(&Dev);
 }
 
 void tof_task(void *pvParameter)
 {
     // see example in components/VL53L5CX-Library/examples/ranging_basic/main/main.c
+    status = start_ranging();
+    uint8_t isReady;
+
     while(1)
     {
         status = vl53l5cx_check_data_ready(&Dev, &isReady);
 
         if(isReady)
         {
-            //uint32_t tof_time_ms = (uint32_t)((esp_timer_get_time() / 1000));
             timespec_t time = getTime();
 
             xSemaphoreTake(dataMutex, portMAX_DELAY);
@@ -136,9 +156,10 @@ void tof_task(void *pvParameter)
             xSemaphoreGive(dataMutex);
         }
 
-        /* Wait a few ms to avoid too high polling (function in platform file, not in API) */
-        VL53L5CX_WaitMs(&(Dev.platform), 20); // calles vTaskDelay under hood
-        // 20 ms is 50 Hz. Changed from 5 ms
+        // Wait a few ms to avoid too high polling (function in platform file, not in API)
+        VL53L5CX_WaitMs(&(Dev.platform), 20); // calls vTaskDelay under hood
+
+        // 50 Hz = 20 ms. Changed from 5 ms
     }
 }
 

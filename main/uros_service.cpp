@@ -7,6 +7,7 @@
 #include "estimator.h"
 #include "tof_service.h"
 #include "imu_service.h"
+#include "controller.h"
 
 // Standard includes
 #include <string.h>
@@ -55,7 +56,7 @@ std_msgs__msg__Float32 float_msg;           // float msg. double underscore is C
 sensor_msgs__msg__PointCloud2 tof_msg;    // ToF msg
 nav_msgs__msg__Odometry odom_msg;           // RR state (odometry) msg
 sensor_msgs__msg__Imu imu_msg;              // IMU msg
-geometry_msgs__msg__Twist twist_msg;        // twist command msg
+geometry_msgs__msg__Twist twist_msg;             // twist msg
 
 // Timers
 rcl_timer_t float_timer;
@@ -73,7 +74,7 @@ void float_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     RCLC_UNUSED(last_call_time);
     if (timer != NULL)
     {
-        printf("Publishing: %f\n", float_msg.data); // debug statement to read via idf.py monitor
+        //printf("Publishing: %f\n", float_msg.data); // debug statement to read via idf.py monitor
         RCSOFTCHECK(rcl_publish(&float_pub, &float_msg, NULL)); // where actual publishing happens
         float_msg.data++;
     }
@@ -101,12 +102,26 @@ void odom_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
 
 void imu_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
 {
+    // "uses" the variable to suppressed unused variable complier warning
+    // guards against NULL timer
     RCLC_UNUSED(last_call_time);
     if (timer != NULL)
     {
         update_imu_msg(&imu_msg);
         RCSOFTCHECK(rcl_publish(&imu_pub, &imu_msg, NULL));
     }
+}
+
+void twist_callback(const void *msgin)
+{
+    if (msgin == NULL) return; // just in case
+    
+    // pointer-to-const ensures incoming message not modified
+    // can't edit target (data). Just a subscriber. 
+    // Executor owns original twist_msg and can overwrite
+    const geometry_msgs__msg__Twist *msg = (const geometry_msgs__msg__Twist *)msgin;
+
+    drive_commanded_twist(msg); // pass protected msg, not twist_msg
 }
 
 /* ------ MICRO-ROS TASK ------ */
@@ -135,7 +150,7 @@ void micro_ros_task(void *arg)
     rcl_node_t node;
     RCCHECK(rclc_node_init_default(&node, "Rescue_Roller_Node", "", &support)); // create node - name can't have spaces
 
-    // Create publishers
+    // Create publishers and subscriber
         // switched from rclc_publisher_init_default to rclc_publisher_init_best_effort
         // best effort is better for continuous data streams where it's ok for a packet to drop in
         // order to keep stream flowing. Otherwise, buffer clogs trying to save failed packets
@@ -148,6 +163,8 @@ void micro_ros_task(void *arg)
         "odom"));
     RCCHECK(rclc_publisher_init_best_effort(&imu_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Imu), 
         "imu/data"));
+    RCCHECK(rclc_subscription_init_best_effort(&twist_sub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist),
+        "cmd_vel"));  // standard ROS2 name for velocity commands
 
     // Create timers
     const unsigned int float_timeout = 1000; // once per sec = 1 Hz
@@ -161,11 +178,12 @@ void micro_ros_task(void *arg)
     
     // Create executor
     rclc_executor_t executor;
-    RCCHECK(rclc_executor_init(&executor, &support.context, 4, &allocator));
+    RCCHECK(rclc_executor_init(&executor, &support.context, 5, &allocator));
     RCCHECK(rclc_executor_add_timer(&executor, &float_timer));
     RCCHECK(rclc_executor_add_timer(&executor, &tof_timer));
     RCCHECK(rclc_executor_add_timer(&executor, &odom_timer));
     RCCHECK(rclc_executor_add_timer(&executor, &imu_timer));
+    RCCHECK(rclc_executor_add_subscription(&executor, &twist_sub, &twist_msg, &twist_callback, ON_NEW_DATA));
 
     // Initialize published message data
     initialize_message_data();
@@ -210,42 +228,42 @@ void initialize_message_data(void)
     tof_msg.header.stamp.sec = 0;
     tof_msg.header.stamp.nanosec = 0;
 
-    static sensor_msgs__msg__PointField field_arr[3]; // 3 for x, y, z
+    static sensor_msgs__msg__PointField field_arr[TOF_FIELDS]; // 3 for x, y, z
     // point is endpoint of ray relative to sensor. ROS convention is z forward, x right, y up
     // pointfield stores column definition like in table where each row is a point
     // float32 is 4 bytes. So a row of x, y, z will have x at byte 0, y at byte 4, z at byte 8
     field_arr[0].name.data = "x"; field_arr[0].name.size = strlen("x"); 
-    field_arr[0].offset = 0;  
+    field_arr[0].offset = 0 * TOF_BYTES_PER_FIELD;  
     field_arr[0].datatype = sensor_msgs__msg__PointField__FLOAT32; 
     field_arr[0].count = 1;
 
     field_arr[1].name.data = "y"; 
     field_arr[1].name.size = strlen("y"); 
-    field_arr[1].offset = 4;  
+    field_arr[1].offset = 1 * TOF_BYTES_PER_FIELD;  
     field_arr[1].datatype = sensor_msgs__msg__PointField__FLOAT32; 
     field_arr[1].count = 1;
 
     field_arr[2].name.data = "z"; 
     field_arr[2].name.size = strlen("z");
-    field_arr[2].offset = 8;  
+    field_arr[2].offset = 2 * TOF_BYTES_PER_FIELD;  
     field_arr[2].datatype = sensor_msgs__msg__PointField__FLOAT32;
     field_arr[2].count = 1;
 
     tof_msg.fields.data = field_arr;
-    tof_msg.fields.size = 3;
-    tof_msg.fields.capacity = 3;
+    tof_msg.fields.size = TOF_FIELDS;
+    tof_msg.fields.capacity = TOF_FIELDS;
 
-    static uint8_t point_buf[64 * 12]; // 64 points, 12 bytes each (4 bytes per float * 3 floats xyz)
+    static uint8_t point_buf[TOF_BUF_SIZE]; // 64 points, 12 bytes each (4 bytes per float * 3 floats xyz)
     tof_msg.data.data = point_buf;
-    tof_msg.data.size = sizeof(point_buf);
-    tof_msg.data.capacity = sizeof(point_buf);
+    tof_msg.data.size = TOF_BUF_SIZE;
+    tof_msg.data.capacity = TOF_BUF_SIZE;
 
-    tof_msg.height = 8; // preserve grid structure. Could also do height=1 width=64 for flat list
-    tof_msg.width = 8;
+    tof_msg.height = TOF_GRID_SIZE; // preserve grid structure. Could also do height=1 width=64 for flat list
+    tof_msg.width = TOF_GRID_SIZE;
     tof_msg.is_bigendian = false; //esp32 little endian
     tof_msg.is_dense = true;
-    tof_msg.point_step = 12; // byte size of one point (4 bytes per float * 3 floats xyz)
-    tof_msg.row_step = tof_msg.point_step * tof_msg.width;
+    tof_msg.point_step = TOF_POINT_STEP; // byte size of one point (4 bytes per float * 3 floats xyz)
+    tof_msg.row_step = TOF_POINT_STEP * TOF_GRID_SIZE;
 
     //----- odom -----
     odom_msg.header.frame_id.data = "odom"; // world frame, defined when bot first powered on

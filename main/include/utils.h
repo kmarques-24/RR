@@ -4,7 +4,10 @@
 extern "C" {
 #endif
 
-typedef struct timespec_t {
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+typedef struct {
     int32_t secs;
     uint32_t nanosecs;
 } timespec_t;
