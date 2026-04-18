@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "RR_OS",
-    "project_version":    "3bb2350-dirty",
+    "project_version":    "205c56b-dirty",
     "project_path":       "/home/km/Desktop/TestFolder/RR",
     "idf_path":           "/home/km/esp/v5.1.2/esp-idf",
     "build_dir":          "/home/km/Desktop/TestFolder/RR/build",

@@ -60,7 +60,7 @@ void init_encoders(void)
 
     right_encoder.pin_a  = (gpio_num_t)CONFIG_RIGHT_ENCODER_A;
     right_encoder.pin_b  = (gpio_num_t)CONFIG_RIGHT_ENCODER_B;
-    right_encoder.invert = -1;
+    right_encoder.invert = 1; // -1 to invert. Don't need to due to gears
 
     init_encoder(&left_encoder);
     init_encoder(&right_encoder);

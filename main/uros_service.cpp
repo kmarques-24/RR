@@ -8,6 +8,7 @@
 #include "tof_service.h"
 #include "imu_service.h"
 #include "controller.h"
+#include "rr_os_service.h"
 
 // Standard includes
 #include <string.h>
@@ -76,7 +77,7 @@ void float_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     RCLC_UNUSED(last_call_time);
     if (timer != NULL)
     {
-        //printf("Publishing: %f\n", float_msg.data); // debug statement to read via idf.py monitor
+        printf("Publishing: %f\n", float_msg.data); // debug statement to read via idf.py monitor
         RCSOFTCHECK(rcl_publish(&float_pub, &float_msg, NULL)); // where actual publishing happens
         float_msg.data++;
     }
@@ -146,6 +147,7 @@ void micro_ros_task(void *arg)
         RCCHECK(rmw_uros_options_set_udp_address(CONFIG_MICRO_ROS_AGENT_IP, CONFIG_MICRO_ROS_AGENT_PORT, rmw_options));
     #endif
 
+    // Make sure IP is right if failing here
     RCCHECK(rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator)); // open comm line with laptop
 
     // Create node
@@ -157,35 +159,72 @@ void micro_ros_task(void *arg)
         // best effort is better for continuous data streams where it's ok for a packet to drop in
         // order to keep stream flowing. Otherwise, buffer clogs trying to save failed packets
         // topic names standard for ROS2 packages
-    RCCHECK(rclc_publisher_init_best_effort(&float_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), 
-        "float_debug")); // topic name
-    RCCHECK(rclc_publisher_init_best_effort(&tof_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, PointCloud2), 
-        "points"));
-    RCCHECK(rclc_publisher_init_best_effort(&odom_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(nav_msgs, msg, Odometry), 
-        "odom"));
-    RCCHECK(rclc_publisher_init_best_effort(&imu_pub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Imu), 
-        "imu/data"));
-    RCCHECK(rclc_subscription_init_best_effort(&twist_sub, &node, ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist),
-        "cmd_vel"));  // standard ROS2 name for velocity commands
+    RCCHECK(rclc_publisher_init_best_effort(&float_pub, &node, 
+        ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "float_debug")); // topic name
+    if (rr_status.tof_enabled) 
+    {
+        RCCHECK(rclc_publisher_init_best_effort(&tof_pub, &node,
+            ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, PointCloud2), "points"));
+    }
+    if (rr_status.estimator_enabled) 
+    {
+        RCCHECK(rclc_publisher_init_best_effort(&odom_pub, &node,
+            ROSIDL_GET_MSG_TYPE_SUPPORT(nav_msgs, msg, Odometry), "odom"));
+    }
+    if (rr_status.imu_enabled) 
+    {
+        RCCHECK(rclc_publisher_init_best_effort(&imu_pub, &node,
+            ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Imu), "imu/data"));
+    }
+    if (rr_status.key_control_enabled) 
+    {
+        RCCHECK(rclc_subscription_init_best_effort(&twist_sub, &node,
+            ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "cmd_vel"));
+    }
 
-    // Create timers
+    // Create executor
+    rclc_executor_t executor;
+    // Count how many handles the executor needs
+    int executor_handles = 1; // float timer always active
+    if (rr_status.tof_enabled)          executor_handles++;
+    if (rr_status.estimator_enabled)    executor_handles++;
+    if (rr_status.imu_enabled)          executor_handles++;
+    if (rr_status.key_control_enabled)  executor_handles++;
+    RCCHECK(rclc_executor_init(&executor, &support.context, executor_handles, &allocator));
+
+    // Create timers and add to executor
     const unsigned int float_timeout = 1000; // once per sec = 1 Hz
     const unsigned int tof_timeout = 50; // 20 Hz
     const unsigned int odom_timeout = 20; // 50 Hz
     const unsigned int imu_timeout = 10; // 100 Hz
-    RCCHECK(rclc_timer_init_default(&float_timer, &support, RCL_MS_TO_NS(float_timeout), float_timer_callback));
-    RCCHECK(rclc_timer_init_default(&tof_timer, &support, RCL_MS_TO_NS(tof_timeout), tof_timer_callback));
-    RCCHECK(rclc_timer_init_default(&odom_timer, &support, RCL_MS_TO_NS(odom_timeout), odom_timer_callback));
-    RCCHECK(rclc_timer_init_default(&imu_timer, &support, RCL_MS_TO_NS(imu_timeout), imu_timer_callback));
-    
-    // Create executor
-    rclc_executor_t executor;
-    RCCHECK(rclc_executor_init(&executor, &support.context, 5, &allocator));
+
+    RCCHECK(rclc_timer_init_default(&float_timer, &support,
+        RCL_MS_TO_NS(float_timeout), float_timer_callback));
     RCCHECK(rclc_executor_add_timer(&executor, &float_timer));
-    RCCHECK(rclc_executor_add_timer(&executor, &tof_timer));
-    RCCHECK(rclc_executor_add_timer(&executor, &odom_timer));
-    RCCHECK(rclc_executor_add_timer(&executor, &imu_timer));
-    RCCHECK(rclc_executor_add_subscription(&executor, &twist_sub, &twist_msg, &twist_callback, ON_NEW_DATA));
+
+    if (rr_status.tof_enabled) 
+    {
+        RCCHECK(rclc_timer_init_default(&tof_timer, &support,
+            RCL_MS_TO_NS(tof_timeout), tof_timer_callback));
+        RCCHECK(rclc_executor_add_timer(&executor, &tof_timer));
+    }
+    if (rr_status.estimator_enabled) 
+    {
+        RCCHECK(rclc_timer_init_default(&odom_timer, &support,
+            RCL_MS_TO_NS(odom_timeout), odom_timer_callback));
+        RCCHECK(rclc_executor_add_timer(&executor, &odom_timer));
+    }
+    if (rr_status.imu_enabled) 
+    {
+        RCCHECK(rclc_timer_init_default(&imu_timer, &support,
+            RCL_MS_TO_NS(imu_timeout), imu_timer_callback));
+        RCCHECK(rclc_executor_add_timer(&executor, &imu_timer));
+    }
+    if (rr_status.key_control_enabled) 
+    {
+        RCCHECK(rclc_executor_add_subscription(&executor, &twist_sub,
+            &twist_msg, &twist_callback, ON_NEW_DATA));
+    }
 
     // Initialize published message data
     initialize_message_data();

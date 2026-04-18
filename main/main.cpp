@@ -1,3 +1,31 @@
+/*
+Instructions: 
+
+1. Connect laptop to router
+2. Open new terminal
+    - navigate to local repo RR
+    - run: code . (to open ESP-IDF project in VScode)
+3. Open VScode terminal in ESP-IDF project
+    - run: source $HOME/esp/v5.1.2/esp-idf/export.sh
+4. Open new terminal
+    - navigate to ~/ros2_ws
+    - run: source /opt/ros/humble/setup.bash
+    - run: source install/local_setup.bash
+    - run: code . (to open ROS2 project in VScode)
+5. Open VScode terminal in ROS2 project
+    - run sudo docker run -it --rm --net=host microros/micro-ros-agent:humble udp4 --port 8888 -v6
+    - this starts microROS agent
+6. Open second VScode terminal in ROS2 project
+    - run: ros2 topic echo /{topic}
+    - this helps debug data I should see from publishers & to subscribers
+7. As needed in ESP-IDF project VScode terminal:
+    - run idf.py menuconfig to set project variables and save config
+    - run idf.py reconfigure to regenerate
+    - run idf.py set-target esp32s3 to resolve linkage errors
+8. Run idf.py build, idf.py flash, idf.py monitor
+    - monitor terminals and debug
+*/
+
 // OS and C Headers
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,11 +73,14 @@ extern "C" void app_main(void)
     // Creating events queue (Set to True when you want a service working)
     // rr_status defined in rr_os_service.cpp
     rr_status.wifi_enabled = true;
-    rr_status.encoder_enabled = true;
-    rr_status.estimator_enabled = true;
-    rr_status.imu_enabled = true;
-    rr_status.key_control_enabled = true;
-    rr_status.tof_enabled = true;
+
+    rr_status.encoder_enabled = false;
+    rr_status.estimator_enabled = false;
+    rr_status.imu_enabled = false;
+    rr_status.key_control_enabled = false;
+    rr_status.tof_enabled = false;
+
+    rr_status.uros_enabled = true;
 
     rr_status.connected = false;
     rr_status.twai_active = false;
