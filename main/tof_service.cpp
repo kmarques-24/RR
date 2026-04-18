@@ -29,6 +29,8 @@ static VL53L5CX_ResultsData 	Results;		/* Results data from VL53L5CX */
 static SemaphoreHandle_t dataMutex; // protect while writing
 static StaticSemaphore_t dataMutexBuffer;
 
+bool tof_initialized = false;
+
 // Global instance
 static tof_data_t tof_latest;
 
@@ -73,10 +75,10 @@ void update_tof_msg(sensor_msgs__msg__PointCloud2 *tof_msg)
 
 void init_tof_sensor(void)
 {
-    // Legacy I2C config
+    // ----- I2C setup (legacy I2C config) -----
     Dev.platform.port = I2C_NUM_1;
     Dev.platform.address = VL53L5CX_DEFAULT_I2C_ADDRESS >> 1; // 7-bit address
-    Dev.platform.reset_gpio = GPIO_NUM_5;
+    Dev.platform.reset_gpio = GPIO_NUM_NC; // reset pin not connected
 
     i2c_config_t conf = {
         .mode = I2C_MODE_MASTER,
@@ -90,18 +92,40 @@ void init_tof_sensor(void)
         .clk_flags = 0,
     };
 
-    // Configure and install driver
     ESP_ERROR_CHECK(i2c_param_config(Dev.platform.port, &conf));
     ESP_ERROR_CHECK(i2c_driver_install(Dev.platform.port, conf.mode, 0, 0, 0));
+    ESP_LOGI(TAG, "I2C params configured and driver installed");
 
-    //(Optional) Reset sensor using new platform function
-    VL53L5CX_Reset_Sensor(&(Dev.platform));
+    ESP_LOGI(TAG, "Scanning I2C bus...");
+    for (uint8_t addr = 1; addr < 127; addr++) // for all valid 7-bit i2c addresses:
+    {
+        // made command buffer - linked list of i2c operations to execute in sequence   
+        i2c_cmd_handle_t cmd = i2c_cmd_link_create(); 
+        i2c_master_start(cmd); // queue start condition to begin i2c transaction
+        // write one byte on port (address + write bit 0) and expect acknowledgement (true)
+        // if device exists at address, SDA will be pulled low
+        i2c_master_write_byte(cmd, (addr << 1) | I2C_MASTER_WRITE, true);
+        i2c_master_stop(cmd); // stop transaction
+        // executes queued commands - retun ok if device ACKed (acknowledged)
+        esp_err_t ret = i2c_master_cmd_begin(Dev.platform.port, cmd, pdMS_TO_TICKS(50)); 
+        i2c_cmd_link_delete(cmd); // free command buffer memory
+        if (ret == ESP_OK)
+        {
+            ESP_LOGI(TAG, "Found device at 0x%02X", addr); // log device address
+        }
+    }
 
+    // ----- Tof sensor setup -----
+    // Don't try to reset- no pin connected
+    //VL53L5CX_Reset_Sensor(&(Dev.platform));
+    //ESP_LOGI(TAG, "Sensor reset done");
+    
     // Check if sensor is alive 
     status = vl53l5cx_is_alive(&Dev, &isAlive);
+    ESP_LOGI(TAG, "is_alive returned: status=%u isAlive=%u", status, isAlive);
     if(!isAlive || status)
     {
-        ESP_LOGE("TOF", "VL53L5CX not detected at 0x%02X", Dev.platform.address);
+        ESP_LOGE(TAG, "VL53L5CX not detected at 0x%02X", Dev.platform.address);
         return;
     }
 
@@ -109,31 +133,42 @@ void init_tof_sensor(void)
     status = vl53l5cx_init(&Dev);
     if(status)
     {
-        ESP_LOGE("TOF", "VL53L5CX ULD Loading failed, status: %u", status);
+        ESP_LOGE(TAG, "VL53L5CX ULD Loading failed, status: %u", status);
         return;
     }
 
-    ESP_LOGI("TOF", "VL53L5CX ULD ready! (Version: %s)", VL53L5CX_API_REVISION);
+    ESP_LOGI(TAG, "VL53L5CX ULD ready! (Version: %s)", VL53L5CX_API_REVISION);
 
     status = vl53l5cx_set_resolution(&Dev, VL53L5CX_RESOLUTION_8X8);
     if(status)
 	{
-		printf("vl53l5cx_set_resolution failed, status %u\n", status);
+		ESP_LOGE(TAG, "VL53L5CX failed to set resolution, status %u\n", status);
 		return;
 	}
 
-    // mutex
+    // ----- Mutex and init bool -----
     dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
+    tof_initialized = true;
 }
 
 uint8_t start_ranging(void)
 {
-    return vl53l5cx_start_ranging(&Dev);
+    status = vl53l5cx_start_ranging(&Dev);
+    if(status)
+    {
+        ESP_LOGE(TAG, "VL53L5CX failed to start ranging, status: %u", status);
+    }
+    return status;
 }
 
 uint8_t stop_ranging(void)
 {
-    return vl53l5cx_stop_ranging(&Dev);
+    status = vl53l5cx_stop_ranging(&Dev);
+    if(status)
+    {
+        ESP_LOGE(TAG, "VL53L5CX failed to stop ranging, status: %u", status);
+    }
+    return status;
 }
 
 void tof_task(void *pvParameter)
@@ -166,6 +201,12 @@ void tof_task(void *pvParameter)
 
 BaseType_t tof_service(void)
 {
+    if (!tof_initialized)
+    {
+        ESP_LOGE(TAG, "ToF not initialized, cannot start service");
+        return pdFAIL;
+    }
+    
     BaseType_t tof_status;
     tof_status = xTaskCreate(
         tof_task,

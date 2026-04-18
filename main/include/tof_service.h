@@ -24,6 +24,8 @@ Cell indices:  0    1    2    3  |  4    5    6    7
 Offsets:     -3.5 -2.5 -1.5 -0.5  +0.5 +1.5 +2.5 +3.5
 */
 
+extern bool tof_initialized;
+
 typedef struct {
     VL53L5CX_ResultsData results;
     timespec_t timestamp;        // system timestamp

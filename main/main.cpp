@@ -2,6 +2,7 @@
 Instructions: 
 
 1. Connect laptop to router
+    - open http://192.168.8.1/ to see connect clients (laptop, esp32)
 2. Open new terminal
     - navigate to local repo RR
     - run: code . (to open ESP-IDF project in VScode)
@@ -78,7 +79,7 @@ extern "C" void app_main(void)
     rr_status.estimator_enabled = false;
     rr_status.imu_enabled = false;
     rr_status.key_control_enabled = false;
-    rr_status.tof_enabled = false;
+    rr_status.tof_enabled = true;
 
     rr_status.uros_enabled = true;
 
@@ -153,9 +154,12 @@ void initialise(rr_status_t rr_status)
     }
     if (rr_status.tof_enabled)
     {
-        ESP_LOGI(TAG, "ToF service starting");
         init_tof_sensor();
-        tof_service();
+        if (tof_service() != pdPASS)
+        {
+            // disable so uros doesn't try to publish
+            rr_status.tof_enabled = false;  
+        }
     }
     if (rr_status.uros_enabled)
     {

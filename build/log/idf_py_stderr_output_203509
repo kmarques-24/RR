@@ -1,0 +1,40 @@
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x40048dfc: [0;33muart_rx_readbuff[0m[0m in [0;32mROM[0m
+[0m--- 0x4037577c: [0;33mcall_start_cpu1[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_system/port/cpu_start.c[0m[0m:[1;31m157[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 751762348960ab08829dc17c09340b76b60b1abe8bd60ebcc82188ae7d307674[0m
+[0m--- 0x40374000: [0;33m_WindowOverflow4[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S[0m[0m:[1;31m2027[0m
+[0m--- 0x4208f564: [0;33m__cxxabiv1::__terminate(void (*)())[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/src/gcc/libstdc++-v3/libsupc++/eh_terminate.cc[0m[0m:[1;31m52[0m
+[0m--- 0x4208f3b4: [0;33m_GLOBAL__sub_D__ZN9__gnu_cxx9__freeresEv[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/build/build-cc-gcc-final/xtensa-esp32s3-elf/no-rtti/libstdc++-v3/include/xtensa-esp32s3-elf/bits/gthr-default.h[0m[0m:[1;31m740[0m
+[0m--- (inlined by) [0;33m__gnu_cxx::__mutex::~__mutex()[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/build/build-cc-gcc-final/xtensa-esp32s3-elf/no-rtti/libstdc++-v3/include/ext/concurrence.h[0m[0m:[1;31m140[0m
+[0m--- (inlined by) [0;33m~pool[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/src/gcc/libstdc++-v3/libsupc++/eh_alloc.cc[0m[0m:[1;31m91[0m
+[0m--- (inlined by) [0;33m__static_initialization_and_destruction_0[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/src/gcc/libstdc++-v3/libsupc++/eh_alloc.cc[0m[0m:[1;31m266[0m
+[0m--- (inlined by) [0;33m__static_initialization_and_destruction_0[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/src/gcc/libstdc++-v3/libsupc++/eh_alloc.cc[0m[0m:[1;31m342[0m
+[0m--- (inlined by) [0;33m_GLOBAL__sub_D__ZN9__gnu_cxx9__freeresEv[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/src/gcc/libstdc++-v3/libsupc++/eh_alloc.cc[0m[0m:[1;31m342[0m
+[0m--- 0x42051c34: [0;33mesp_wifi_deinit[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/src/wifi_init.c[0m[0m:[1;31m129[0m
+[0m--- 0x420326c4: [0;33mesp_ipc_init[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_system/esp_ipc.c[0m[0m:[1;31m120[0m
+[0m--- 0x4201fac4: [0;33mstd_msgs__msg__Header__rosidl_typesupport_introspection_c__Header_init_function[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4201f390: [0;33mrosidl_typesupport_introspection_c__get_message_type_support_handle__sensor_msgs__msg__Imu[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4201f36c: [0;33msensor_msgs__msg__Imu__rosidl_typesupport_introspection_c__Imu_fini_function[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4201c7bc: [0;33mrosidl_typesupport_introspection_c__get_message_type_support_handle__nav_msgs__msg__Odometry[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4201a3ac: [0;33mrosidl_typesupport_introspection_c__get_message_type_support_handle__geometry_msgs__msg__Twist[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4200bf90: [0;33mimu_service[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/main/imu_service.cpp[0m[0m:[1;31m173[0m
+[0m--- 0x42003110: [0;33mesp_app_get_description[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_app_format/esp_app_desc.c[0m[0m:[1;31m57[0m
+[0m--- 0x42008d88: [0;33mesp_timer_init[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_timer/src/esp_timer.c[0m[0m:[1;31m573[0m
+[0m--- 0x42005d2c: [0;33mesp_sleep_enable_gpio_switch[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_hw_support/sleep_gpio.c[0m[0m:[1;31m111[0m
+[0m--- 0x42004290: [0;33mstart_cpu0_default[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_system/startup.c[0m[0m:[1;31m481[0m
+[0m--- 0x4204f2a8: [0;33mesp_netif_set_ip_old_info_api[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1756[0m
+[0m--- 0x42051f14: [0;33mwifi_default_action_sta_connected[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/src/wifi_default.c[0m[0m:[1;31m94[0m
+[0m--- 0x4204f2b8: [0;33mesp_netif_set_ip_old_info_api[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1758[0m
+[0m--- 0x4204f930: [0;33mesp_netif_start_api[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1044[0m
+[0m--- 0x420502e8: [0;33mesp_netif_update_default_netif_lwip[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m345[0m
+[0m--- 0x42011e34: [0;33mevent_handler[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/network_interfaces/uros_wlan_netif.c[0m[0m:[1;31m43[0m
+[0m--- 0x4206dfa8: [0;33mcnx_remove_rc[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x42051f44: [0;33mwifi_default_action_sta_connected[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/src/wifi_default.c[0m[0m:[1;31m101[0m
+[0m--- 0x4204fcfc: [0;33mesp_netif_down_api[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1641[0m
+[0m--- 0x420502e8: [0;33mesp_netif_update_default_netif_lwip[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m345[0m
+[0m--- 0x4204fbbc: [0;33mesp_netif_dhcpc_start_api[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1426[0m
+[0m--- 0x42011e34: [0;33mevent_handler[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/network_interfaces/uros_wlan_netif.c[0m[0m:[1;31m43[0m
+[0m--- 0x42051d70: [0;33mwifi_default_action_ap_stop[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/src/wifi_default.c[0m[0m:[1;31m119[0m
+[0m--- 0x42011e34: [0;33mevent_handler[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/network_interfaces/uros_wlan_netif.c[0m[0m:[1;31m43[0m
+[0m

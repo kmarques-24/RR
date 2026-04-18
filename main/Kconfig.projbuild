@@ -32,14 +32,14 @@ menu "Custom: ToF Sensor Configuration"
     config TOF_SDA
         int "ToF SDA GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 8
+        default 5
         help
             Selects the GPIO pin used for the ToF SDA signal.
 
     config TOF_SCL
         int "ToF SCL GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_IN_RANGE_MAX
-        default 9
+        default 6
         help
             Selects the GPIO pin used for the ToF SCL signal.
 endmenu
