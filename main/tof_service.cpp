@@ -213,7 +213,7 @@ BaseType_t tof_service(void)
         "tof_task",
         8192,
         NULL,
-        4,
+        3, // prev 4
         NULL);
     
     if (tof_status == pdPASS)

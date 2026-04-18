@@ -25,6 +25,8 @@ Instructions:
     - run idf.py set-target esp32s3 to resolve linkage errors
 8. Run idf.py build, idf.py flash, idf.py monitor
     - monitor terminals and debug
+
+
 */
 
 // OS and C Headers
@@ -63,13 +65,14 @@ static const char *TAG = "MAIN";
 // not static so that uros_service can see it
 
 void mount_spiffs();
-void initialise(rr_status_t rr_status); 
+void initialise(void); 
 void test_drive_code();
 
 // Compile using C linkage rules so app_main keeps its name. Required for ESP-IDF
 extern "C" void app_main(void)
 {
     ESP_LOGI(TAG, "Starting app_main");
+    ESP_LOGI("RESET", "reset reason: %d", esp_reset_reason());
     
     // Creating events queue (Set to True when you want a service working)
     // rr_status defined in rr_os_service.cpp
@@ -77,9 +80,9 @@ extern "C" void app_main(void)
 
     rr_status.encoder_enabled = false;
     rr_status.estimator_enabled = false;
-    rr_status.imu_enabled = false;
+    rr_status.imu_enabled = true;
     rr_status.key_control_enabled = false;
-    rr_status.tof_enabled = true;
+    rr_status.tof_enabled = false;
 
     rr_status.uros_enabled = true;
 
@@ -92,7 +95,7 @@ extern "C" void app_main(void)
     mount_spiffs();
 
     // Initialize peripherals
-    initialise(rr_status);
+    initialise();
     //uros_service(); // just test this for now
 
     // Loop forever to keep spiffs mounted
@@ -121,7 +124,7 @@ void mount_spiffs() {
     }
 }
 
-void initialise(rr_status_t rr_status)
+void initialise(void)
 {
     if (rr_status.encoder_enabled)
     {
@@ -140,18 +143,20 @@ void initialise(rr_status_t rr_status)
         start_estimator();
         ESP_LOGI(TAG, "Estimator service starting");
     }
+
     if (rr_status.imu_enabled)
     {
         init_imu();
-        imu_service();
-        ESP_LOGI(TAG, "IMU service starting");
+        if (imu_service() != pdPASS)
+        {
+            rr_status.imu_enabled = false;
+        }
+        else
+        {
+            ESP_LOGI(TAG, "IMU service starting");
+        }
     }
-    if (rr_status.key_control_enabled)
-    {
-        ESP_LOGI(TAG, "Controller service starting");
-        init_controller();
-        start_controller();
-    }
+
     if (rr_status.tof_enabled)
     {
         init_tof_sensor();
@@ -160,7 +165,19 @@ void initialise(rr_status_t rr_status)
             // disable so uros doesn't try to publish
             rr_status.tof_enabled = false;  
         }
+        else
+        {
+            ESP_LOGI(TAG, "ToF service starting");
+        }
     }
+
+    if (rr_status.key_control_enabled)
+    {
+        ESP_LOGI(TAG, "Controller service starting");
+        init_controller();
+        start_controller();
+    }
+
     if (rr_status.uros_enabled)
     {
         ESP_LOGI(TAG, "MicroROS service starting");

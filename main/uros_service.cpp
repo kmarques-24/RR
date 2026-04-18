@@ -126,7 +126,25 @@ void imu_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     if (timer != NULL)
     {
         update_imu_msg(&imu_msg);
-        RCSOFTCHECK(rcl_publish(&imu_pub, &imu_msg, NULL));
+        // ESP_LOGI("IMU_CB", "quat w:%.2f x:%.2f y:%.2f z:%.2f | gyro x:%.2f y:%.2f z:%.2f",
+        //     imu_msg.orientation.w,
+        //     imu_msg.orientation.x,
+        //     imu_msg.orientation.y,
+        //     imu_msg.orientation.z,
+        //     imu_msg.angular_velocity.x,
+        //     imu_msg.angular_velocity.y,
+        //     imu_msg.angular_velocity.z);
+        //RCSOFTCHECK(rcl_publish(&imu_pub, &imu_msg, NULL));
+        rcl_ret_t r = rcl_publish(&imu_pub, &imu_msg, NULL);
+        if (r != RCL_RET_OK) {
+            if (rcl_error_is_set()) {
+                rcl_error_string_t err = rcl_get_error_string();
+                ESP_LOGE("IMU_CB", "publish failed: %ld | %s", (long)r, err.str);
+            } else {
+                ESP_LOGE("IMU_CB", "publish failed: %ld | no error string set", (long)r);
+            }
+            rcl_reset_error();
+        }
     }
 }
 
@@ -254,15 +272,22 @@ void micro_ros_task(void *arg)
     // Spin
     while (1)
     {   
-        rclc_executor_spin_some(&executor, RCL_MS_TO_NS(5)); // check for work and wait up to 5 ms
-            // 5 ms must be shorter than fastest timer period
-        vTaskDelay(pdMS_TO_TICKS(1)); // wait 1 ms
-            //usleep(10000); // pauses task for 10 ms (usleep units are microseconds, so 10000 us)
 
+        rclc_executor_spin_some(&executor, RCL_MS_TO_NS(5)); 
+            // check for work and wait up to 5 ms
+            // 5 ms must be shorter than fastest timer period
+        
         // rclc_executor is a checker. spin_some waits for a ROS event and checks out after 100 ms
             // then it microsleeps if someone else has a task before restarting
             // rclc_executor_spin blocks forever and loop never repeats. Use if task only handles ROS events
             // rclc_executor_prepare and rclc_executor_spin_one_period can help sync ROS with non-ROS control loop
+            // these are about timing regularity, not preventing transport blocking
+        
+        // transport blocking occurs within publish when it's waiting for a handshake
+
+        vTaskDelay(pdMS_TO_TICKS(10)); // wait 10 ms (changed from 1 ms and 5 ms)
+            // Need to give enough time to IDLE so that watchdog doesn't trigger
+            // 1 and 5 ms are too short
     }
 
     // Free resources
@@ -426,7 +451,7 @@ BaseType_t uros_service(void)
         "uros_task",
         12288, // Originally stack size 8192, increased while diagnosing tof publish errors
         NULL,
-        5, // 5,  Priority
+        3, // Priority, prev 5
         NULL);
 
     if (status != pdPASS)

@@ -145,7 +145,7 @@ BaseType_t start_estimator(void)
         "estimator_task",
         4096,
         NULL,
-        6,
+        4, // should be after the IMU and Encoder
         NULL);
     
     if (status == pdPASS)

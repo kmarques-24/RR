@@ -17,15 +17,17 @@
 
 // Polling and report frequency
 #define POLLING_FREQ_HZ     250
-#define POLLING_PERIOD_MS   (uint32_t)(1/POLLING_FREQ_HZ*1000)
+#define POLLING_PERIOD_MS   (uint32_t)(1000 / POLLING_FREQ_HZ)
 #define REPORT_FREQ_HZ      100
-#define REPORT_PERIOD_US    (uint32_t)(1/REPORT_FREQ_HZ*1000000)
+#define REPORT_PERIOD_US    (uint32_t)(1000000 / REPORT_FREQ_HZ) // beware integer div and order of operations
 
 // IMU data
 static BNO08x imu;
 static imu_data_t imu_data_latest;
 static SemaphoreHandle_t dataMutex; // protect while writing
 static StaticSemaphore_t dataMutexBuffer;
+
+bool imu_initialized = false;
 
 // Holders
 bno08x_quat_t quat;
@@ -65,31 +67,45 @@ void get_latest_imu(imu_data_t *imu_data)
 void init_imu(void)
 {
     ESP_LOGI(TAG, "IMU enabled");
+
     // initialize imu
     if (!imu.initialize())
     {
         ESP_LOGE(TAG, "Init failure, returning from main.");
+        imu_initialized = false;
         return;
     }
 
     dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
     // 10000 us = 10 ms report interval (100 Hz)
         // changed from 100,000us == 100ms report interval
-    imu.rpt.rv_gyro_integrated.enable(REPORT_PERIOD_US);
-    imu.rpt.linear_accelerometer.enable(REPORT_PERIOD_US);
-    imu.rpt.accelerometer.enable(REPORT_PERIOD_US);
-    imu.rpt.cal_magnetometer.enable(REPORT_PERIOD_US);
+    esp_err_t ret;
+    ret = imu.rpt.rv_gyro_integrated.enable(REPORT_PERIOD_US);
+    ESP_LOGI(TAG, "rv_gyro_integrated enable: %d", ret);
+
+    ret = imu.rpt.linear_accelerometer.enable(REPORT_PERIOD_US);
+    ESP_LOGI(TAG, "linear_accelerometer enable: %d", ret);
+
+    ret = imu.rpt.accelerometer.enable(REPORT_PERIOD_US);
+    ESP_LOGI(TAG, "accelerometer enable: %d", ret);
+
+    ret = imu.rpt.cal_magnetometer.enable(REPORT_PERIOD_US);
+    ESP_LOGI(TAG, "cal_magnetometer enable: %d", ret);
+
     ESP_LOGI(TAG, "IMU enabled");
+    imu_initialized = true;
 }
 
 void imu_task(void *pvParameter)
 {
+    ESP_LOGI("IMU_TASK", "IMU task started on core %d", xPortGetCoreID());
     //UBaseType_t stack_remaining;
     while(1)
     {
         // block until new report is detected
         if (imu.data_available())
         {
+            //ESP_LOGI("IMU_TASK", "data available");
             // Lock while imu_data_latest updates
             xSemaphoreTake(dataMutex, portMAX_DELAY);
 
@@ -145,13 +161,20 @@ void imu_task(void *pvParameter)
 
             xSemaphoreGive(dataMutex); // done updating
         }
-        vTaskDelay(pdMS_TO_TICKS(POLLING_PERIOD_MS)); // polling to save a pin
-        // changed from 1000. Can return to this to debug. Should be less than report interval
+        //vTaskDelay(pdMS_TO_TICKS(POLLING_PERIOD_MS)); 
+            // library isn't set up for polling - have to have HINT
+            // isAvailable is blocking at the report frequency (100 Hz), so don't need VTaskDelay
     }
 }
 
 BaseType_t imu_service(void)
 {
+    if (!imu_initialized)
+    {
+        ESP_LOGE(TAG, "IMU not initialized, cannot start service");
+        return pdFAIL;
+    }
+    
     BaseType_t status;
     status = xTaskCreate(
         imu_task,

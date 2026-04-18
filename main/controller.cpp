@@ -134,7 +134,7 @@ void controller_task(void *pvParameter)
         // speed function already pwm capped
         speed_callback(left_duty, right_duty);
         
-        vTaskDelay(pdMS_TO_TICKS(20)); // 50 Hz
+        vTaskDelay(pdMS_TO_TICKS(10)); // prev 20 (50 Hz)
     }
 }
 
@@ -146,7 +146,7 @@ BaseType_t start_controller(void)
         "controller_task",
         4096,
         NULL,
-        5,
+        4, // should be with estimator after IMU & encoder
         NULL);
     
     if (status == pdPASS)

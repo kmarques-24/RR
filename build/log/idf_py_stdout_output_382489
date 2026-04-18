@@ -1,0 +1,1881 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2a (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40048de8
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3818,len:0x1758
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xc00
+load:0x403cc700,len:0x2e04
+entry 0x403c9908
+[0;32mI (26) boot: ESP-IDF v5.1.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr 18 2026 14:14:23[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (80) boot:  2 factory          factory app      00 00 00010000 00180000[0m
+[0;32mI (87) boot:  3 storage          Unknown data     01 82 00190000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=42254h (270932) map[0m
+[0;32mI (156) esp_image: segment 1: paddr=0005227c vaddr=3fc9b100 size=057ach ( 22444) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=00057a30 vaddr=40374000 size=085e8h ( 34280) load[0m
+[0;32mI (169) esp_image: segment 3: paddr=00060020 vaddr=42000020 size=ae580h (714112) map[0m
+[0;32mI (298) esp_image: segment 4: paddr=0010e5a8 vaddr=4037c5e8 size=0eaa8h ( 60072) load[0m
+[0;32mI (321) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (322) boot: Disabling RNG early entropy source...[0m
+[0;32mI (333) cpu_start: Multicore app[0m
+D (333) flash HPM: HPM with dummy, status is 3[0m
+[0;32mI (334) cpu_start: Pro cpu up.[0m
+[0;32mI (334) cpu_start: Starting app cpu, entry point is 0x4037577c[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+D (349) clk: RTC_SLOW_CLK calibration value: 3827046[0m
+[0;32mI (361) cpu_start: Pro cpu start user code[0m
+[0;32mI (361) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (361) cpu_start: Application information:[0m
+[0;32mI (364) cpu_start: Project name:     RR_OS[0m
+[0;32mI (369) cpu_start: App version:      2803b22-dirty[0m
+[0;32mI (374) cpu_start: Compile time:     Apr 18 2026 14:56:30[0m
+[0;32mI (381) cpu_start: ELF file SHA256:  1e84a2a1b9a400ee...[0m
+[0;32mI (387) cpu_start: ESP-IDF:          v5.1.2-dirty[0m
+[0;32mI (392) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (397) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (401) cpu_start: Chip rev:         v0.2[0m
+D (406) memory_layout: Checking 6 reserved memory ranges:[0m
+D (412) memory_layout: Reserved memory range 0x3fc84000 - 0x3fc9b100[0m
+D (418) memory_layout: Reserved memory range 0x3fc9b100 - 0x3fcaa3e8[0m
+D (424) memory_layout: Reserved memory range 0x3fceee34 - 0x3fcf0000[0m
+D (431) memory_layout: Reserved memory range 0x40374000 - 0x4038b100[0m
+D (437) memory_layout: Reserved memory range 0x600fe000 - 0x600fe010[0m
+D (444) memory_layout: Reserved memory range 0x600fffe8 - 0x60100000[0m
+D (450) memory_layout: Building list of available memory regions:[0m
+D (456) memory_layout: Available memory region 0x3fcaa3e8 - 0x3fcb0000[0m
+D (463) memory_layout: Available memory region 0x3fcb0000 - 0x3fcc0000[0m
+D (470) memory_layout: Available memory region 0x3fcc0000 - 0x3fcd0000[0m
+D (476) memory_layout: Available memory region 0x3fcd0000 - 0x3fce0000[0m
+D (483) memory_layout: Available memory region 0x3fce0000 - 0x3fce9710[0m
+D (489) memory_layout: Available memory region 0x3fce9710 - 0x3fceee34[0m
+D (496) memory_layout: Available memory region 0x3fcf0000 - 0x3fcf8000[0m
+D (502) memory_layout: Available memory region 0x600fe010 - 0x600fffe8[0m
+[0;32mI (509) heap_init: Initializing. RAM available for dynamic allocation:[0m
+D (516) heap_init: New heap initialised at 0x3fcaa3e8[0m
+[0;32mI (521) heap_init: At 3FCAA3E8 len 0003F328 (252 KiB): DRAM[0m
+[0;32mI (528) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM[0m
+D (534) heap_init: New heap initialised at 0x3fcf0000[0m
+[0;32mI (539) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+D (546) heap_init: New heap initialised at 0x600fe010[0m
+[0;32mI (551) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+D (557) intr_alloc: Connected src 39 to int 2 (cpu 0)[0m
+D (563) spi_flash: trying chip: issi[0m
+D (566) spi_flash: trying chip: gd[0m
+[0;32mI (569) spi_flash: detected chip: gd[0m
+[0;32mI (574) spi_flash: flash io: dio[0m
+D (577) cpu_start: calling init function: 0x4208f77c[0m
+D (583) cpu_start: calling init function: 0x4208f5cc[0m
+D (588) cpu_start: calling init function: 0x42051dd4[0m
+D (593) cpu_start: calling init function: 0x42032854[0m
+D (598) cpu_start: calling init function: 0x4201fc54[0m
+D (603) cpu_start: calling init function: 0x4201f520[0m
+D (608) cpu_start: calling init function: 0x4201f4fc[0m
+D (613) cpu_start: calling init function: 0x4201c8ec[0m
+D (618) cpu_start: calling init function: 0x4201a4dc[0m
+D (623) cpu_start: calling init function: 0x4200c070[0m
+D (628) cpu_start: calling init function: 0x420030a8[0m
+D (633) cpu_start: calling init function: 0x42008d20 on core: 0[0m
+D (639) intr_alloc: Connected src 59 to int 3 (cpu 0)[0m
+D (644) cpu_start: calling init function: 0x42005cc4 on core: 0[0m
+[0;32mI (650) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (657) sleep: Enable automatic switching of GPIO sleep configuration[0m
+D (664) cpu_start: calling init function: 0x42004228 on core: 0[0m
+D (670) intr_alloc: Connected src 79 to int 9 (cpu 0)[0m
+[0;32mI (675) app_start: Starting scheduler on CPU0[0m
+D (680) intr_alloc: Connected src 57 to int 12 (cpu 0)[0m
+D (680) intr_alloc: Connected src 80 to int 2 (cpu 1)[0m
+[0;32mI (690) app_start: Starting scheduler on CPU1[0m
+D (690) intr_alloc: Connected src 58 to int 3 (cpu 1)[0m
+[0;32mI (680) main_task: Started on CPU0[0m
+D (700) heap_init: New heap initialised at 0x3fce9710[0m
+D (700) intr_alloc: Connected src 52 to int 13 (cpu 0)[0m
+[0;32mI (710) main_task: Calling app_main()[0m
+[0;32mI (710) MAIN: Starting app_main[0m
+[0;32mI (800) IMU: IMU enabled[0m
+[0;32mI (800) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (810) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (810) gpio: GPIO[2]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:2 [0m
+D (820) intr_alloc: Connected src 16 to int 17 (cpu 0)[0m
+D (830) gdma: new group (0) at 0x3fcb0ae8[0m
+D (830) gdma: new pair (0,0) at 0x3fcafd48[0m
+D (840) gdma: new tx channel (0,0) at 0x3fcb0ab4[0m
+D (840) gdma: new rx channel (0,0) at 0x3fcb0b2c[0m
+D (850) spi: SPI3 use gpio matrix.[0m
+D (850) intr_alloc: Connected src 22 to int 18 (cpu 0)[0m
+D (850) spi_hal: eff: 2000, limit: 80000k(/0), 0 dummy, -1 delay[0m
+D (860) spi_master: SPI3: New device added to CS5, effective clock: 2000kHz[0m
+[0;32mI (805) IMU: IMU enabled[0m
+[0;32mI (805) gpio: GPIO[1]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (815) gpio: GPIO[3]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (815) gpio: GPIO[2]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:2 [0m
+D (825) intr_alloc: Connected src 16 to int 17 (cpu 0)[0m
+D (835) gdma: new group (0) at 0x3fcb0ae8[0m
+D (835) gdma: new pair (0,0) at 0x3fcafd48[0m
+D (845) gdma: new tx channel (0,0) at 0x3fcb0ab4[0m
+D (845) gdma: new rx channel (0,0) at 0x3fcb0b2c[0m
+D (855) spi: SPI3 use gpio matrix.[0m
+D (855) intr_alloc: Connected src 22 to int 18 (cpu 0)[0m
+D (855) spi_hal: eff: 2000, limit: 80000k(/0), 0 dummy, -1 delay[0m
+D (865) spi_master: SPI3: New device added to CS5, effective clock: 2000kHz[0m
+[0;32mI (815) gpio: GPIO[2]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:2 [0m
+D (825) intr_alloc: Connected src 16 to int 17 (cpu 0)[0m
+D (835) gdma: new group (0) at 0x3fcb0ae8[0m
+D (835) gdma: new pair (0,0) at 0x3fcafd48[0m
+D (845) gdma: new tx channel (0,0) at 0x3fcb0ab4[0m
+D (845) gdma: new rx channel (0,0) at 0x3fcb0b2c[0m
+D (855) spi: SPI3 use gpio matrix.[0m
+D (855) intr_alloc: Connected src 22 to int 18 (cpu 0)[0m
+D (855) spi_hal: eff: 2000, limit: 80000k(/0), 0 dummy, -1 delay[0m
+D (865) spi_master: SPI3: New device added to CS5, effective clock: 2000kHz[0m
+[0;32mI (1895) BNO08x: Product ID 0 Info:                           
+                ---------------------------
+                Product ID: 0x98a6b4
+                SW Version Major: 0x3
+                SW Version Minor: 0x2
+                SW Build Number:  0x6
+                SW Version Patch: 0xd
+                ---------------------------
+[0m
+[0;32mI (1925) BNO08x: Product ID 1 Info:                           
+                ---------------------------
+                Product ID: 0x98a6b4
+                SW Version Major: 0x3
+                SW Version Minor: 0x2
+                SW Build Number:  0x6
+                SW Version Patch: 0xd
+                ---------------------------
+[0m
+[0;32mI (1955) BNO08x: Product ID 2 Info:                           
+                ---------------------------
+                Product ID: 0x98a6b4
+                SW Version Major: 0x3
+                SW Version Minor: 0x2
+                SW Build Number:  0x6
+                SW Version Patch: 0xd
+                ---------------------------
+[0m
+[0;32mI (1985) BNO08x: Product ID 3 Info:                           
+                ---------------------------
+                Product ID: 0x98a6b4
+                SW Version Major: 0x3
+                SW Version Minor: 0x2
+                SW Build Number:  0x6
+                SW Version Patch: 0xd
+                ---------------------------
+[0m
+[0;32mI (2015) BNO08x: Successfully initialized....[0m
+[0;32mI (2815) IMU: rv_gyro_integrated enable: 1[0m
+[0;32mI (2955) IMU: linear_accelerometer enable: 1[0m
+[0;32mI (2985) IMU: accelerometer enable: 1[0m
+[0;32mI (3015) IMU: cal_magnetometer enable: 1[0m
+[0;32mI (3015) IMU: IMU enabled[0m
+[0;32mI (3015) IMU_TASK: IMU task started on core 0[0m
+[0;32mI (3015) IMU: IMU service started![0m
+[0;32mI (3015) MAIN: IMU service starting[0m
+[0;32mI (3025) MAIN: MicroROS service starting[0m
+[0;32mI (3045) wifi_station_netif: ESP_WIFI_MODE_STA[0m
+D (3055) esp_netif_lwip: LwIP stack has been initialized[0m
+D (3055) esp_netif_lwip: esp-netif has been successfully initialized[0m
+D (3055) event: running task for loop 0x3fcb646c[0m
+D (3055) event: created task for loop 0x3fcb646c[0m
+D (3065) event: created event loop 0x3fcb646c[0m
+D (3065) esp_netif_objects: esp_netif_add_to_list 0x3fcb7394[0m
+D (3075) esp_netif_objects: esp_netif_add_to_list netif added successfully (total netifs: 1)[0m
+D (3085) esp_netif_lwip: check: remote, if=0x0 fn=0x4204f448
+[0m
+D (3085) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+[0;32mI (3095) pp: pp rom version: e7ae62f[0m
+[0;32mI (3095) net80211: net80211 rom version: e7ae62f[0m
+D (3105) nvs: nvs_open_from_partition misc 1[0m
+[0;32mI (3115) wifi:wifi driver task: 3fcb9d8c, prio:23, stack:6656, core=0[0m
+D (3115) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (3125) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (3125) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (3135) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (3145) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (3155) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (3155) nvs: nvs_open_from_partition nvs.net80211 1[0m
+D (3165) nvs: nvs_get opmode 1[0m
+D (3165) nvs: nvs_get_str_or_blob sta.ssid[0m
+D (3175) nvs: nvs_get sta.authmode 1[0m
+D (3175) nvs: nvs_get_str_or_blob sta.pswd[0m
+D (3175) nvs: nvs_get_str_or_blob sta.pmk[0m
+D (3185) nvs: nvs_get sta.chan 1[0m
+D (3185) nvs: nvs_get auto.conn 1[0m
+D (3185) nvs: nvs_get bssid.set 1[0m
+D (3195) nvs: nvs_get_str_or_blob sta.bssid[0m
+D (3195) nvs: nvs_get sta.lis_intval 2[0m
+D (3195) nvs: nvs_get sta.phym 1[0m
+D (3205) nvs: nvs_get sta.phybw 1[0m
+D (3205) nvs: nvs_get_str_or_blob sta.apsw[0m
+D (3215) nvs: nvs_get_str_or_blob sta.apinfo[0m
+D (3215) nvs: nvs_get sta.scan_method 1[0m
+D (3215) nvs: nvs_get sta.sort_method 1[0m
+D (3225) nvs: nvs_get sta.minrssi 1[0m
+D (3225) nvs: nvs_get sta.minauth 1[0m
+D (3225) nvs: nvs_get sta.pmf_e 1[0m
+D (3235) nvs: nvs_get sta.pmf_r 1[0m
+D (3235) nvs: nvs_get sta.btm_e 1[0m
+D (3245) nvs: nvs_get sta.rrm_e 1[0m
+D (3245) nvs: nvs_get sta.mbo_e 1[0m
+D (3245) nvs: nvs_get_str_or_blob ap.ssid[0m
+D (3255) nvs: nvs_get_str_or_blob ap.passwd[0m
+D (3255) nvs: nvs_get_str_or_blob ap.pmk[0m
+D (3255) nvs: nvs_get ap.chan 1[0m
+D (3265) nvs: nvs_get ap.authmode 1[0m
+D (3265) nvs: nvs_get ap.hidden 1[0m
+D (3265) nvs: nvs_get ap.max.conn 1[0m
+D (3275) nvs: nvs_get bcn.interval 2[0m
+D (3275) nvs: nvs_get ap.phym 1[0m
+D (3275) nvs: nvs_get ap.phybw 1[0m
+D (3285) nvs: nvs_get ap.sndchan 1[0m
+D (3285) nvs: nvs_get ap.pmf_e 1[0m
+D (3285) nvs: nvs_get ap.pmf_r 1[0m
+D (3295) nvs: nvs_get ap.p_cipher 1[0m
+D (3295) nvs: nvs_get lorate 1[0m
+D (3295) nvs: nvs_get_str_or_blob country[0m
+D (3305) nvs: nvs_get ap.ftm_r 1[0m
+D (3305) nvs: nvs_get sta.ft 1[0m
+D (3315) nvs: nvs_get sta.owe 1[0m
+D (3315) nvs: nvs_get sta.trans_d 1[0m
+D (3315) nvs: nvs_get sta.sae_h2e 1[0m
+D (3325) nvs: nvs_get sta.sae_pk_mode 1[0m
+D (3325) nvs: nvs_get sta.bss_retry 1[0m
+D (3325) nvs: nvs_get_str_or_blob sta.owe_data[0m
+D (3335) nvs: nvs_get sta.he_dcm 1[0m
+D (3335) nvs: nvs_get sta.he_dcm_c_tx 1[0m
+D (3335) nvs: nvs_get sta.he_dcm_c_rx 1[0m
+D (3345) nvs: nvs_get sta.he_mcs9_d 1[0m
+D (3345) nvs: nvs_get sta.he_su_b_d 1[0m
+D (3355) nvs: nvs_get sta.he_su_b_f_d 1[0m
+D (3355) nvs: nvs_get sta.he_mu_b_f_d 1[0m
+D (3355) nvs: nvs_get sta.he_cqi_f_d 1[0m
+D (3365) nvs: nvs_get_str_or_blob sta.sae_h2e_id[0m
+D (3365) nvs: nvs_get ap.sae_h2e 1[0m
+D (3375) nvs: nvs_get_str_or_blob ap.pmk_info[0m
+D (3375) nvs: nvs_get nan.phym 1[0m
+D (3375) nvs: nvs_set ap.sndchan 1 1[0m
+[0;32mI (3385) wifi:wifi firmware version: 91b9630[0m
+[0;32mI (3385) wifi:wifi certification version: v7.0[0m
+[0;32mI (3395) wifi:config NVS flash: enabled[0m
+[0;32mI (3395) wifi:config nano formating: disabled[0m
+[0;32mI (3395) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (3405) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (3405) wifi:Init management short buffer num: 32[0m
+[0;32mI (3415) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (3415) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (3425) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (3425) wifi:Init static rx buffer num: 10[0m
+[0;32mI (3425) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (3435) wifi_init: rx ba win: 6[0m
+[0;32mI (3435) wifi_init: tcpip mbox: 32[0m
+[0;32mI (3445) wifi_init: udp mbox: 6[0m
+[0;32mI (3445) wifi_init: tcp mbox: 6[0m
+[0;32mI (3445) wifi_init: tcp tx win: 5744[0m
+[0;32mI (3455) wifi_init: tcp rx win: 5744[0m
+[0;32mI (3455) wifi_init: tcp mss: 1440[0m
+[0;32mI (3465) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (3465) wifi_init: WiFi RX IRAM OP enabled[0m
+D (3465) nvs: nvs_get opmode 1[0m
+D (3475) wifi:clear blacklist
+D (3475) nvs: nvs_get_str_or_blob sta.ssid[0m
+D (3485) nvs: nvs_get sta.pmf_e 1[0m
+[0;32mI (3485) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+D (3485) phy_init: loading PHY init data from application binary[0m
+D (3495) nvs: nvs_open_from_partition phy 0[0m
+D (3505) nvs: nvs_get cal_version 4[0m
+D (3505) nvs: nvs_get_str_or_blob cal_mac[0m
+D (3505) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (3515) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (3525) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (3525) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (3535) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (3545) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (3545) nvs: nvs_get_str_or_blob cal_data[0m
+D (3565) nvs: nvs_close 3[0m
+D (3565) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (3565) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (3575) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (3575) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (3585) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (3595) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (3615) temperature_sensor: range changed, change to index 2[0m
+D (3625) wifi:filter: set rx policy=0
+[0;32mI (3625) wifi:mode : sta (1c:db:d4:44:b0:5c)[0m
+[0;32mI (3625) wifi:enable tsf[0m
+D (3625) wifi:filter: set rx policy=1
+D (3625) wifi:connect status 0 -> 0
+D (3635) event: running post WIFI_EVENT:2 with handler 0x420520b4 and context 0x3fcb75e8 on loop 0x3fcb646c[0m
+D (3645) wifi_init_default: wifi_start esp-netif:0x3fcb7394 event-id2[0m
+D (3645) wifi_init_default: WIFI mac address: 1c db d4 44 b0 5c[0m
+D (3655) esp_netif_lwip: check: remote, if=0x3fcb7394 fn=0x4204f458
+[0m
+D (3665) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+[0;32mI (3665) wifi_station_netif: wifi_init_sta finished.[0m
+D (3665) esp_netif_handlers: esp_netif action has started with netif0x3fcb7394 from event_id=2[0m
+D (3685) esp_netif_lwip: check: remote, if=0x3fcb7394 fn=0x4204fad0
+[0m
+D (3685) esp_netif_lwip: esp_netif_start_api 0x3fcb7394[0m
+D (3695) esp_netif_lwip: esp_netif_get_hostname esp_netif:0x3fcb7394[0m
+D (3695) esp_netif_lwip: check: local, if=0x3fcb7394 fn=0x42050488
+[0m
+D (3705) esp_netif_lwip: esp_netif_update_default_netif_lwip 0x3fcb7394[0m
+D (3715) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (3715) event: running post WIFI_EVENT:2 with handler 0x42011f64 and context 0x3fcc0064 on loop 0x3fcb646c[0m
+D (3725) wifi:Start wifi connect
+D (3735) wifi:connect status 0 -> 0
+D (3735) wifi:connect chan=0
+D (3735) wifi:first chan=1
+D (3735) wifi:connect status 0 -> 1
+D (3745) wifi:filter: set rx policy=3
+D (3745) wifi:clear scan ap list
+D (3745) wifi:start scan: type=0x50f, priority=2, cb=0x4206e148, arg=0x0, ss_state=0x1, time=3754128, index=0
+D (3755) wifi:perform scan: ss_state=0x9, chan<1,0>, dur<0,120>
+D (3765) wifi:rsn valid: gcipher=3 ucipher=3 akm=5
+
+D (3765) wifi:profile match: ss_state=0x7
+D (3775) wifi:scan end: arg=0x0, status=0, ss_state=0x7
+D (3775) wifi:find first mathched ssid, scan done
+D (3785) wifi:filter: set rx policy=4
+D (3785) wifi:first chan=1
+D (3785) wifi:handoff_cb: status=0
+D (3795) wifi:ap found, mac=94:83:c4:84:b5:c3
+D (3795) wifi:new_bss=0x3fca8a00, cur_bss=0x0, new_chan=<1,0>, cur_chan=1
+D (3805) wifi:filter: set rx policy=5
+[0;32mI (3805) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1[0m
+D (3815) wifi:connect_op: status=0, auth=5, cipher=3 
+D (3815) wifi:auth mode is not none
+D (3815) wifi:connect_bss: auth=1, reconnect=0
+[0;32mI (3825) wifi:state: init -> auth (b0)[0m
+D (3825) wifi:start 1s AUTH timer
+D (3825) wifi:clear scan ap list
+D (3855) wifi:recv auth: seq=2, status=0
+[0;32mI (3855) wifi:state: auth -> assoc (0)[0m
+D (3855) wifi:restart connect 1s timer for assoc
+D (3905) wifi:recv assoc: type=0x10
+D (3905) wifi:filter: set rx policy=6
+[0;32mI (3905) wifi:state: assoc -> run (10)[0m
+D (3905) wifi:start 10s connect timer for 4 way handshake
+D (3935) gdma: new pair (0,1) at 0x3fcc0958[0m
+D (3935) gdma: new tx channel (0,1) at 0x3fcc13f0[0m
+D (3935) gdma: new rx channel (0,1) at 0x3fcc1424[0m
+D (3935) gdma: tx channel (0,1), (1:32) bytes aligned, burst enabled[0m
+D (3945) gdma: rx channel (0,1), (1:32) bytes aligned, burst disabled[0m
+[0;32mI (3965) wifi:connected with RR, aid = 2, channel 1, BW20, bssid = 94:83:c4:84:b5:c3[0m
+[0;32mI (3965) wifi:security: WPA2-PSK, phy: bgn, rssi: -55[0m
+D (3965) wifi:remove all except 94:83:c4:84:b5:c3 from rc list
+D (3975) wifi:clear blacklist
+D (3975) nvs: nvs_set sta.chan 1 1[0m
+D (3975) nvs: nvs_set_blob sta.apinfo 700[0m
+D (3985) wifi:filter: set rx policy=7
+[0;32mI (3985) wifi:pm start, type: 1[0m
+
+[0;32mI (3985) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+D (3995) wifi:Send sta connected event
+D (3995) wifi:connect status 1 -> 5
+D (4005) wifi:obss scan is disabled
+D (4005) wifi:start obss scan: obss scan is stopped
+D (4015) event: running post WIFI_EVENT:4 with handler 0x420520e4 and context 0x3fcb7648 on loop 0x3fcb646c[0m
+D (4025) esp_netif_handlers: esp_netif action connected with netif0x3fcb7394 from event_id=4[0m
+D (4025) esp_netif_lwip: check: remote, if=0x3fcb7394 fn=0x4204fe9c
+[0m
+D (4035) esp_netif_lwip: esp_netif_up_api esp_netif:0x3fcb7394[0m
+D (4045) esp_netif_lwip: check: local, if=0x3fcb7394 fn=0x42050488
+[0m
+D (4045) esp_netif_lwip: esp_netif_update_default_netif_lwip 0x3fcb7394[0m
+D (4055) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (4065) esp_netif_lwip: check: remote, if=0x3fcb7394 fn=0x4204fd5c
+[0m
+[0;32mI (4065) wifi:D (4065) esp_netif_lwip: esp_netif_dhcpc_start_api esp_netif:0x3fcb7394[0m[0m
+AP's beacon interval = 102400 us, DTIM period = 2D (4075) esp_netif_lwip: esp_netif_start_ip_lost_timer esp_netif:0x3fcb7394[0m
+
+D (4085) esp_netif_lwip: if0x3fcb7394 start ip lost tmr: no need start because netif=0x3fcb7418 interval=120 ip=0[0m
+D (4085) wifi:D (4095) esp_netif_lwip: starting dhcp client[0m
+set max rate: from <rate=130, phy=3, sig=0> to <rate=144, phy=3 sig=0>
+D (4105) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (4105) wifi:sig_b=1, sig_g=0, sig_n=0, max_b=0, max_g=108, max_n=144
+D (4125) wifi:update trc
+D (4125) event: running post WIFI_EVENT:4 with handler 0x42011f64 and context 0x3fcc0064 on loop 0x3fcb646c[0m
+D (5105) esp_netif_lwip: esp_netif_internal_dhcpc_cb lwip-netif:0x3fcb7418[0m
+D (5105) esp_netif_lwip: if0x3fcb7394 ip changed=1[0m
+D (5105) event: running post IP_EVENT:0 with handler 0x42051f10 and context 0x3fcb771c on loop 0x3fcb646c[0m
+D (5115) wifi_init_default: Got IP wifi default handler entered[0m
+D (5115) esp_netif_handlers: esp_netif action got_ip with netif0x3fcb7394 from event_id=0[0m
+[0;32mI (5125) esp_netif_handlers: sta ip: 192.168.8.249, mask: 255.255.255.0, gw: 192.168.8.1[0m
+D (5135) event: running post IP_EVENT:0 with handler 0x42011f64 and context 0x3fcc0084 on loop 0x3fcb646c[0m
+[0;32mI (5145) wifi_station_netif: got ip:192.168.8.249[0m
+[0;32mI (5145) wifi_station_netif: connected to ap SSID:RR password:BotT3st![0m
+[0;32mI (5155) uros_service: Started uros service. Status: RUNNING (Connected to WiFi)[0m
+[0;32mI (5395) wifi:<ba-add>idx:0 (ifx:0, 94:83:c4:84:b5:c3), tid:0, ssn:3, winSize:64[0m
+[0;32mI (6165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (6175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (6185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (6195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (6205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (6315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:-0.00[0m
+[0;32mI (6435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (6705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:0.00 z:0.00[0m
+[0;32mI (6745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (6995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (7065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:-0.00 z:0.00[0m
+[0;32mI (7075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (7155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.01 y:-0.00 z:-0.00[0m
+[0;32mI (7915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (7925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (7935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (7945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (7955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (7965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (7975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (7985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (7995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (8995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (9995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (10995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (11995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;31mE (12145) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (12145) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (12145) task_wdt: Tasks currently running:[0m
+[0;31mE (12145) task_wdt: CPU 0: uros_task[0m
+[0;31mE (12145) task_wdt: CPU 1: IDLE[0m
+[0;31mE (12145) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x42032C02:0x3FC9E130 0x42032DAE:0x3FC9E150 0x40377329:0x3FC9E170 0x4037F959:0x3FCC3E50 0x4204B9FA:0x3FCC3E90 0x4204BD50:0x3FCC3EB0 0x42039124:0x3FCC3ED0 0x4203916B:0x3FCC3EF0 0x420395E6:0x3FCC3F10 0x42039602:0x3FCC3F30 0x4203A87C:0x3FCC3F50 0x4203A966:0x3FCC3FB0 0x42022699:0x3FCC3FD0 0x420224A1:0x3FCC4000 0x420217E4:0x3FCC4030 0x42021955:0x3FCC40D0 0x42027A33:0x3FCC40F0 0x42025A25:0x3FCC4140 0x4201D8D5:0x3FCC41B0 0x4200B58E:0x3FCC41F0 0x40381A79:0x3FCC42F0
+
+[0;32mI (12215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:-0.00[0m
+[0;32mI (12895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (12995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;33mW (13585) wifi:[ADDBA]rx delba, code:39, delete tid:0[0m
+[0;32mI (13585) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (13595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (13995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (14995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (15995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:-0.00 y:-0.00 z:0.00[0m
+[0;32mI (16855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (16995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;31mE (17145) task_wdt: Task watchdog got triggered. The following tasks/users did not reset the watchdog in time:[0m
+[0;31mE (17145) task_wdt:  - IDLE (CPU 0)[0m
+[0;31mE (17145) task_wdt: Tasks currently running:[0m
+[0;31mE (17145) task_wdt: CPU 0: uros_task[0m
+[0;31mE (17145) task_wdt: CPU 1: IDLE[0m
+[0;31mE (17145) task_wdt: Print CPU 0 (current core) backtrace[0m
+
+
+Backtrace: 0x42032C02:0x3FC9E130 0x42032DAE:0x3FC9E150 0x40377329:0x3FC9E170 0x4201D2EA:0x3FCC4190 0x4201DADB:0x3FCC41B0 0x4200B58E:0x3FCC41F0 0x40381A79:0x3FCC42F0
+
+[0;32mI (17195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (17995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (18995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19615) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19625) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19635) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19645) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19655) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19665) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19675) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19685) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19695) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19705) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19715) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19725) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19735) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19745) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19755) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19765) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19775) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19785) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19795) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19805) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19815) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19825) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19835) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19845) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19855) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19865) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19875) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19885) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19895) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19905) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19915) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19925) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19935) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19945) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19955) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19965) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19975) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19985) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (19995) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20005) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20015) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20025) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20035) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20045) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20055) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20065) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20075) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20085) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20095) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20105) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20115) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20125) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20135) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20145) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20155) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20165) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20175) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20185) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20195) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20205) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20215) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20225) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20235) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20245) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20255) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20265) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20275) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20285) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20295) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20305) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20315) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20325) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20335) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20345) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20355) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20365) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20375) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20385) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20395) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20405) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20415) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20425) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20435) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20445) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20455) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20465) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20475) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20485) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20495) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20505) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20515) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20525) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20535) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20545) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20555) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20565) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20575) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20585) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20595) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m
+[0;32mI (20605) IMU_CB: quat w:0.92 x:-0.01 y:0.03 z:-0.38 | gyro x:0.00 y:0.00 z:0.00[0m

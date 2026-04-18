@@ -9,7 +9,7 @@
 
 #define TAG "ENCODER_SERVICE"
 
-#define ENC_INTERVAL 5 // interval in ms to calculate count speed
+#define ENC_INTERVAL 10 // prev 5 // interval in ms to calculate count speed
 #define ENC_MULTIPLIER (1000.0f / ENC_INTERVAL) // 1/(ENC_INTERVAL/1000) // Hz
 #define ALPHA 0.2 // filtering
 
