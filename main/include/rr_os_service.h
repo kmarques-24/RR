@@ -15,15 +15,21 @@ typedef enum EVENTS {
 } event_t;
 
 typedef struct rr_status_t {
+    bool encoder_enabled;
+    bool drive_enabled;
+    bool estimator_enabled;
+    bool wifi_enabled;
+    bool imu_enabled;
+    bool tof_enabled;
+    bool key_control_enabled;
+    bool uros_enabled;
+
     bool twai_active;
     bool connected;
     uint32_t last_isr_time;
     bool leader;
-    bool imu_enabled;
     bool led_enabled;
     bool radio_enabled;
-    bool encoder_enabled;
-    bool wifi_enabled;
 } rr_status_t;
 
 extern rr_status_t rr_status;

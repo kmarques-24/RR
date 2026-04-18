@@ -15,7 +15,7 @@ typedef struct {
 } motor_controller_t;
 
 void drive_commanded_twist(const geometry_msgs__msg__Twist *twist_msg);
-void init_PID(void);
+void init_controller(void);
 BaseType_t start_controller(void);
 
 #ifdef __cplusplus

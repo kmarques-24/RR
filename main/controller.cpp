@@ -54,7 +54,7 @@ void drive_commanded_twist(const geometry_msgs__msg__Twist *twist_msg)
     xSemaphoreGive(dataMutex);
 }
 
-void init_PID(void)
+void init_controller(void)
 {
     ESP_LOGI(TAG, "Controller enabled");
     // left motor and right motor controller fields are 0 already,

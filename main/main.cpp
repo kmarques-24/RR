@@ -16,14 +16,17 @@
 #include "freertos/semphr.h"
 
 // Project Headers
-#include "include/pins.h"
-#include "include/hardware_motors.h"
-#include "include/twai_service.h"
-#include "include/uros_service.h"
-#include "include/imu_service.h"
-#include "include/hardware_encoders.h"
-#include "include/led.h"
-#include "include/rr_os_service.h"
+#include "hardware_motors.h"
+#include "uros_service.h"
+#include "imu_service.h"
+#include "hardware_encoders.h"
+#include "controller.h"
+#include "estimator.h"
+#include "tof_service.h"
+#include "rr_os_service.h"
+#include "radio_service.h"
+#include "twai_service.h"
+#include "led.h"
 
 static const char *TAG = "MAIN";
 
@@ -41,20 +44,24 @@ extern "C" void app_main(void)
     
     // Creating events queue (Set to True when you want a service working)
     // rr_status defined in rr_os_service.cpp
+    rr_status.wifi_enabled = true;
+    rr_status.encoder_enabled = true;
+    rr_status.estimator_enabled = true;
+    rr_status.imu_enabled = true;
+    rr_status.key_control_enabled = true;
+    rr_status.tof_enabled = true;
+
     rr_status.connected = false;
     rr_status.twai_active = false;
     rr_status.led_enabled = false;
     rr_status.radio_enabled = false;
-    rr_status.wifi_enabled = true;
-    rr_status.encoder_enabled = true;
-    rr_status.imu_enabled = true;
 
     // Mount spiffs
     mount_spiffs();
 
     // Initialize peripherals
-    //initialise(rr_status);
-    uros_service(); // just test this for now
+    initialise(rr_status);
+    //uros_service(); // just test this for now
 
     // Loop forever to keep spiffs mounted
     while (1) {
@@ -84,67 +91,58 @@ void mount_spiffs() {
 
 void initialise(rr_status_t rr_status)
 {
-    // WiFi for ESP32 as AP
-    // Doesn't work with microros (STA) unless finagled as APSTA
-    /*
-    if (rr_status.wifi_enabled){
-        wifi_init_softap();     // microros is STA not AP
-        init_ws();              // don't have a websocket
+    if (rr_status.encoder_enabled)
+    {
+        ESP_LOGI(TAG, "Encoder service starting");
+        init_encoders();
+        encoder_service();
     }
-    */
-
+    if (rr_status.drive_enabled)
+    {
+        ESP_LOGI(TAG, "Motor setup starting");
+        initialise_drivetrain();
+    }
+    if (rr_status.estimator_enabled)
+    {
+        init_estimator();
+        start_estimator();
+        ESP_LOGI(TAG, "Estimator service starting");
+    }
     if (rr_status.imu_enabled)
     {
         init_imu();
         imu_service();
-        ESP_LOGI(TAG, "IMU service started");
+        ESP_LOGI(TAG, "IMU service starting");
     }
-    
+    if (rr_status.key_control_enabled)
+    {
+        ESP_LOGI(TAG, "Controller service starting");
+        init_controller();
+        start_controller();
+    }
+    if (rr_status.tof_enabled)
+    {
+        ESP_LOGI(TAG, "ToF service starting");
+        init_tof_sensor();
+        tof_service();
+    }
+    if (rr_status.uros_enabled)
+    {
+        ESP_LOGI(TAG, "MicroROS service starting");
+        uros_service();
+    }
+
+    // Not using these
     if (rr_status.led_enabled)
     {
         initialise_led();
         set_led_color(INDEPENDENT_COLOR);
         twai_interrupt_init();
     }
-
-    if (rr_status.encoder_enabled)
-    {
-        ESP_LOGI(TAG, "Encoder Service Starting");
-        init_encoders();
-        //init_encoder(&left_encoder);
-        //init_encoder(&right_encoder);
-        encoder_service();
-    }
-
-    // Not using radio right now
-    /* 
     if (rr_status.radio_enabled)
     { 
-        initialise_radio();
+        //initialise_radio();
     } 
-    */
-
-    initialise_drivetrain();
-    uros_service();
-    launch_rr_os_service(); // calls initialize_events()
+    
+    //launch_rr_os_service(); // calls initialize_events()
 }
-
-// ISR handler must not use non-ISR-safe functions like `gpio_get_level` unless GPIO is input-only and stable
-/*
-void initialise_radio()
-{
-    CLK, MISO, MOSI, CS
-    RadioLibCustomHAL hal = RadioLibCustomHAL(1, 2, 3, 5);
-    // CS, G0, RST
-    SX1278 radio = new Module(&hal, 5, 7, 4);
-    int rr_status = radio.begin();
-    if (rr_status == RADIOLIB_ERR_NONE)
-    {
-        ESP_LOGI("Radio", "Radio initialised successfully");
-    }
-    else {ESP_LOGE("Radio", "Radio failed to initialise");}
-
-    radio.setFrequency(433.0);
-    radio.setSpreadingFactor(12);
-}
-*/
