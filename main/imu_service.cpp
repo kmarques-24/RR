@@ -71,28 +71,27 @@ void init_imu(void)
         ESP_LOGE(TAG, "IMU failed to initialize.");
         return;
     }
-
-    if (imu.rpt.rv_gyro_integrated.enable(REPORT_PERIOD_US) != ESP_OK) 
+    // Returns true on enable success - check the documentation! ESP_OK doesn't work (0)
+    if (!imu.rpt.rv_gyro_integrated.enable(REPORT_PERIOD_US))
     {
-        ESP_LOGE(TAG, "rv_gyro_integrated failed"); 
+        ESP_LOGE(TAG, "rv_gyro_integrated failed");
         return;
     }
-    if (imu.rpt.linear_accelerometer.enable(REPORT_PERIOD_US) != ESP_OK) 
+    if (!imu.rpt.linear_accelerometer.enable(REPORT_PERIOD_US) != ESP_OK) 
     { 
         ESP_LOGE(TAG, "linear_accelerometer failed"); 
         return; 
     }
-    if (imu.rpt.accelerometer.enable(REPORT_PERIOD_US) != ESP_OK) 
+    if (!imu.rpt.accelerometer.enable(REPORT_PERIOD_US) != ESP_OK) 
     { 
         ESP_LOGE(TAG, "accelerometer failed"); 
         return; 
     }
-    if (imu.rpt.cal_magnetometer.enable(REPORT_PERIOD_US) != ESP_OK) 
+    if (!imu.rpt.cal_magnetometer.enable(REPORT_PERIOD_US) != ESP_OK) 
     { 
         ESP_LOGE(TAG, "cal_magnetometer failed"); 
         return; 
     }
-
     dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
     imu_initialized = true;
     ESP_LOGI(TAG, "IMU initialized successfully");

@@ -1,0 +1,315 @@
+[0/2] Re-checking globbed directories...
+[1/2] Re-running CMake...
+-- Building ESP-IDF components for target esp32s3
+NOTICE: Skipping optional dependency: espressif/esp_wifi_remote
+NOTICE: Skipping optional dependency: espressif/esp_hosted
+NOTICE: 
+Following dependencies have new versions available:
+Dependency "espressif/esp_websocket_client": "1.4.0" -> "1.6.1"
+Dependency "jgromes/radiolib": "7.2.0" -> "7.6.0"
+Consider running "idf.py update-dependencies" to update your lock file.
+NOTICE: Processing 6 dependencies:
+NOTICE: [1/6] espressif/cmake_utilities (1.1.1)
+NOTICE: [2/6] espressif/esp_websocket_client (1.4.0)
+NOTICE: [3/6] espressif/led_indicator (1.1.1)
+NOTICE: [4/6] espressif/led_strip (2.5.5)
+NOTICE: [5/6] jgromes/radiolib (7.2.0)
+NOTICE: [6/6] idf (5.1.2)
+NOTICE: Skipping optional dependency: espressif/esp_wifi_remote
+NOTICE: Skipping optional dependency: espressif/esp_hosted
+-- Project sdkconfig file /home/km/Desktop/TestFolder/RR/sdkconfig
+Loading defaults file /home/km/Desktop/TestFolder/RR/sdkconfig.defaults...
+-- App "RR_OS" version: 7a4e285-dirty
+-- Adding linker script /home/km/Desktop/TestFolder/RR/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_system/ld/esp32s3/sections.ld.in
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.newlib.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.version.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- LED_INDICATOR: 1.1.1
+-- Using Micro XRCE-DDS middleware
+cd /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/micro_ros_src; \
+unset AMENT_PREFIX_PATH; \
+PATH="/home/km/esp/v5.1.2/esp-idf/components/espcoredump:/home/km/esp/v5.1.2/esp-idf/components/partition_table:/home/km/esp/v5.1.2/esp-idf/components/app_update:/home/km/.espressif/tools/xtensa-esp-elf-gdb/12.1_20221002/xtensa-esp-elf-gdb/bin:/home/km/.espressif/tools/riscv32-esp-elf-gdb/12.1_20221002/riscv32-esp-elf-gdb/bin:/home/km/.espressif/tools/xtensa-esp32-elf/esp-12.2.0_20230208/xtensa-esp32-elf/bin:/home/km/.espressif/tools/xtensa-esp32s2-elf/esp-12.2.0_20230208/xtensa-esp32s2-elf/bin:/home/km/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin:/home/km/.espressif/tools/esp-clang/15.0.0-23786128ae/esp-clang/bin:/home/km/.espressif/tools/riscv32-esp-elf/esp-12.2.0_20230208/riscv32-esp-elf/bin:/home/km/.espressif/tools/esp32ulp-elf/2.35_20220830/esp32ulp-elf/bin:/home/km/.espressif/tools/openocd-esp32/v0.12.0-esp32-20230921/openocd-esp32/bin:/home/km/.espressif/python_env/idf5.1_py3.10_env/bin:/home/km/esp/v5.1.2/esp-idf/tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/km/.vscode/extensions/ms-python.debugpy-2025.18.0-linux-x64/bundled/scripts/noConfigScripts"; \
+. ../micro_ros_dev/install/local_setup.sh; \
+colcon build \
+	--merge-install \
+	--packages-ignore-regex=.*_cpp \
+	--metas /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/colcon.meta  \
+	--cmake-args \
+	"--no-warn-unused-cli" \
+	-DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=OFF \
+	-DTHIRDPARTY=ON \
+	-DBUILD_SHARED_LIBS=OFF \
+	-DBUILD_TESTING=OFF \
+	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_TOOLCHAIN_FILE=/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/esp32_toolchain.cmake \
+	-DCMAKE_VERBOSE_MAKEFILE=OFF \
+        -DIDF_INCLUDES='-I/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/include_override -I/home/km/esp/v5.1.2/esp-idf/components/xtensa/include -I/home/km/esp/v5.1.2/esp-idf/components/xtensa/esp32s3/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_ringbuf/include -I/home/km/esp/v5.1.2/esp-idf/components/efuse/include -I/home/km/esp/v5.1.2/esp-idf/components/efuse/esp32s3/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/deprecated -I/home/km/esp/v5.1.2/esp-idf/components/driver/analog_comparator/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/dac/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/gpio/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/gptimer/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/i2c/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/i2s/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/ledc/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/mcpwm/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/parlio/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/pcnt/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/rmt/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/sdio_slave/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/sdmmc/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/sigma_delta/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/spi/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/temperature_sensor/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/touch_sensor/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/twai/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/uart/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/usb_serial_jtag/include -I/home/km/esp/v5.1.2/esp-idf/components/driver/touch_sensor/esp32s3/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_pm/include -I/home/km/esp/v5.1.2/esp-idf/components/mbedtls/port/include -I/home/km/esp/v5.1.2/esp-idf/components/mbedtls/mbedtls/include -I/home/km/esp/v5.1.2/esp-idf/components/mbedtls/mbedtls/library -I/home/km/esp/v5.1.2/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_app_format/include -I/home/km/esp/v5.1.2/esp-idf/components/bootloader_support/include -I/home/km/esp/v5.1.2/esp-idf/components/bootloader_support/bootloader_flash/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_partition/include -I/home/km/esp/v5.1.2/esp-idf/components/app_update/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_mm/include -I/home/km/esp/v5.1.2/esp-idf/components/spi_flash/include -I/home/km/esp/v5.1.2/esp-idf/components/pthread/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_system/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_rom/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_rom/include/esp32s3 -I/home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3 -I/home/km/esp/v5.1.2/esp-idf/components/hal/esp32s3/include -I/home/km/esp/v5.1.2/esp-idf/components/hal/include -I/home/km/esp/v5.1.2/esp-idf/components/hal/platform_port/include -I/home/km/esp/v5.1.2/esp-idf/components/log/include -I/home/km/esp/v5.1.2/esp-idf/components/heap/include -I/home/km/esp/v5.1.2/esp-idf/components/soc/include -I/home/km/esp/v5.1.2/esp-idf/components/soc/esp32s3 -I/home/km/esp/v5.1.2/esp-idf/components/soc/esp32s3/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_hw_support/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_hw_support/include/soc -I/home/km/esp/v5.1.2/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/km/esp/v5.1.2/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/km/esp/v5.1.2/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/km/esp/v5.1.2/esp-idf/components/freertos/esp_additions/include/freertos -I/home/km/esp/v5.1.2/esp-idf/components/freertos/esp_additions/include -I/home/km/esp/v5.1.2/esp-idf/components/freertos/esp_additions/arch/xtensa/include -I/home/km/esp/v5.1.2/esp-idf/components/newlib/platform_include -I/home/km/esp/v5.1.2/esp-idf/components/esp_common/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_timer/include -I/home/km/esp/v5.1.2/esp-idf/components/app_trace/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_event/include -I/home/km/esp/v5.1.2/esp-idf/components/nvs_flash/include -I/home/km/esp/v5.1.2/esp-idf/components/nvs_flash/../spi_flash/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_phy/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_phy/esp32s3/include -I/home/km/esp/v5.1.2/esp-idf/components/vfs/include -I/home/km/esp/v5.1.2/esp-idf/components/lwip/include -I/home/km/esp/v5.1.2/esp-idf/components/lwip/include/apps -I/home/km/esp/v5.1.2/esp-idf/components/lwip/include/apps/sntp -I/home/km/esp/v5.1.2/esp-idf/components/lwip/lwip/src/include -I/home/km/esp/v5.1.2/esp-idf/components/lwip/port/include -I/home/km/esp/v5.1.2/esp-idf/components/lwip/port/freertos/include/ -I/home/km/esp/v5.1.2/esp-idf/components/lwip/port/esp32xx/include -I/home/km/esp/v5.1.2/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/km/esp/v5.1.2/esp-idf/components/esp_netif/include -I/home/km/esp/v5.1.2/esp-idf/components/wpa_supplicant/include -I/home/km/esp/v5.1.2/esp-idf/components/wpa_supplicant/port/include -I/home/km/esp/v5.1.2/esp-idf/components/wpa_supplicant/esp_supplicant/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_coex/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/wifi_apps/include -I/home/km/esp/v5.1.2/esp-idf/components/unity/include -I/home/km/esp/v5.1.2/esp-idf/components/unity/unity/src -I/home/km/esp/v5.1.2/esp-idf/components/cmock/CMock/src -I/home/km/esp/v5.1.2/esp-idf/components/console/. -I/home/km/esp/v5.1.2/esp-idf/components/http_parser/. -I/home/km/esp/v5.1.2/esp-idf/components/esp-tls/. -I/home/km/esp/v5.1.2/esp-idf/components/esp-tls/esp-tls-crypto -I/home/km/esp/v5.1.2/esp-idf/components/esp_adc/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_adc/interface -I/home/km/esp/v5.1.2/esp-idf/components/esp_adc/esp32s3/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_adc/deprecated/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_eth/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_gdbstub/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_hid/include -I/home/km/esp/v5.1.2/esp-idf/components/tcp_transport/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_http_client/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_http_server/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_https_ota/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_psram/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_lcd/include -I/home/km/esp/v5.1.2/esp-idf/components/esp_lcd/interface -I/home/km/esp/v5.1.2/esp-idf/components/protobuf-c/protobuf-c -I/home/km/esp/v5.1.2/esp-idf/components/protocomm/include/common -I/home/km/esp/v5.1.2/esp-idf/components/protocomm/include/security -I/home/km/esp/v5.1.2/esp-idf/components/protocomm/include/transports -I/home/km/esp/v5.1.2/esp-idf/components/esp_local_ctrl/include -I/home/km/esp/v5.1.2/esp-idf/components/espcoredump/include -I/home/km/esp/v5.1.2/esp-idf/components/espcoredump/include/port/xtensa -I/home/km/esp/v5.1.2/esp-idf/components/wear_levelling/include -I/home/km/esp/v5.1.2/esp-idf/components/sdmmc/include -I/home/km/esp/v5.1.2/esp-idf/components/fatfs/diskio -I/home/km/esp/v5.1.2/esp-idf/components/fatfs/vfs -I/home/km/esp/v5.1.2/esp-idf/components/fatfs/src -I/home/km/esp/v5.1.2/esp-idf/components/idf_test/include -I/home/km/esp/v5.1.2/esp-idf/components/idf_test/include/esp32s3 -I/home/km/esp/v5.1.2/esp-idf/components/ieee802154/include -I/home/km/esp/v5.1.2/esp-idf/components/json/cJSON -I/home/km/esp/v5.1.2/esp-idf/components/mqtt//home/km/esp/v5.1.2/esp-idf/components/mqtt/esp-mqtt/include -I/home/km/esp/v5.1.2/esp-idf/components/perfmon/include -I/home/km/esp/v5.1.2/esp-idf/components/spiffs/include -I/home/km/esp/v5.1.2/esp-idf/components/touch_element/include -I/home/km/esp/v5.1.2/esp-idf/components/ulp/ulp_common/include -I/home/km/esp/v5.1.2/esp-idf/components/ulp/ulp_common/include/esp32s3 -I/home/km/esp/v5.1.2/esp-idf/components/usb/include -I/home/km/esp/v5.1.2/esp-idf/components/wifi_provisioning/include -I/home/km/Desktop/TestFolder/RR/managed_components/espressif__esp_websocket_client/include -I/home/km/Desktop/TestFolder/RR/managed_components/espressif__led_strip/include -I/home/km/Desktop/TestFolder/RR/managed_components/espressif__led_strip/interface -I/home/km/Desktop/TestFolder/RR/managed_components/espressif__led_indicator/include -I/home/km/Desktop/TestFolder/RR/managed_components/jgromes__radiolib/. -I/home/km/Desktop/TestFolder/RR/managed_components/jgromes__radiolib/src -I/home/km/Desktop/TestFolder/RR/main/include -I/home/km/Desktop/TestFolder/RR/components/VL53L5CX-Library/include -I/home/km/Desktop/TestFolder/RR/components/esp32_BNO08x/. -I/home/km/Desktop/TestFolder/RR/components/esp32_BNO08x/include -I/home/km/Desktop/TestFolder/RR/components/esp32_BNO08x/include/report -I/home/km/Desktop/TestFolder/RR/components/esp32_BNO08x/include/callback -I/home/km/Desktop/TestFolder/RR/components/esp32_BNO08x/SH2 -I/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/network_interfaces' \
+	-DCMAKE_C_STANDARD=17 \
+	-DUCLIENT_C_STANDARD=17;
+Starting >>> rcutils
+Starting >>> rosidl_cli
+Starting >>> rosidl_typesupport_interface
+Starting >>> microcdr
+Starting >>> test_interface_files
+Starting >>> rmw_implementation_cmake
+Starting >>> tracetools
+Starting >>> tracetools_trace
+Starting >>> tracetools_read
+Finished <<< rosidl_typesupport_interface [0.52s]
+Finished <<< microcdr [0.52s]
+Finished <<< rmw_implementation_cmake [0.55s]
+Starting >>> microxrcedds_client
+Finished <<< tracetools [0.58s]
+Finished <<< test_interface_files [0.62s]
+Finished <<< rcutils [0.67s]
+Starting >>> rosidl_runtime_c
+Starting >>> rcl_logging_interface
+Finished <<< microxrcedds_client [0.19s]
+Finished <<< rcl_logging_interface [0.12s]
+Starting >>> rcl_logging_noop
+Finished <<< rosidl_runtime_c [0.16s]
+Starting >>> rmw
+Finished <<< rcl_logging_noop [0.13s]
+Finished <<< rmw [0.13s]
+Finished <<< rosidl_cli [1.04s]
+Starting >>> rosidl_adapter
+Finished <<< tracetools_trace [1.04s]
+Starting >>> tracetools_launch
+Starting >>> ros2trace
+Finished <<< tracetools_read [1.22s]
+Finished <<< rosidl_adapter [0.47s]
+Starting >>> rosidl_parser
+Finished <<< rosidl_parser [0.35s]
+Starting >>> rosidl_cmake
+Finished <<< ros2trace [0.79s]
+Finished <<< tracetools_launch [0.81s]
+Starting >>> tracetools_test
+Finished <<< rosidl_cmake [0.35s]
+Starting >>> rosidl_typesupport_introspection_c
+Starting >>> rosidl_typesupport_microxrcedds_c
+Starting >>> rosidl_generator_c
+Finished <<< rosidl_typesupport_microxrcedds_c [0.35s]
+Finished <<< rosidl_typesupport_introspection_c [0.38s]
+Starting >>> rosidl_typesupport_c
+Starting >>> micro_ros_utilities
+Finished <<< rosidl_generator_c [0.42s]
+Starting >>> rosidl_typesupport_introspection_tests
+Finished <<< tracetools_test [0.76s]
+Finished <<< rosidl_typesupport_introspection_tests [0.11s]
+Finished <<< micro_ros_utilities [0.18s]
+Finished <<< rosidl_typesupport_c [0.42s]
+Starting >>> rosidl_default_generators
+Starting >>> rosidl_default_runtime
+Finished <<< rosidl_default_runtime [0.12s]
+Finished <<< rosidl_default_generators [0.16s]
+Starting >>> builtin_interfaces
+Starting >>> micro_ros_msgs
+Starting >>> unique_identifier_msgs
+Starting >>> lifecycle_msgs
+Starting >>> std_srvs
+Finished <<< micro_ros_msgs [0.21s]
+Starting >>> rmw_microxrcedds
+Finished <<< builtin_interfaces [0.25s]
+Starting >>> std_msgs
+Starting >>> rcl_interfaces
+Starting >>> rosgraph_msgs
+Starting >>> statistics_msgs
+Finished <<< lifecycle_msgs [0.32s]
+Finished <<< unique_identifier_msgs [0.37s]
+Finished <<< std_srvs [0.38s]
+Starting >>> action_msgs
+Finished <<< rmw_microxrcedds [0.31s]
+Starting >>> rmw_implementation
+Starting >>> rosidl_typesupport_microxrcedds_test_msg
+Finished <<< rosgraph_msgs [0.33s]
+Finished <<< statistics_msgs [0.36s]
+Finished <<< std_msgs [0.44s]
+Finished <<< rcl_interfaces [0.46s]
+Starting >>> geometry_msgs
+Starting >>> actionlib_msgs
+Starting >>> test_tracetools
+Starting >>> composition_interfaces
+Finished <<< action_msgs [0.41s]
+Starting >>> test_msgs
+Starting >>> example_interfaces
+Finished <<< rmw_implementation [0.37s]
+Finished <<< rosidl_typesupport_microxrcedds_test_msg [0.40s]
+Starting >>> rosidl_typesupport_microxrcedds_c_tests
+Finished <<< test_tracetools [0.26s]
+Starting >>> test_tracetools_launch
+Finished <<< actionlib_msgs [0.32s]
+Finished <<< composition_interfaces [0.34s]
+Finished <<< geometry_msgs [0.42s]
+Starting >>> sensor_msgs
+Starting >>> diagnostic_msgs
+Starting >>> nav_msgs
+Starting >>> shape_msgs
+Starting >>> trajectory_msgs
+Finished <<< test_msgs [0.44s]
+Starting >>> rcl
+Starting >>> test_rmw_implementation
+Finished <<< example_interfaces [0.64s]
+Finished <<< rosidl_typesupport_microxrcedds_c_tests [0.58s]
+Finished <<< test_rmw_implementation [0.23s]
+Finished <<< nav_msgs [0.52s]
+Finished <<< shape_msgs [0.58s]
+Finished <<< sensor_msgs [0.64s]
+Finished <<< diagnostic_msgs [0.66s]
+Finished <<< trajectory_msgs [0.68s]
+Starting >>> stereo_msgs
+Starting >>> visualization_msgs
+Starting >>> sensor_msgs_py
+Finished <<< rcl [0.51s]
+Starting >>> rcl_action
+Starting >>> rcl_lifecycle
+Finished <<< stereo_msgs [0.29s]
+Finished <<< visualization_msgs [0.32s]
+Starting >>> common_interfaces
+Finished <<< rcl_action [0.31s]
+Starting >>> rclc
+Finished <<< rcl_lifecycle [0.35s]
+Finished <<< test_tracetools_launch [1.29s]
+Finished <<< common_interfaces [0.20s]
+Finished <<< rclc [0.28s]
+Starting >>> rclc_lifecycle
+Starting >>> rclc_parameter
+Finished <<< rclc_parameter [0.27s]
+Finished <<< rclc_lifecycle [0.31s]
+Finished <<< sensor_msgs_py [0.98s]
+
+Summary: 65 packages finished [6.22s]
+  7 packages had stderr output: ros2trace sensor_msgs_py test_tracetools_launch tracetools_launch tracetools_read tracetools_test tracetools_trace
+mkdir -p /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/micro_ros_src/libmicroros; cd /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/micro_ros_src/libmicroros; \
+for file in $(find /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/micro_ros_src/install/lib/ -name '*.a'); do \
+	folder=$(echo $file | sed -E "s/(.+)\/(.+).a/\2/"); \
+	mkdir -p $folder; cd $folder; /home/km/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-ar x $file; \
+	for f in *; do \
+		mv $f ../$folder-$f; \
+	done; \
+	cd ..; rm -rf $folder; \
+done ; \
+/home/km/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/bin/xtensa-esp32s3-elf-ar rc -s libmicroros.a *.obj; cp libmicroros.a /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component; \
+cd ..; rm -rf libmicroros; \
+cp -R /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/micro_ros_src/install/include /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/include;
+-- Components: VL53L5CX-Library app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp32_BNO08x esp_adc esp_app_format esp_coex esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_wifi espcoredump espressif__cmake_utilities espressif__esp_websocket_client espressif__led_indicator espressif__led_strip esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 jgromes__radiolib json log lwip main mbedtls micro_ros_espidf_component mqtt newlib nvs_flash openthread partition_table perfmon protobuf-c protocomm pthread sdmmc soc spi_flash spiffs tcp_transport touch_element ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant xtensa
+-- Component paths: /home/km/Desktop/TestFolder/RR/components/VL53L5CX-Library /home/km/esp/v5.1.2/esp-idf/components/app_trace /home/km/esp/v5.1.2/esp-idf/components/app_update /home/km/esp/v5.1.2/esp-idf/components/bootloader /home/km/esp/v5.1.2/esp-idf/components/bootloader_support /home/km/esp/v5.1.2/esp-idf/components/bt /home/km/esp/v5.1.2/esp-idf/components/cmock /home/km/esp/v5.1.2/esp-idf/components/console /home/km/esp/v5.1.2/esp-idf/components/cxx /home/km/esp/v5.1.2/esp-idf/components/driver /home/km/esp/v5.1.2/esp-idf/components/efuse /home/km/esp/v5.1.2/esp-idf/components/esp-tls /home/km/Desktop/TestFolder/RR/components/esp32_BNO08x /home/km/esp/v5.1.2/esp-idf/components/esp_adc /home/km/esp/v5.1.2/esp-idf/components/esp_app_format /home/km/esp/v5.1.2/esp-idf/components/esp_coex /home/km/esp/v5.1.2/esp-idf/components/esp_common /home/km/esp/v5.1.2/esp-idf/components/esp_eth /home/km/esp/v5.1.2/esp-idf/components/esp_event /home/km/esp/v5.1.2/esp-idf/components/esp_gdbstub /home/km/esp/v5.1.2/esp-idf/components/esp_hid /home/km/esp/v5.1.2/esp-idf/components/esp_http_client /home/km/esp/v5.1.2/esp-idf/components/esp_http_server /home/km/esp/v5.1.2/esp-idf/components/esp_https_ota /home/km/esp/v5.1.2/esp-idf/components/esp_https_server /home/km/esp/v5.1.2/esp-idf/components/esp_hw_support /home/km/esp/v5.1.2/esp-idf/components/esp_lcd /home/km/esp/v5.1.2/esp-idf/components/esp_local_ctrl /home/km/esp/v5.1.2/esp-idf/components/esp_mm /home/km/esp/v5.1.2/esp-idf/components/esp_netif /home/km/esp/v5.1.2/esp-idf/components/esp_netif_stack /home/km/esp/v5.1.2/esp-idf/components/esp_partition /home/km/esp/v5.1.2/esp-idf/components/esp_phy /home/km/esp/v5.1.2/esp-idf/components/esp_pm /home/km/esp/v5.1.2/esp-idf/components/esp_psram /home/km/esp/v5.1.2/esp-idf/components/esp_ringbuf /home/km/esp/v5.1.2/esp-idf/components/esp_rom /home/km/esp/v5.1.2/esp-idf/components/esp_system /home/km/esp/v5.1.2/esp-idf/components/esp_timer /home/km/esp/v5.1.2/esp-idf/components/esp_wifi /home/km/esp/v5.1.2/esp-idf/components/espcoredump /home/km/Desktop/TestFolder/RR/managed_components/espressif__cmake_utilities /home/km/Desktop/TestFolder/RR/managed_components/espressif__esp_websocket_client /home/km/Desktop/TestFolder/RR/managed_components/espressif__led_indicator /home/km/Desktop/TestFolder/RR/managed_components/espressif__led_strip /home/km/esp/v5.1.2/esp-idf/components/esptool_py /home/km/esp/v5.1.2/esp-idf/components/fatfs /home/km/esp/v5.1.2/esp-idf/components/freertos /home/km/esp/v5.1.2/esp-idf/components/hal /home/km/esp/v5.1.2/esp-idf/components/heap /home/km/esp/v5.1.2/esp-idf/components/http_parser /home/km/esp/v5.1.2/esp-idf/components/idf_test /home/km/esp/v5.1.2/esp-idf/components/ieee802154 /home/km/Desktop/TestFolder/RR/managed_components/jgromes__radiolib /home/km/esp/v5.1.2/esp-idf/components/json /home/km/esp/v5.1.2/esp-idf/components/log /home/km/esp/v5.1.2/esp-idf/components/lwip /home/km/Desktop/TestFolder/RR/main /home/km/esp/v5.1.2/esp-idf/components/mbedtls /home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component /home/km/esp/v5.1.2/esp-idf/components/mqtt /home/km/esp/v5.1.2/esp-idf/components/newlib /home/km/esp/v5.1.2/esp-idf/components/nvs_flash /home/km/esp/v5.1.2/esp-idf/components/openthread /home/km/esp/v5.1.2/esp-idf/components/partition_table /home/km/esp/v5.1.2/esp-idf/components/perfmon /home/km/esp/v5.1.2/esp-idf/components/protobuf-c /home/km/esp/v5.1.2/esp-idf/components/protocomm /home/km/esp/v5.1.2/esp-idf/components/pthread /home/km/esp/v5.1.2/esp-idf/components/sdmmc /home/km/esp/v5.1.2/esp-idf/components/soc /home/km/esp/v5.1.2/esp-idf/components/spi_flash /home/km/esp/v5.1.2/esp-idf/components/spiffs /home/km/esp/v5.1.2/esp-idf/components/tcp_transport /home/km/esp/v5.1.2/esp-idf/components/touch_element /home/km/esp/v5.1.2/esp-idf/components/ulp /home/km/esp/v5.1.2/esp-idf/components/unity /home/km/esp/v5.1.2/esp-idf/components/usb /home/km/esp/v5.1.2/esp-idf/components/vfs /home/km/esp/v5.1.2/esp-idf/components/wear_levelling /home/km/esp/v5.1.2/esp-idf/components/wifi_provisioning /home/km/esp/v5.1.2/esp-idf/components/wpa_supplicant /home/km/esp/v5.1.2/esp-idf/components/xtensa
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/km/Desktop/TestFolder/RR/build
+[0/2] Re-checking globbed directories...
+[1/11] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/main.cpp.obj
+[2/11] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/uros_service.cpp.obj
+[3/11] Linking C static library esp-idf/main/libmain.a
+[4/11] Performing build step for 'bootloader'
+[0/1] Re-running CMake...
+-- Building ESP-IDF components for target esp32s3
+-- Project sdkconfig file /home/km/Desktop/TestFolder/RR/sdkconfig
+Compiler supported targets: xtensa-esp32s3-elf
+
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/soc/esp32s3/ld/esp32s3.peripherals.ld
+-- App "bootloader" version: v5.1.2-dirty
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.api.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.libgcc.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/esp_rom/esp32s3/ld/esp32s3.rom.newlib.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/bootloader/subproject/main/ld/esp32s3/bootloader.ld
+-- Adding linker script /home/km/esp/v5.1.2/esp-idf/components/bootloader/subproject/main/ld/esp32s3/bootloader.rom.ld
+-- Components: bootloader bootloader_support efuse esp_app_format esp_common esp_hw_support esp_rom esp_system esptool_py freertos hal log main micro-ecc newlib partition_table soc spi_flash xtensa
+-- Component paths: /home/km/esp/v5.1.2/esp-idf/components/bootloader /home/km/esp/v5.1.2/esp-idf/components/bootloader_support /home/km/esp/v5.1.2/esp-idf/components/efuse /home/km/esp/v5.1.2/esp-idf/components/esp_app_format /home/km/esp/v5.1.2/esp-idf/components/esp_common /home/km/esp/v5.1.2/esp-idf/components/esp_hw_support /home/km/esp/v5.1.2/esp-idf/components/esp_rom /home/km/esp/v5.1.2/esp-idf/components/esp_system /home/km/esp/v5.1.2/esp-idf/components/esptool_py /home/km/esp/v5.1.2/esp-idf/components/freertos /home/km/esp/v5.1.2/esp-idf/components/hal /home/km/esp/v5.1.2/esp-idf/components/log /home/km/esp/v5.1.2/esp-idf/components/bootloader/subproject/main /home/km/esp/v5.1.2/esp-idf/components/bootloader/subproject/components/micro-ecc /home/km/esp/v5.1.2/esp-idf/components/newlib /home/km/esp/v5.1.2/esp-idf/components/partition_table /home/km/esp/v5.1.2/esp-idf/components/soc /home/km/esp/v5.1.2/esp-idf/components/spi_flash /home/km/esp/v5.1.2/esp-idf/components/xtensa
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/km/Desktop/TestFolder/RR/build/bootloader
+[1/1] cd /home/km/Desktop/TestFolder/RR/build/bootloader/esp-idf/esptool_py && /home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/km/esp/v5.1.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/km/Desktop/TestFolder/RR/build/bootloader/bootloader.bin
+Bootloader binary size 0x51c0 bytes. 0x2e40 bytes (36%) free.
+[5/9] Generating ld/sections.ld
+[6/9] Linking CXX executable RR_OS.elf
+[7/9] Generating binary image from built executable
+esptool.py v4.10.0
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /home/km/Desktop/TestFolder/RR/build/RR_OS.bin
+[8/9] cd /home/km/Desktop/TestFolder/RR/build/esp-idf/esptool_py && /home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/km/esp/v5.1.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/km/Desktop/TestFolder/RR/build/partition_table/partition-table.bin /home/km/Desktop/TestFolder/RR/build/RR_OS.bin
+RR_OS.bin binary size 0x10dbc0 bytes. Smallest app partition is 0x180000 bytes. 0x72440 bytes (30%) free.
+[8/9] cd /home/km/esp/v5.1.2/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/km/esp/v5.1.2/esp-idf -D "SERIAL_TOOL=/home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python;;/home/km/esp/v5.1.2/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/km/Desktop/TestFolder/RR/build -P /home/km/esp/v5.1.2/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyACM0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 4MB 0x0 bootloader/bootloader.bin 0x10000 RR_OS.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.10.0
+Serial port /dev/ttyACM0
+Connecting...
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: dc:b4:d9:39:b5:d8
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x0011dfff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 20928 bytes to 13297...
+Writing at 0x00000000... (100 %)
+Wrote 20928 bytes (13297 compressed) at 0x00000000 in 0.4 seconds (effective 374.9 kbit/s)...
+Hash of data verified.
+Compressed 1104832 bytes to 705373...
+Writing at 0x00010000... (2 %)
+Writing at 0x00019e77... (4 %)
+Writing at 0x0001e684... (6 %)
+Writing at 0x000231a4... (9 %)
+Writing at 0x000288ad... (11 %)
+Writing at 0x0002e0a2... (13 %)
+Writing at 0x0003bd8e... (15 %)
+Writing at 0x00044e75... (18 %)
+Writing at 0x00049eeb... (20 %)
+Writing at 0x000543ca... (22 %)
+Writing at 0x0005c3eb... (25 %)
+Writing at 0x000621cd... (27 %)
+Writing at 0x000685d7... (29 %)
+Writing at 0x0006e511... (31 %)
+Writing at 0x000748eb... (34 %)
+Writing at 0x0007a13d... (36 %)
+Writing at 0x000813b0... (38 %)
+Writing at 0x00086e15... (40 %)
+Writing at 0x0008cc9b... (43 %)
+Writing at 0x00092d39... (45 %)
+Writing at 0x00098e18... (47 %)
+Writing at 0x0009e3bf... (50 %)
+Writing at 0x000a3c23... (52 %)
+Writing at 0x000a93e0... (54 %)
+Writing at 0x000aed33... (56 %)
+Writing at 0x000b4a22... (59 %)
+Writing at 0x000ba44c... (61 %)
+Writing at 0x000bf331... (63 %)
+Writing at 0x000c452a... (65 %)
+Writing at 0x000c932b... (68 %)
+Writing at 0x000ce71b... (70 %)
+Writing at 0x000d3a44... (72 %)
+Writing at 0x000d951f... (75 %)
+Writing at 0x000dead4... (77 %)
+Writing at 0x000e44f7... (79 %)
+Writing at 0x000e9e47... (81 %)
+Writing at 0x000efff9... (84 %)
+Writing at 0x000f56ff... (86 %)
+Writing at 0x000faf81... (88 %)
+Writing at 0x0010451c... (90 %)
+Writing at 0x0010c01d... (93 %)
+Writing at 0x00111d4c... (95 %)
+Writing at 0x00117f78... (97 %)
+Writing at 0x0011d72b... (100 %)
+Wrote 1104832 bytes (705373 compressed) at 0x00010000 in 7.6 seconds (effective 1160.8 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 119...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (119 compressed) at 0x00008000 in 0.1 seconds (effective 401.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

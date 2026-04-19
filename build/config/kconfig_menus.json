@@ -6660,7 +6660,7 @@
                         "children": [
                             {
                                 "children": [],
-                                "depends_on": "IDF_TARGET_ESP32 && <choice MICRO_ROS_ETHERNET_TYPE>",
+                                "depends_on": "(IDF_TARGET_ESP32 || IDF_TARGET_ESP32P4) && <choice MICRO_ROS_ETHERNET_TYPE>",
                                 "help": "Select internal Ethernet MAC controller.",
                                 "id": "MICRO_ROS_USE_INTERNAL_ETHERNET",
                                 "name": "MICRO_ROS_USE_INTERNAL_ETHERNET",

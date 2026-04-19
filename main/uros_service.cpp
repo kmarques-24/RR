@@ -70,16 +70,44 @@ static const char *TAG = "uros_service";
 
 void initialize_message_data(void);
 
-
 /* ------ CALLBACKS ------ */
 void float_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
 {
+    // "uses" the variable to suppressed unused variable complier warning and guards against NULL timer
     RCLC_UNUSED(last_call_time);
     if (timer != NULL)
     {
         //ESP_LOGI(TAG, "Publishing: %f\n", float_msg.data); // debug statement to read via idf.py monitor
         RCSOFTCHECK(rcl_publish(&float_pub, &float_msg, NULL)); // where actual publishing happens
         float_msg.data++;
+    }
+}
+
+void imu_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
+{
+    RCLC_UNUSED(last_call_time);
+    if (timer != NULL)
+    {
+        update_imu_msg(&imu_msg);
+        // ESP_LOGI("IMU_CB", "quat w:%.2f x:%.2f y:%.2f z:%.2f | gyro x:%.2f y:%.2f z:%.2f",
+        //     imu_msg.orientation.w,
+        //     imu_msg.orientation.x,
+        //     imu_msg.orientation.y,
+        //     imu_msg.orientation.z,
+        //     imu_msg.angular_velocity.x,
+        //     imu_msg.angular_velocity.y,
+        //     imu_msg.angular_velocity.z);
+        //RCSOFTCHECK(rcl_publish(&imu_pub, &imu_msg, NULL));
+        rcl_ret_t r = rcl_publish(&imu_pub, &imu_msg, NULL);
+        if (r != RCL_RET_OK) {
+            if (rcl_error_is_set()) {
+                rcl_error_string_t err = rcl_get_error_string();
+                ESP_LOGE("IMU_CB", "publish failed: %ld | %s", (long)r, err.str);
+            } else {
+                ESP_LOGE("IMU_CB", "publish failed: %ld | no error string set", (long)r);
+            }
+            rcl_reset_error();
+        }
     }
 }
 
@@ -105,36 +133,6 @@ void tof_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
         }
         rcl_reset_error();
     }
-    }
-}
-
-void imu_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
-{
-    // "uses" the variable to suppressed unused variable complier warning
-    // guards against NULL timer
-    RCLC_UNUSED(last_call_time);
-    if (timer != NULL)
-    {
-        update_imu_msg(&imu_msg);
-        // ESP_LOGI("IMU_CB", "quat w:%.2f x:%.2f y:%.2f z:%.2f | gyro x:%.2f y:%.2f z:%.2f",
-        //     imu_msg.orientation.w,
-        //     imu_msg.orientation.x,
-        //     imu_msg.orientation.y,
-        //     imu_msg.orientation.z,
-        //     imu_msg.angular_velocity.x,
-        //     imu_msg.angular_velocity.y,
-        //     imu_msg.angular_velocity.z);
-        //RCSOFTCHECK(rcl_publish(&imu_pub, &imu_msg, NULL));
-        rcl_ret_t r = rcl_publish(&imu_pub, &imu_msg, NULL);
-        if (r != RCL_RET_OK) {
-            if (rcl_error_is_set()) {
-                rcl_error_string_t err = rcl_get_error_string();
-                ESP_LOGE("IMU_CB", "publish failed: %ld | %s", (long)r, err.str);
-            } else {
-                ESP_LOGE("IMU_CB", "publish failed: %ld | no error string set", (long)r);
-            }
-            rcl_reset_error();
-        }
     }
 }
 
@@ -166,7 +164,7 @@ void twist_callback(const void *msgin)
         return;
     }
     
-    // pointer-to-const ensures incoming message not modified
+    // pointer-to-const ensures incoming message won't be modified by whatever uses it
     // can't edit target (data). Just a subscriber. 
     // Executor owns original twist_msg and can overwrite
     const geometry_msgs__msg__Twist *msg = (const geometry_msgs__msg__Twist *)msgin;
@@ -179,7 +177,7 @@ void twist_callback(const void *msgin)
     }
 
     // Check received via monitor
-    ESP_LOGI("TWIST_CB", "received: lin=%.2f ang=%.2f", msg->linear.x, msg->angular.z);
+    //ESP_LOGI("TWIST_CB", "received: lin=%.2f ang=%.2f", msg->linear.x, msg->angular.z);
 
     drive_commanded_twist(msg); // pass protected msg, not twist_msg
 }
@@ -291,16 +289,12 @@ void micro_ros_task(void *arg)
     // Initialize published message data
     initialize_message_data();
 
-    //TickType_t xLastWakeTime = xTaskGetTickCount(); // vTaskDelayUntil?
-    //const TickType_t xFrequency = pdMS_TO_TICKS(50); // 20 Hz (50 ms)
-
     // Sync with microros agent on laptop before spinning. Align timestamps
     rmw_uros_sync_session(1000);
     
     // Spin
     while (1)
     {   
-
         rclc_executor_spin_some(&executor, RCL_MS_TO_NS(5)); 
             // check for work and wait up to 5 ms
             // 5 ms must be shorter than fastest timer period

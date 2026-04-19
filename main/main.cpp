@@ -25,8 +25,6 @@ Instructions:
     - run idf.py set-target esp32s3 to resolve linkage errors
 8. Run idf.py build, idf.py flash, idf.py monitor
     - monitor terminals and debug
-
-
 */
 
 // OS and C Headers
@@ -79,8 +77,8 @@ extern "C" void app_main(void)
     rr_status.wifi_enabled = true;
 
     // All verified working independently
-    rr_status.tof_enabled = false;
-    rr_status.imu_enabled = false;
+    rr_status.imu_enabled = true;
+    rr_status.tof_enabled = true;
     rr_status.drive_enabled = true;
     rr_status.encoder_enabled = true;
     rr_status.key_control_enabled = true;
@@ -125,20 +123,20 @@ void mount_spiffs() {
 
 void initialise(void)
 {
-    // ToF
-    if (rr_status.tof_enabled)
-    {
-        init_tof_sensor();
-        if (tof_service() != pdPASS) rr_status.tof_enabled = false; // disable so uros doesn't try to publish
-        else ESP_LOGI(TAG, "ToF service starting");
-    }
-
     // IMU
     if (rr_status.imu_enabled)
     {
         init_imu();
         if (imu_service() != pdPASS) rr_status.imu_enabled = false;
         else ESP_LOGI(TAG, "IMU service starting");
+    }
+    
+    // ToF
+    if (rr_status.tof_enabled)
+    {
+        init_tof_sensor();
+        if (tof_service() != pdPASS) rr_status.tof_enabled = false; // disable so uros doesn't try to publish
+        else ESP_LOGI(TAG, "ToF service starting");
     }
 
     // Motor drive
@@ -196,4 +194,16 @@ void initialise(void)
     // Event handler - high level state machine logic
         // Most recently used to debug TWAI in Spring 2025
     //launch_rr_os_service(); // calls initialize_events()
+
+    ESP_LOGI(TAG, "Service status:");
+    ESP_LOGI(TAG, "  wifi:          %s", rr_status.wifi_enabled        ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  imu:           %s", rr_status.imu_enabled          ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  tof:           %s", rr_status.tof_enabled          ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  drive:         %s", rr_status.drive_enabled        ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  encoder:       %s", rr_status.encoder_enabled      ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  estimator:     %s", rr_status.estimator_enabled    ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  key_control:   %s", rr_status.key_control_enabled  ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  uros:          %s", rr_status.uros_enabled         ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  led:           %s", rr_status.led_enabled          ? "ON" : "OFF");
+    ESP_LOGI(TAG, "  radio:         %s", rr_status.radio_enabled        ? "ON" : "OFF");
 }
