@@ -4,7 +4,7 @@
 	branch = fix_init_stall
 [submodule "components/micro_ros_espidf_component"]
 	path = components/micro_ros_espidf_component
-	url = https://github.com/micro-ROS/micro_ros_espidf_component.git
+	url = https://github.com/kmarques-24/micro_ros_espidf_component.git
 	branch = humble
 [submodule "components/VL53L5CX-Library"]
 	path = components/VL53L5CX-Library
