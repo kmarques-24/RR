@@ -26,6 +26,10 @@ typedef struct {
     ledc_channel_t channel2;
 } motor_config_t;
 
+// For debugging
+extern motor_config_t left_motor_config;
+extern motor_config_t right_motor_config;
+
 /**
  * @brief Initializes a motor with PWM configuration
  * @param m Motor structure containing pin and channel info

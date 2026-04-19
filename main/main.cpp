@@ -78,12 +78,13 @@ extern "C" void app_main(void)
     // rr_status defined in rr_os_service.cpp
     rr_status.wifi_enabled = true;
 
-    rr_status.encoder_enabled = false;
-    rr_status.estimator_enabled = false;
-    rr_status.imu_enabled = true;
-    rr_status.key_control_enabled = false;
-    rr_status.tof_enabled = false;
+    rr_status.tof_enabled = false;      // verified working
+    rr_status.imu_enabled = false;      // verified working
+    rr_status.drive_enabled = true;     // verified working
 
+    rr_status.encoder_enabled = true;
+    rr_status.key_control_enabled = false;
+    rr_status.estimator_enabled = false;
     rr_status.uros_enabled = true;
 
     rr_status.connected = false;
@@ -97,6 +98,9 @@ extern "C" void app_main(void)
     // Initialize peripherals
     initialise();
     //uros_service(); // just test this for now
+
+    // Debug motor test - must call after initializing
+    //speed_callback(800, 800); // success
 
     // Loop forever to keep spiffs mounted
     while (1) {
@@ -126,22 +130,18 @@ void mount_spiffs() {
 
 void initialise(void)
 {
-    if (rr_status.encoder_enabled)
+    if (rr_status.tof_enabled)
     {
-        ESP_LOGI(TAG, "Encoder service starting");
-        init_encoders();
-        encoder_service();
-    }
-    if (rr_status.drive_enabled)
-    {
-        ESP_LOGI(TAG, "Motor setup starting");
-        initialise_drivetrain();
-    }
-    if (rr_status.estimator_enabled)
-    {
-        init_estimator();
-        start_estimator();
-        ESP_LOGI(TAG, "Estimator service starting");
+        init_tof_sensor();
+        if (tof_service() != pdPASS)
+        {
+            // disable so uros doesn't try to publish
+            rr_status.tof_enabled = false;  
+        }
+        else
+        {
+            ESP_LOGI(TAG, "ToF service starting");
+        }
     }
 
     if (rr_status.imu_enabled)
@@ -157,18 +157,10 @@ void initialise(void)
         }
     }
 
-    if (rr_status.tof_enabled)
+    if (rr_status.drive_enabled)
     {
-        init_tof_sensor();
-        if (tof_service() != pdPASS)
-        {
-            // disable so uros doesn't try to publish
-            rr_status.tof_enabled = false;  
-        }
-        else
-        {
-            ESP_LOGI(TAG, "ToF service starting");
-        }
+        ESP_LOGI(TAG, "Motor setup starting");
+        initialise_drivetrain();
     }
 
     if (rr_status.key_control_enabled)
@@ -178,10 +170,17 @@ void initialise(void)
         start_controller();
     }
 
-    if (rr_status.uros_enabled)
+        if (rr_status.encoder_enabled)
     {
-        ESP_LOGI(TAG, "MicroROS service starting");
-        uros_service();
+        ESP_LOGI(TAG, "Encoder service starting");
+        init_encoders();
+        encoder_service();
+    }
+    if (rr_status.estimator_enabled)
+    {
+        init_estimator();
+        start_estimator();
+        ESP_LOGI(TAG, "Estimator service starting");
     }
 
     // Not using these
@@ -195,6 +194,13 @@ void initialise(void)
     { 
         //initialise_radio();
     } 
+
+    // MicroROS enabled last
+    if (rr_status.uros_enabled)
+    {
+        ESP_LOGI(TAG, "MicroROS service starting");
+        uros_service();
+    }
     
     //launch_rr_os_service(); // calls initialize_events()
 }

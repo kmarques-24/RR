@@ -57,56 +57,56 @@ menu "Custom: Brushed Motor Configuration"
     config LEFT_ENCODER_A
         int "Left Motor Encoder A GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 40
+        default 38
         help
             This option selects the GPIO pin used for the left motor encoder A signal.
 
     config LEFT_ENCODER_B
         int "Left Motor Encoder B GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 2
+        default 43
         help
             This option selects the GPIO pin used for the left motor encoder B signal.
 
     config RIGHT_ENCODER_A
         int "Right Motor Encoder A GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 3
+        default 39
         help
             This option selects the GPIO pin used for the right motor encoder A signal.
 
     config RIGHT_ENCODER_B
         int "Right Motor Encoder B GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 4
+        default 44
         help
             This option selects the GPIO pin used for the right motor encoder B signal.
 
     config LEFT_MOTOR_M1
         int "Left Motor M1 GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 40
+        default 42
         help
             This option selects the GPIO pin used for the left motor M1 signal.
 
     config LEFT_MOTOR_M2
         int "Left Motor M2 GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 2
+        default 4
         help
             This option selects the GPIO pin used for the left motor M2 signal.
 
     config RIGHT_MOTOR_M1
         int "Right Motor M1 GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 3
+        default 40
         help
             This option selects the GPIO pin used for the right motor M1 signal.
 
     config RIGHT_MOTOR_M2
         int "Right Motor M2 GPIO number"
         range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
-        default 4
+        default 41
         help
             This option selects the GPIO pin used for the right motor M2 signal.
 endmenu
