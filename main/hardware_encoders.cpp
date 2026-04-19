@@ -143,7 +143,7 @@ void encoder_task(void *pvParameter)
 {
     // Log vars for debugging
     uint32_t log_counter = 0;
-    const uint32_t LOG_INTERVAL_MS = 50; // log every 500ms
+    const uint32_t LOG_INTERVAL_MS = 50; // log every 50 ms
     const uint32_t LOG_EVERY_N = LOG_INTERVAL_MS / ENC_INTERVAL; // ticks between logs
    
     while(1)

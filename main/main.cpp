@@ -81,9 +81,9 @@ extern "C" void app_main(void)
     rr_status.tof_enabled = false;      // verified working
     rr_status.imu_enabled = false;      // verified working
     rr_status.drive_enabled = true;     // verified working
-
     rr_status.encoder_enabled = true;   // verified working
-    rr_status.key_control_enabled = false; 
+
+    rr_status.key_control_enabled = true; 
     rr_status.estimator_enabled = false;
     rr_status.uros_enabled = true;
 
@@ -158,9 +158,9 @@ void initialise(void)
     // Keyboard control with PID
     if (rr_status.key_control_enabled)
     {
-        ESP_LOGI(TAG, "Controller service starting");
         init_controller();
-        start_controller();
+        if (start_controller() != pdPASS) rr_status.key_control_enabled = false;
+        else ESP_LOGI(TAG, "Controller service starting");
     }
 
     // Estimator for odometry

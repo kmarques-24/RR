@@ -150,12 +150,26 @@ void imu_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
 
 void twist_callback(const void *msgin)
 {
-    if (msgin == NULL) return; // just in case
+    if (msgin == NULL)
+    {
+        ESP_LOGE("TWIST_CB", "received NULL message");
+        return;
+    }
     
     // pointer-to-const ensures incoming message not modified
     // can't edit target (data). Just a subscriber. 
     // Executor owns original twist_msg and can overwrite
     const geometry_msgs__msg__Twist *msg = (const geometry_msgs__msg__Twist *)msgin;
+
+    // Check for NaN or unreasonably large values
+    if (!isfinite(msg->linear.x) || !isfinite(msg->angular.z))
+    {
+        ESP_LOGE("TWIST_CB", "received non-finite values: lin=%.2f ang=%.2f", msg->linear.x, msg->angular.z);
+        return;
+    }
+
+    // Check received via monitor
+    ESP_LOGI("TWIST_CB", "received: lin=%.2f ang=%.2f", msg->linear.x, msg->angular.z);
 
     drive_commanded_twist(msg); // pass protected msg, not twist_msg
 }
@@ -191,12 +205,12 @@ void micro_ros_task(void *arg)
         // switched from rclc_publisher_init_default to rclc_publisher_init_best_effort
         // best effort is better for continuous data streams where it's ok for a packet to drop in
         // order to keep stream flowing. Otherwise, buffer clogs trying to save failed packets
-        // topic names standard for ROS2 packages
+    // Topic names standard for ROS2 packages
     RCCHECK(rclc_publisher_init_best_effort(&float_pub, &node, 
         ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Float32), "float_debug")); // topic name
     if (rr_status.tof_enabled) 
     {
-        // changed from init_best_effort to allow message to be broken into packets
+        // used init_default (reliable) to allow message to be broken into packets
         RCCHECK(rclc_publisher_init_default(&tof_pub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, PointCloud2), "points"));
     }
@@ -210,9 +224,11 @@ void micro_ros_task(void *arg)
         RCCHECK(rclc_publisher_init_best_effort(&imu_pub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Imu), "imu/data"));
     }
+    ESP_LOGI(TAG, "key_control_enabled: %d", rr_status.key_control_enabled);
     if (rr_status.key_control_enabled) 
     {
-        RCCHECK(rclc_subscription_init_best_effort(&twist_sub, &node,
+        // used init_default (reliable) for compatibility with reliable teleop_twist_keyboard publisher
+        RCCHECK(rclc_subscription_init_default(&twist_sub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(geometry_msgs, msg, Twist), "cmd_vel"));
     }
 
