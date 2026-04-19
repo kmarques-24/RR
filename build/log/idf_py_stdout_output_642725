@@ -1,0 +1,583 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2b (SPI_FAST_FLASH_BOOT)
+Saved PC:0x400490cc
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3818,len:0x1758
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xc00
+load:0x403cc700,len:0x2e04
+entry 0x403c9908
+[0;32mI (26) boot: ESP-IDF v5.1.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr 18 2026 20:54:45[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 4MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (80) boot:  2 factory          factory app      00 00 00010000 00180000[0m
+[0;32mI (87) boot:  3 storage          Unknown data     01 82 00190000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=42510h (271632) map[0m
+[0;32mI (156) esp_image: segment 1: paddr=00052538 vaddr=3fc9b100 size=057ach ( 22444) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=00057cec vaddr=40374000 size=0832ch ( 33580) load[0m
+[0;32mI (169) esp_image: segment 3: paddr=00060020 vaddr=42000020 size=ae880h (714880) map[0m
+[0;32mI (298) esp_image: segment 4: paddr=0010e8a8 vaddr=4037c32c size=0ed38h ( 60728) load[0m
+[0;32mI (322) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (322) boot: Disabling RNG early entropy source...[0m
+[0;32mI (334) cpu_start: Multicore app[0m
+[0;32mI (334) cpu_start: Pro cpu up.[0m
+[0;32mI (334) cpu_start: Starting app cpu, entry point is 0x40375794[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+D (345) clk: RTC_SLOW_CLK calibration value: 3558157[0m
+[0;32mI (357) cpu_start: Pro cpu start user code[0m
+[0;32mI (357) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (357) cpu_start: Application information:[0m
+[0;32mI (360) cpu_start: Project name:     RR_OS[0m
+[0;32mI (365) cpu_start: App version:      3947e86-dirty[0m
+[0;32mI (370) cpu_start: Compile time:     Apr 18 2026 21:32:53[0m
+[0;32mI (376) cpu_start: ELF file SHA256:  e4669f15efe78d28...[0m
+[0;32mI (382) cpu_start: ESP-IDF:          v5.1.2-dirty[0m
+[0;32mI (388) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (392) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (397) cpu_start: Chip rev:         v0.2[0m
+D (402) memory_layout: Checking 6 reserved memory ranges:[0m
+D (408) memory_layout: Reserved memory range 0x3fc84000 - 0x3fc9b100[0m
+D (414) memory_layout: Reserved memory range 0x3fc9b100 - 0x3fcaa3f0[0m
+D (420) memory_layout: Reserved memory range 0x3fceee34 - 0x3fcf0000[0m
+D (427) memory_layout: Reserved memory range 0x40374000 - 0x4038b100[0m
+D (433) memory_layout: Reserved memory range 0x600fe000 - 0x600fe010[0m
+D (440) memory_layout: Reserved memory range 0x600fffe8 - 0x60100000[0m
+D (446) memory_layout: Building list of available memory regions:[0m
+D (452) memory_layout: Available memory region 0x3fcaa3f0 - 0x3fcb0000[0m
+D (459) memory_layout: Available memory region 0x3fcb0000 - 0x3fcc0000[0m
+D (465) memory_layout: Available memory region 0x3fcc0000 - 0x3fcd0000[0m
+D (472) memory_layout: Available memory region 0x3fcd0000 - 0x3fce0000[0m
+D (479) memory_layout: Available memory region 0x3fce0000 - 0x3fce9710[0m
+D (485) memory_layout: Available memory region 0x3fce9710 - 0x3fceee34[0m
+D (492) memory_layout: Available memory region 0x3fcf0000 - 0x3fcf8000[0m
+D (498) memory_layout: Available memory region 0x600fe010 - 0x600fffe8[0m
+[0;32mI (505) heap_init: Initializing. RAM available for dynamic allocation:[0m
+D (512) heap_init: New heap initialised at 0x3fcaa3f0[0m
+[0;32mI (517) heap_init: At 3FCAA3F0 len 0003F320 (252 KiB): DRAM[0m
+[0;32mI (524) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM[0m
+D (530) heap_init: New heap initialised at 0x3fcf0000[0m
+[0;32mI (535) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+D (542) heap_init: New heap initialised at 0x600fe010[0m
+[0;32mI (547) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+D (553) intr_alloc: Connected src 39 to int 2 (cpu 0)[0m
+D (559) spi_flash: trying chip: issi[0m
+D (562) spi_flash: trying chip: gd[0m
+D (565) spi_flash: trying chip: mxic[0m
+D (569) spi_flash: trying chip: winbond[0m
+D (573) spi_flash: trying chip: boya[0m
+D (576) spi_flash: trying chip: th[0m
+D (580) spi_flash: trying chip: mxic (opi)[0m
+D (584) spi_flash: trying chip: generic[0m
+[0;32mI (588) spi_flash: detected chip: generic[0m
+[0;32mI (593) spi_flash: flash io: dio[0m
+[0;33mW (596) spi_flash: Detected size(16384k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+D (610) cpu_start: calling init function: 0x4208fa7c[0m
+D (615) cpu_start: calling init function: 0x4208f8cc[0m
+D (620) cpu_start: calling init function: 0x420520d4[0m
+D (625) cpu_start: calling init function: 0x420333e4[0m
+D (630) cpu_start: calling init function: 0x42032a48[0m
+D (635) cpu_start: calling init function: 0x4201fe48[0m
+D (640) cpu_start: calling init function: 0x4201f714[0m
+D (645) cpu_start: calling init function: 0x4201f6f0[0m
+D (650) cpu_start: calling init function: 0x4201cae0[0m
+D (655) cpu_start: calling init function: 0x4201a6d0[0m
+D (660) cpu_start: calling init function: 0x4200c08c[0m
+D (666) cpu_start: calling init function: 0x420030ec[0m
+D (670) cpu_start: calling init function: 0x42008d60 on core: 0[0m
+D (677) intr_alloc: Connected src 59 to int 3 (cpu 0)[0m
+D (681) cpu_start: calling init function: 0x42005d04 on core: 0[0m
+[0;32mI (687) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (694) sleep: Enable automatic switching of GPIO sleep configuration[0m
+D (701) cpu_start: calling init function: 0x42004268 on core: 0[0m
+D (708) intr_alloc: Connected src 79 to int 9 (cpu 0)[0m
+[0;32mI (712) app_start: Starting scheduler on CPU0[0m
+D (717) intr_alloc: Connected src 57 to int 12 (cpu 0)[0m
+D (717) intr_alloc: Connected src 80 to int 2 (cpu 1)[0m
+[0;32mI (727) app_start: Starting scheduler on CPU1[0m
+D (727) intr_alloc: Connected src 58 to int 3 (cpu 1)[0m
+[0;32mI (717) main_task: Started on CPU0[0m
+D (737) heap_init: New heap initialised at 0x3fce9710[0m
+D (737) intr_alloc: Connected src 52 to int 13 (cpu 0)[0m
+[0;32mI (747) main_task: Calling app_main()[0m
+[0;32mI (747) MAIN: Starting app_main[0m
+[0;32mI (757) RESET: reset reason: 0[0m
+[0;32mI (847) MAIN: Motor setup starting[0m
+D (847) Drivetrain: Initialising LEDC[0m
+D (847) ledc: Using clock source 4 (in slow mode), divisor: 0xfa0[0m
+D (847) ledc: In slow speed mode, global clk set: 4[0m
+D (847) Drivetrain: Initialising motors[0m
+D (857) ledc: LEDC_PWM CHANNEL 1|GPIO 42|Duty 0000|Time 0[0m
+D (857) ledc: LEDC_PWM CHANNEL 0|GPIO 04|Duty 0000|Time 0[0m
+D (867) ledc: LEDC_PWM CHANNEL 2|GPIO 40|Duty 0000|Time 0[0m
+D (877) ledc: LEDC_PWM CHANNEL 3|GPIO 41|Duty 0000|Time 0[0m
+D (877) intr_alloc: Connected src 16 to int 17 (cpu 0)[0m
+[0;32mI (887) ENCODER_SERVICE: Setting up pins 38 and 43[0m
+[0;32mI (887) gpio: GPIO[38]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[0;32mI (897) gpio: GPIO[43]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[0;32mI (907) ENCODER_SERVICE: Setting up pins 39 and 44[0m
+[0;32mI (917) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[0;32mI (917) gpio: GPIO[44]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:3 [0m
+[0;32mI (927) ENCODER_SERVICE: Encoder service started[0m
+[0;32mI (937) MAIN: Encoder service starting[0m
+[0;32mI (937) MAIN: MicroROS service starting[0m
+[0;32mI (967) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (967) wifi_station_netif: ESP_WIFI_MODE_STA[0m
+D (967) esp_netif_lwip: LwIP stack has been initialized[0m
+D (967) esp_netif_lwip: esp-netif has been successfully initialized[0m
+D (977) event: running task for loop 0x3fcb34a4[0m
+D (977) event: created task for loop 0x3fcb34a4[0m
+D (987) event: created event loop 0x3fcb34a4[0m
+D (987) esp_netif_objects: esp_netif_add_to_list 0x3fcb43cc[0m
+D (997) esp_netif_objects: esp_netif_add_to_list netif added successfully (total netifs: 1)[0m
+D (1007) esp_netif_lwip: check: remote, if=0x0 fn=0x4204f748
+[0m
+D (1007) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+[0;32mI (1017) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (1027) pp: pp rom version: e7ae62f[0m
+[0;32mI (1027) net80211: net80211 rom version: e7ae62f[0m
+D (1037) nvs: nvs_open_from_partition misc 1[0m
+[0;32mI (1047) wifi:wifi driver task: 3fcb6dc4, prio:23, stack:6656, core=0[0m
+D (1047) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (1057) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (1057) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (1067) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (1077) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (1077) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (1087) nvs: nvs_open_from_partition nvs.net80211 1[0m
+D (1097) nvs: nvs_get opmode 1[0m
+D (1097) nvs: nvs_get_str_or_blob sta.ssid[0m
+D (1097) nvs: nvs_get sta.authmode 1[0m
+D (1107) nvs: nvs_get_str_or_blob sta.pswd[0m
+D (1107) nvs: nvs_get_str_or_blob sta.pmk[0m
+D (1107) nvs: nvs_get sta.chan 1[0m
+D (1117) nvs: nvs_get auto.conn 1[0m
+D (1117) nvs: nvs_get bssid.set 1[0m
+D (1127) nvs: nvs_get_str_or_blob sta.bssid[0m
+D (1127) nvs: nvs_get sta.lis_intval 2[0m
+D (1127) nvs: nvs_get sta.phym 1[0m
+D (1137) nvs: nvs_get sta.phybw 1[0m
+D (1137) nvs: nvs_get_str_or_blob sta.apsw[0m
+D (1137) nvs: nvs_get_str_or_blob sta.apinfo[0m
+D (1147) nvs: nvs_get sta.scan_method 1[0m
+D (1147) nvs: nvs_get sta.sort_method 1[0m
+D (1157) nvs: nvs_get sta.minrssi 1[0m
+D (1157) nvs: nvs_get sta.minauth 1[0m
+D (1157) nvs: nvs_get sta.pmf_e 1[0m
+D (1167) nvs: nvs_get sta.pmf_r 1[0m
+D (1167) nvs: nvs_get sta.btm_e 1[0m
+D (1167) nvs: nvs_get sta.rrm_e 1[0m
+D (1177) nvs: nvs_get sta.mbo_e 1[0m
+D (1177) nvs: nvs_get_str_or_blob ap.ssid[0m
+D (1177) nvs: nvs_get_str_or_blob ap.passwd[0m
+D (1187) nvs: nvs_get_str_or_blob ap.pmk[0m
+D (1187) nvs: nvs_get ap.chan 1[0m
+D (1197) nvs: nvs_get ap.authmode 1[0m
+D (1197) nvs: nvs_get ap.hidden 1[0m
+D (1197) nvs: nvs_get ap.max.conn 1[0m
+D (1207) nvs: nvs_get bcn.interval 2[0m
+D (1207) nvs: nvs_get ap.phym 1[0m
+D (1207) nvs: nvs_get ap.phybw 1[0m
+D (1217) nvs: nvs_get ap.sndchan 1[0m
+D (1217) nvs: nvs_get ap.pmf_e 1[0m
+D (1217) nvs: nvs_get ap.pmf_r 1[0m
+D (1227) nvs: nvs_get ap.p_cipher 1[0m
+D (1227) nvs: nvs_get lorate 1[0m
+D (1227) nvs: nvs_get_str_or_blob country[0m
+D (1237) nvs: nvs_get ap.ftm_r 1[0m
+D (1237) nvs: nvs_get sta.ft 1[0m
+D (1237) nvs: nvs_get sta.owe 1[0m
+D (1247) nvs: nvs_get sta.trans_d 1[0m
+D (1247) nvs: nvs_get sta.sae_h2e 1[0m
+D (1247) nvs: nvs_get sta.sae_pk_mode 1[0m
+D (1257) nvs: nvs_get sta.bss_retry 1[0m
+D (1257) nvs: nvs_get_str_or_blob sta.owe_data[0m
+D (1267) nvs: nvs_get sta.he_dcm 1[0m
+D (1267) nvs: nvs_get sta.he_dcm_c_tx 1[0m
+D (1267) nvs: nvs_get sta.he_dcm_c_rx 1[0m
+D (1277) nvs: nvs_get sta.he_mcs9_d 1[0m
+D (1277) nvs: nvs_get sta.he_su_b_d 1[0m
+D (1277) nvs: nvs_get sta.he_su_b_f_d 1[0m
+D (1287) nvs: nvs_get sta.he_mu_b_f_d 1[0m
+D (1287) nvs: nvs_get sta.he_cqi_f_d 1[0m
+D (1297) nvs: nvs_get_str_or_blob sta.sae_h2e_id[0m
+D (1297) nvs: nvs_get ap.sae_h2e 1[0m
+D (1297) nvs: nvs_get_str_or_blob ap.pmk_info[0m
+D (1307) nvs: nvs_get nan.phym 1[0m
+D (1307) nvs: nvs_set ap.sndchan 1 1[0m
+[0;32mI (1317) wifi:wifi firmware version: 91b9630[0m
+[0;32mI (1317) wifi:wifi certification version: v7.0[0m
+[0;32mI (1317) wifi:config NVS flash: enabled[0m
+[0;32mI (1327) wifi:config nano formating: disabled[0m
+[0;32mI (1327) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1337) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1337) wifi:Init management short buffer num: 32[0m
+[0;32mI (1347) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1347) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1347) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1357) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1357) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1367) wifi_init: rx ba win: 6[0m
+[0;32mI (1367) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1367) wifi_init: udp mbox: 6[0m
+[0;32mI (1377) wifi_init: tcp mbox: 6[0m
+[0;32mI (1377) wifi_init: tcp tx win: 5744[0m
+[0;32mI (1387) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (1387) wifi_init: tcp rx win: 5744[0m
+[0;32mI (1397) wifi_init: tcp mss: 1440[0m
+[0;32mI (1397) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1407) wifi_init: WiFi RX IRAM OP enabled[0m
+D (1407) nvs: nvs_get opmode 1[0m
+D (1417) wifi:clear blacklist
+D (1417) nvs: nvs_get_str_or_blob sta.ssid[0m
+D (1417) nvs: nvs_get sta.pmf_e 1[0m
+[0;32mI (1427) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+D (1427) phy_init: loading PHY init data from application binary[0m
+D (1437) nvs: nvs_open_from_partition phy 0[0m
+D (1437) nvs: nvs_get cal_version 4[0m
+D (1447) nvs: nvs_get_str_or_blob cal_mac[0m
+D (1447) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (1457) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (1457) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (1467) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (1477) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (1487) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (1487) nvs: nvs_get_str_or_blob cal_data[0m
+D (1497) nvs: nvs_close 3[0m
+D (1497) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (1507) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (1507) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (1517) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (1527) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (1527) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (1557) temperature_sensor: range changed, change to index 2[0m
+D (1567) wifi:filter: set rx policy=0
+[0;32mI (1567) wifi:mode : sta (dc:b4:d9:39:b5:d8)[0m
+[0;32mI (1567) wifi:enable tsf[0m
+D (1567) wifi:filter: set rx policy=1
+D (1567) wifi:connect status 0 -> 0
+D (1567) event: running post WIFI_EVENT:2 with handler 0x420523b4 and context 0x3fcb4620 on loop 0x3fcb34a4[0m
+D (1577) wifi_init_default: wifi_start esp-netif:0x3fcb43cc event-id2[0m
+D (1587) wifi_init_default: WIFI mac address: dc b4 d9 39 b5 d8[0m
+D (1597) esp_netif_lwip: check: remote, if=0x3fcb43cc fn=0x4204f758
+[0m
+D (1597) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+[0;32mI (1597) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+D (1607) esp_netif_handlers: esp_netif action has started with netif0x3fcb43cc from event_id=2[0m
+D (1627) esp_netif_lwip: check: remote, if=0x3fcb43cc fn=0x4204fdd0
+[0m
+D (1627) esp_netif_lwip: esp_netif_start_api 0x3fcb43cc[0m
+[0;32mI (1597) wifi_station_netif: wifi_init_sta finished.[0m
+D (1637) esp_netif_lwip: esp_netif_get_hostname esp_netif:0x3fcb43cc[0m
+D (1647) esp_netif_lwip: check: local, if=0x3fcb43cc fn=0x42050788
+[0m
+D (1657) esp_netif_lwip: esp_netif_update_default_netif_lwip 0x3fcb43cc[0m
+D (1657) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (1667) event: running post WIFI_EVENT:2 with handler 0x42012158 and context 0x3fcbd09c on loop 0x3fcb34a4[0m
+D (1677) wifi:Start wifi connect
+D (1677) wifi:connect status 0 -> 0
+D (1687) wifi:connect chan=0
+D (1687) wifi:first chan=1
+D (1687) wifi:connect status 0 -> 1
+D (1687) wifi:filter: set rx policy=3
+D (1697) wifi:clear scan ap list
+D (1697) wifi:start scan: type=0x50f, priority=2, cb=0x4206e448, arg=0x0, ss_state=0x1, time=1702507, index=0
+D (1707) wifi:perform scan: ss_state=0x9, chan<1,0>, dur<0,120>
+D (1717) wifi:rsn valid: gcipher=3 ucipher=3 akm=5
+
+D (1717) wifi:profile match: ss_state=0x7
+D (1717) wifi:rsn valid: gcipher=3 ucipher=3 akm=5
+
+D (1727) wifi:set max rate: from <rate=130, phy=3, sig=0> to <rate=144, phy=3 sig=0>
+D (1737) wifi:sig_b=1, sig_g=0, sig_n=0, max_b=0, max_g=108, max_n=144
+D (1737) wifi:profile match: ss_state=0x7
+D (1747) wifi:scan end: arg=0x0, status=0, ss_state=0x7
+D (1747) wifi:find first mathched ssid, scan done
+D (1747) wifi:filter: set rx policy=4
+D (1757) wifi:first chan=1
+D (1757) wifi:handoff_cb: status=0
+D (1757) wifi:ap found, mac=94:83:c4:84:b5:c3
+D (1767) wifi:new_bss=0x3fca8a08, cur_bss=0x0, new_chan=<1,0>, cur_chan=1
+D (1767) wifi:filter: set rx policy=5
+[0;32mI (1777) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1[0m
+D (1777) wifi:connect_op: status=0, auth=5, cipher=3 
+D (1787) wifi:auth mode is not none
+D (1787) wifi:connect_bss: auth=1, reconnect=0
+[0;32mI (1797) wifi:state: init -> auth (b0)[0m
+D (1797) wifi:start 1s AUTH timer
+D (1797) wifi:clear scan ap list
+D (1827) wifi:recv auth: seq=2, status=0
+[0;32mI (1827) wifi:state: auth -> assoc (0)[0m
+D (1827) wifi:restart connect 1s timer for assoc
+[0;32mI (1837) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+D (1877) wifi:recv assoc: type=0x10
+D (1877) wifi:filter: set rx policy=6
+[0;32mI (1877) wifi:state: assoc -> run (10)[0m
+D (1877) wifi:start 10s connect timer for 4 way handshake
+[0;32mI (1887) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+D (1907) gdma: new group (0) at 0x3fcbe48c[0m
+D (1907) gdma: new pair (0,0) at 0x3fcbd8b4[0m
+D (1907) gdma: new tx channel (0,0) at 0x3fcbd920[0m
+D (1907) gdma: new rx channel (0,0) at 0x3fcbe4d0[0m
+D (1917) gdma: tx channel (0,0), (1:32) bytes aligned, burst enabled[0m
+D (1927) gdma: rx channel (0,0), (1:32) bytes aligned, burst disabled[0m
+[0;32mI (1937) wifi:connected with RR, aid = 2, channel 1, BW20, bssid = 94:83:c4:84:b5:c3[0m
+[0;32mI (1937) wifi:security: WPA2-PSK, phy: bgn, rssi: -54[0m
+D (1937) wifi:remove all except 94:83:c4:84:b5:c3 from rc list
+D (1947) wifi:clear blacklist
+D (1947) nvs: nvs_set sta.chan 1 1[0m
+D (1957) nvs: nvs_set_blob sta.apinfo 700[0m
+D (1957) wifi:filter: set rx policy=7
+[0;32mI (1957) wifi:pm start, type: 1[0m
+
+[0;32mI (1967) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+D (1977) wifi:Send sta connected event
+D (1977) wifi:connect status 1 -> 5
+D (1977) wifi:obss scan is disabled
+D (1977) wifi:start obss scan: obss scan is stopped
+D (1987) event: running post WIFI_EVENT:4 with handler 0x420523e4 and context 0x3fcb4680 on loop 0x3fcb34a4[0m
+D (1997) esp_netif_handlers: esp_netif action connected with netif0x3fcb43cc from event_id=4[0m
+D (2007) esp_netif_lwip: check: remote, if=0x3fcb43cc fn=0x4205019c
+[0m
+[0;32mI (2007) wifi:D (2007) esp_netif_lwip: esp_netif_up_api esp_netif:0x3fcb43cc[0m[0m
+AP's beacon interval = 102400 us, DTIM period = 2
+D (2017) esp_netif_lwip: check: local, if=0x3fcb43cc fn=0x42050788
+[0m
+[0;32mI (2017) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+D (2027) esp_netif_lwip: esp_netif_update_default_netif_lwip 0x3fcb43cc[0m
+D (2047) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (2047) esp_netif_lwip: check: remote, if=0x3fcb43cc fn=0x4205005c
+[0m
+D (2057) esp_netif_lwip: esp_netif_dhcpc_start_api esp_netif:0x3fcb43cc[0m
+D (2067) esp_netif_lwip: esp_netif_start_ip_lost_timer esp_netif:0x3fcb43cc[0m
+D (2067) esp_netif_lwip: if0x3fcb43cc start ip lost tmr: no need start because netif=0x3fcb4450 interval=120 ip=0[0m
+D (2077) esp_netif_lwip: starting dhcp client[0m
+D (2087) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (2087) event: running post WIFI_EVENT:4 with handler 0x42012158 and context 0x3fcbd09c on loop 0x3fcb34a4[0m
+[0;32mI (2107) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2157) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2207) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2257) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2307) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2357) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2407) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2457) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2507) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2557) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2607) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2657) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2707) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2757) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2807) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2857) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2907) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (2957) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3007) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3057) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+D (3087) esp_netif_lwip: esp_netif_internal_dhcpc_cb lwip-netif:0x3fcb4450[0m
+D (3087) esp_netif_lwip: if0x3fcb43cc ip changed=1[0m
+D (3087) event: running post IP_EVENT:0 with handler 0x42052210 and context 0x3fcb4754 on loop 0x3fcb34a4[0m
+D (3097) wifi_init_default: Got IP wifi default handler entered[0m
+D (3097) esp_netif_handlers: esp_netif action got_ip with netif0x3fcb43cc from event_id=0[0m
+[0;32mI (3107) esp_netif_handlers: sta ip: 192.168.8.167, mask: 255.255.255.0, gw: 192.168.8.1[0m
+D (3117) event: running post IP_EVENT:0 with handler 0x42012158 and context 0x3fcbd0bc on loop 0x3fcb34a4[0m
+[0;32mI (3127) wifi_station_netif: got ip:192.168.8.167[0m
+[0;32mI (3137) wifi_station_netif: connected to ap SSID:RR password:BotT3st![0m
+[0;32mI (3137) uros_service: Started uros service. Status: RUNNING (Connected to WiFi)[0m
+[0;32mI (3157) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3167) wifi:<ba-add>idx:0 (ifx:0, 94:83:c4:84:b5:c3), tid:0, ssn:6, winSize:64[0m
+[0;32mI (3207) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3257) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3307) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3357) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3407) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3457) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3507) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3557) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3607) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3657) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3707) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3757) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3807) ENCODER_SERVICE: L count: 0 vel: 0.0 prevEnc: 00 | R count: 0 vel: 0.0 prevEnc: 00[0m
+[0;32mI (3857) ENCODER_SERVICE: L count: 25 vel: 419.7 prevEnc: 10 | R count: 26 vel: 432.5 prevEnc: 11[0m
+[0;32mI (3907) ENCODER_SERVICE: L count: 105 vel: 1262.2 prevEnc: 10 | R count: 106 vel: 1266.4 prevEnc: 11[0m
+[0;32mI (3957) ENCODER_SERVICE: L count: 217 vel: 1945.1 prevEnc: 10 | R count: 218 vel: 1947.7 prevEnc: 11[0m
+[0;32mI (4007) ENCODER_SERVICE: L count: 349 vel: 2421.8 prevEnc: 10 | R count: 348 vel: 2397.7 prevEnc: 00[0m
+[0;32mI (4057) ENCODER_SERVICE: L count: 492 vel: 2724.9 prevEnc: 00 | R count: 490 vel: 2708.8 prevEnc: 11[0m
+[0;32mI (4107) ENCODER_SERVICE: L count: 644 vel: 2945.8 prevEnc: 00 | R count: 640 vel: 2912.4 prevEnc: 00[0m
+[0;32mI (4157) ENCODER_SERVICE: L count: 800 vel: 3065.5 prevEnc: 10 | R count: 796 vel: 3054.5 prevEnc: 10[0m
+[0;32mI (4207) ENCODER_SERVICE: L count: 961 vel: 3171.9 prevEnc: 10 | R count: 957 vel: 3168.3 prevEnc: 10[0m
+[0;32mI (4257) ENCODER_SERVICE: L count: 1124 vel: 3237.0 prevEnc: 00 | R count: 1122 vel: 3266.6 prevEnc: 11[0m
+[0;32mI (4307) ENCODER_SERVICE: L count: 1288 vel: 3269.1 prevEnc: 00 | R count: 1289 vel: 3321.9 prevEnc: 10[0m
+[0;32mI (4357) ENCODER_SERVICE: L count: 97 vel: 3305.9 prevEnc: 11 | R count: 101 vel: 3366.2 prevEnc: 11[0m
+[0;32mI (4407) ENCODER_SERVICE: L count: 264 vel: 3334.7 prevEnc: 10 | R count: 271 vel: 3388.9 prevEnc: 00[0m
+[0;32mI (4457) ENCODER_SERVICE: L count: 431 vel: 3344.2 prevEnc: 00 | R count: 443 vel: 3426.6 prevEnc: 00[0m
+[0;32mI (4507) ENCODER_SERVICE: L count: 599 vel: 3360.7 prevEnc: 00 | R count: 615 vel: 3435.0 prevEnc: 10[0m
+[0;32mI (4557) ENCODER_SERVICE: L count: 767 vel: 3358.9 prevEnc: 00 | R count: 789 vel: 3465.9 prevEnc: 11[0m
+[0;32mI (4607) ENCODER_SERVICE: L count: 937 vel: 3386.5 prevEnc: 11 | R count: 963 vel: 3476.0 prevEnc: 00[0m
+[0;32mI (4657) ENCODER_SERVICE: L count: 1106 vel: 3387.4 prevEnc: 01 | R count: 1138 vel: 3492.1 prevEnc: 01[0m
+[0;32mI (4707) ENCODER_SERVICE: L count: 1277 vel: 3406.1 prevEnc: 11 | R count: 1314 vel: 3513.4 prevEnc: 01[0m
+[0;32mI (4757) ENCODER_SERVICE: L count: 91 vel: 3418.0 prevEnc: 10 | R count: 133 vel: 3517.2 prevEnc: 01[0m
+[0;32mI (4807) ENCODER_SERVICE: L count: 262 vel: 3418.7 prevEnc: 00 | R count: 310 vel: 3531.9 prevEnc: 00[0m
+[0;32mI (4857) ENCODER_SERVICE: L count: 434 vel: 3430.3 prevEnc: 00 | R count: 487 vel: 3536.7 prevEnc: 10[0m
+[0;32mI (4907) ENCODER_SERVICE: L count: 606 vel: 3436.2 prevEnc: 00 | R count: 665 vel: 3553.0 prevEnc: 01[0m
+[0;32mI (4957) ENCODER_SERVICE: L count: 778 vel: 3438.1 prevEnc: 00 | R count: 842 vel: 3543.6 prevEnc: 00[0m
+[0;32mI (5007) ENCODER_SERVICE: L count: 950 vel: 3423.2 prevEnc: 00 | R count: 1020 vel: 3541.0 prevEnc: 11[0m
+[0;32mI (5057) ENCODER_SERVICE: L count: 1123 vel: 3448.6 prevEnc: 10 | R count: 1199 vel: 3570.4 prevEnc: 10[0m
+[0;32mI (5107) ENCODER_SERVICE: L count: 1295 vel: 3442.2 prevEnc: 10 | R count: 21 vel: 3582.1 prevEnc: 00[0m
+[0;32mI (5157) ENCODER_SERVICE: L count: 111 vel: 3448.2 prevEnc: 11 | R count: 200 vel: 3583.9 prevEnc: 01[0m
+[0;32mI (5207) ENCODER_SERVICE: L count: 284 vel: 3452.8 prevEnc: 00 | R count: 380 vel: 3594.7 prevEnc: 01[0m
+[0;32mI (5257) ENCODER_SERVICE: L count: 458 vel: 3468.5 prevEnc: 10 | R count: 561 vel: 3614.3 prevEnc: 00[0m
+[0;32mI (5307) ENCODER_SERVICE: L count: 632 vel: 3476.9 prevEnc: 01 | R count: 742 vel: 3620.7 prevEnc: 10[0m
+[0;32mI (5357) ENCODER_SERVICE: L count: 806 vel: 3476.4 prevEnc: 10 | R count: 923 vel: 3619.6 prevEnc: 11[0m
+[0;32mI (5407) ENCODER_SERVICE: L count: 981 vel: 3492.3 prevEnc: 00 | R count: 1105 vel: 3630.6 prevEnc: 00[0m
+[0;32mI (5457) ENCODER_SERVICE: L count: 1155 vel: 3479.2 prevEnc: 11 | R count: 1287 vel: 3632.3 prevEnc: 11[0m
+[0;32mI (5507) ENCODER_SERVICE: L count: 1330 vel: 3493.2 prevEnc: 10 | R count: 112 vel: 3643.4 prevEnc: 00[0m
+[0;32mI (5557) ENCODER_SERVICE: L count: 148 vel: 3497.8 prevEnc: 00 | R count: 294 vel: 3647.0 prevEnc: 11[0m
+[0;32mI (5607) ENCODER_SERVICE: L count: 323 vel: 3499.3 prevEnc: 01 | R count: 476 vel: 3641.6 prevEnc: 00[0m
+[0;32mI (5657) ENCODER_SERVICE: L count: 498 vel: 3499.8 prevEnc: 11 | R count: 659 vel: 3654.6 prevEnc: 01[0m
+[0;32mI (5707) ENCODER_SERVICE: L count: 674 vel: 3510.2 prevEnc: 11 | R count: 841 vel: 3644.1 prevEnc: 10[0m
+[0;32mI (5757) ENCODER_SERVICE: L count: 849 vel: 3503.3 prevEnc: 10 | R count: 1024 vel: 3651.5 prevEnc: 00[0m
+[0;32mI (5807) ENCODER_SERVICE: L count: 1025 vel: 3509.3 prevEnc: 10 | R count: 1207 vel: 3653.9 prevEnc: 01[0m
+[0;32mI (5857) ENCODER_SERVICE: L count: 1201 vel: 3513.3 prevEnc: 10 | R count: 33 vel: 3652.1 prevEnc: 01[0m
+[0;32mI (5907) ENCODER_SERVICE: L count: 20 vel: 3514.6 prevEnc: 10 | R count: 217 vel: 3671.5 prevEnc: 11[0m
+[0;32mI (5957) ENCODER_SERVICE: L count: 197 vel: 3529.0 prevEnc: 11 | R count: 400 vel: 3660.4 prevEnc: 10[0m
+[0;32mI (6007) ENCODER_SERVICE: L count: 376 vel: 3561.4 prevEnc: 10 | R count: 586 vel: 3699.9 prevEnc: 01[0m
+[0;32mI (6057) ENCODER_SERVICE: L count: 551 vel: 3530.0 prevEnc: 00 | R count: 768 vel: 3673.3 prevEnc: 10[0m
+[0;32mI (6107) ENCODER_SERVICE: L count: 728 vel: 3530.8 prevEnc: 11 | R count: 951 vel: 3663.1 prevEnc: 10[0m
+[0;32mI (6157) ENCODER_SERVICE: L count: 906 vel: 3548.5 prevEnc: 01 | R count: 1136 vel: 3687.9 prevEnc: 10[0m
+[0;32mI (6207) ENCODER_SERVICE: L count: 1082 vel: 3526.1 prevEnc: 01 | R count: 1320 vel: 3685.8 prevEnc: 10[0m
+[0;32mI (6257) ENCODER_SERVICE: L count: 1256 vel: 3492.6 prevEnc: 10 | R count: 148 vel: 3695.3 prevEnc: 11[0m
+[0;32mI (6307) ENCODER_SERVICE: L count: 72 vel: 3471.3 prevEnc: 11 | R count: 332 vel: 3690.3 prevEnc: 11[0m
+[0;32mI (6357) ENCODER_SERVICE: L count: 244 vel: 3449.6 prevEnc: 11 | R count: 517 vel: 3696.8 prevEnc: 01[0m
+[0;32mI (6407) ENCODER_SERVICE: L count: 417 vel: 3457.2 prevEnc: 01 | R count: 702 vel: 3699.0 prevEnc: 00[0m
+[0;32mI (6457) ENCODER_SERVICE: L count: 589 vel: 3443.0 prevEnc: 01 | R count: 887 vel: 3697.6 prevEnc: 10[0m
+[0;32mI (6507) ENCODER_SERVICE: L count: 761 vel: 3440.3 prevEnc: 01 | R count: 1072 vel: 3699.2 prevEnc: 11[0m
+[0;32mI (6557) ENCODER_SERVICE: L count: 934 vel: 3454.2 prevEnc: 00 | R count: 1257 vel: 3699.7 prevEnc: 01[0m
+[0;32mI (6607) ENCODER_SERVICE: L count: 1106 vel: 3444.0 prevEnc: 00 | R count: 85 vel: 3699.9 prevEnc: 00[0m
+[0;32mI (6657) ENCODER_SERVICE: L count: 1279 vel: 3455.4 prevEnc: 10 | R count: 270 vel: 3700.0 prevEnc: 10[0m
+[0;32mI (6707) ENCODER_SERVICE: L count: 95 vel: 3459.1 prevEnc: 11 | R count: 454 vel: 3689.8 prevEnc: 10[0m
+[0;32mI (6757) ENCODER_SERVICE: L count: 269 vel: 3476.4 prevEnc: 00 | R count: 639 vel: 3696.6 prevEnc: 11[0m
+[0;32mI (6807) ENCODER_SERVICE: L count: 443 vel: 3482.0 prevEnc: 11 | R count: 824 vel: 3698.9 prevEnc: 01[0m
+[0;32mI (6857) ENCODER_SERVICE: L count: 617 vel: 3481.3 prevEnc: 00 | R count: 1009 vel: 3699.6 prevEnc: 00[0m
+[0;32mI (6907) ENCODER_SERVICE: L count: 792 vel: 3493.9 prevEnc: 01 | R count: 1194 vel: 3699.9 prevEnc: 10[0m
+[0;32mI (6957) ENCODER_SERVICE: L count: 968 vel: 3510.8 prevEnc: 01 | R count: 23 vel: 3712.8 prevEnc: 01[0m
+[0;32mI (7007) ENCODER_SERVICE: L count: 1143 vel: 3503.5 prevEnc: 11 | R count: 208 vel: 3702.1 prevEnc: 10[0m
+[0;32mI (7057) ENCODER_SERVICE: L count: 1319 vel: 3511.4 prevEnc: 11 | R count: 394 vel: 3708.9 prevEnc: 11[0m
+[0;32mI (7107) ENCODER_SERVICE: L count: 139 vel: 3534.0 prevEnc: 01 | R count: 580 vel: 3711.1 prevEnc: 00[0m
+[0;32mI (7157) ENCODER_SERVICE: L count: 315 vel: 3527.1 prevEnc: 01 | R count: 766 vel: 3711.8 prevEnc: 11[0m
+[0;32mI (7207) ENCODER_SERVICE: L count: 492 vel: 3539.1 prevEnc: 00 | R count: 952 vel: 3712.1 prevEnc: 00[0m
+[0;32mI (7257) ENCODER_SERVICE: L count: 668 vel: 3528.8 prevEnc: 00 | R count: 1138 vel: 3712.1 prevEnc: 11[0m
+[0;32mI (7307) ENCODER_SERVICE: L count: 845 vel: 3539.7 prevEnc: 10 | R count: 1325 vel: 3732.2 prevEnc: 10[0m
+[0;32mI (7357) ENCODER_SERVICE: L count: 1021 vel: 3525.8 prevEnc: 10 | R count: 154 vel: 3723.3 prevEnc: 01[0m
+[0;32mI (7407) ENCODER_SERVICE: L count: 1198 vel: 3529.4 prevEnc: 11 | R count: 341 vel: 3737.9 prevEnc: 11[0m
+[0;32mI (7457) ENCODER_SERVICE: L count: 18 vel: 3533.8 prevEnc: 01 | R count: 527 vel: 3725.2 prevEnc: 00[0m
+[0;32mI (7507) ENCODER_SERVICE: L count: 194 vel: 3521.3 prevEnc: 01 | R count: 713 vel: 3716.5 prevEnc: 01[0m
+[0;32mI (7557) ENCODER_SERVICE: L count: 371 vel: 3531.2 prevEnc: 00 | R count: 900 vel: 3729.6 prevEnc: 10[0m
+[0;32mI (7607) ENCODER_SERVICE: L count: 548 vel: 3540.5 prevEnc: 10 | R count: 1086 vel: 3722.5 prevEnc: 01[0m
+[0;32mI (7657) ENCODER_SERVICE: L count: 725 vel: 3539.5 prevEnc: 11 | R count: 1273 vel: 3731.6 prevEnc: 11[0m
+[0;32mI (7707) ENCODER_SERVICE: L count: 902 vel: 3539.2 prevEnc: 01 | R count: 103 vel: 3734.5 prevEnc: 10[0m
+[0;32mI (7757) ENCODER_SERVICE: L count: 1080 vel: 3553.8 prevEnc: 10 | R count: 290 vel: 3737.6 prevEnc: 00[0m
+[0;32mI (7807) ENCODER_SERVICE: L count: 1258 vel: 3558.6 prevEnc: 01 | R count: 477 vel: 3736.5 prevEnc: 01[0m
+[0;32mI (7857) ENCODER_SERVICE: L count: 79 vel: 3556.2 prevEnc: 11 | R count: 665 vel: 3753.0 prevEnc: 01[0m
+[0;32mI (7907) ENCODER_SERVICE: L count: 258 vel: 3569.6 prevEnc: 00 | R count: 852 vel: 3747.6 prevEnc: 11[0m
+[0;32mI (7957) ENCODER_SERVICE: L count: 437 vel: 3577.3 prevEnc: 01 | R count: 1040 vel: 3756.6 prevEnc: 11[0m
+[0;32mI (8007) ENCODER_SERVICE: L count: 616 vel: 3577.7 prevEnc: 11 | R count: 1227 vel: 3742.7 prevEnc: 10[0m
+[0;32mI (8057) ENCODER_SERVICE: L count: 795 vel: 3576.7 prevEnc: 10 | R count: 58 vel: 3755.0 prevEnc: 10[0m
+[0;32mI (8107) ENCODER_SERVICE: L count: 975 vel: 3592.4 prevEnc: 10 | R count: 245 vel: 3744.3 prevEnc: 00[0m
+[0;32mI (8157) ENCODER_SERVICE: L count: 1154 vel: 3587.3 prevEnc: 00 | R count: 433 vel: 3755.5 prevEnc: 00[0m
+[0;32mI (8207) ENCODER_SERVICE: L count: 1333 vel: 3575.8 prevEnc: 00 | R count: 621 vel: 3764.4 prevEnc: 00[0m
+[0;32mI (8257) ENCODER_SERVICE: L count: 156 vel: 3592.1 prevEnc: 01 | R count: 809 vel: 3767.4 prevEnc: 00[0m
+[0;32mI (8307) ENCODER_SERVICE: L count: 336 vel: 3597.4 prevEnc: 01 | R count: 997 vel: 3768.3 prevEnc: 00[0m
+[0;32mI (8357) ENCODER_SERVICE: L count: 515 vel: 3588.9 prevEnc: 11 | R count: 1185 vel: 3759.4 prevEnc: 00[0m
+[0;32mI (8407) ENCODER_SERVICE: L count: 695 vel: 3596.4 prevEnc: 11 | R count: 17 vel: 3773.9 prevEnc: 10[0m
+[0;32mI (8457) ENCODER_SERVICE: L count: 875 vel: 3598.8 prevEnc: 11 | R count: 205 vel: 3767.3 prevEnc: 10[0m
+[0;32mI (8507) ENCODER_SERVICE: L count: 1055 vel: 3599.6 prevEnc: 11 | R count: 393 vel: 3765.1 prevEnc: 10[0m
+[0;32mI (8557) ENCODER_SERVICE: L count: 1235 vel: 3599.9 prevEnc: 11 | R count: 582 vel: 3778.3 prevEnc: 11[0m
+[0;32mI (8607) ENCODER_SERVICE: L count: 56 vel: 3571.8 prevEnc: 10 | R count: 770 vel: 3764.7 prevEnc: 11[0m
+[0;32mI (8657) ENCODER_SERVICE: L count: 235 vel: 3570.7 prevEnc: 01 | R count: 959 vel: 3775.6 prevEnc: 01[0m
+[0;32mI (8707) ENCODER_SERVICE: L count: 414 vel: 3574.4 prevEnc: 11 | R count: 1148 vel: 3781.8 prevEnc: 00[0m
+[0;32mI (8757) ENCODER_SERVICE: L count: 593 vel: 3581.4 prevEnc: 10 | R count: 1336 vel: 3765.8 prevEnc: 00[0m
+[0;32mI (8807) ENCODER_SERVICE: L count: 772 vel: 3583.7 prevEnc: 00 | R count: 168 vel: 3772.8 prevEnc: 10[0m
+[0;32mI (8857) ENCODER_SERVICE: L count: 950 vel: 3566.5 prevEnc: 01 | R count: 357 vel: 3778.3 prevEnc: 11[0m
+[0;32mI (8907) ENCODER_SERVICE: L count: 1129 vel: 3569.0 prevEnc: 10 | R count: 546 vel: 3776.9 prevEnc: 01[0m
+[0;32mI (8957) ENCODER_SERVICE: L count: 1308 vel: 3569.8 prevEnc: 00 | R count: 735 vel: 3776.4 prevEnc: 00[0m
+[0;32mI (9007) ENCODER_SERVICE: L count: 131 vel: 3588.1 prevEnc: 00 | R count: 924 vel: 3770.2 prevEnc: 10[0m
+[0;32mI (9057) ENCODER_SERVICE: L count: 310 vel: 3587.9 prevEnc: 01 | R count: 1113 vel: 3770.2 prevEnc: 01[0m
+[0;32mI (9107) ENCODER_SERVICE: L count: 489 vel: 3576.0 prevEnc: 11 | R count: 1303 vel: 3790.2 prevEnc: 00[0m
+[0;32mI (9157) ENCODER_SERVICE: L count: 669 vel: 3592.1 prevEnc: 11 | R count: 135 vel: 3776.8 prevEnc: 10[0m
+[0;32mI (9207) ENCODER_SERVICE: L count: 849 vel: 3597.4 prevEnc: 11 | R count: 325 vel: 3792.4 prevEnc: 01[0m
+[0;32mI (9257) ENCODER_SERVICE: L count: 1028 vel: 3583.2 prevEnc: 11 | R count: 515 vel: 3797.5 prevEnc: 10[0m
+[0;32mI (9307) ENCODER_SERVICE: L count: 1208 vel: 3594.5 prevEnc: 10 | R count: 705 vel: 3799.2 prevEnc: 01[0m
+[0;32mI (9357) ENCODER_SERVICE: L count: 31 vel: 3598.2 prevEnc: 10 | R count: 894 vel: 3789.5 prevEnc: 00[0m
+[0;32mI (9407) ENCODER_SERVICE: L count: 212 vel: 3619.4 prevEnc: 11 | R count: 1084 vel: 3796.6 prevEnc: 11[0m
+[0;32mI (9457) ENCODER_SERVICE: L count: 392 vel: 3606.4 prevEnc: 11 | R count: 1274 vel: 3798.9 prevEnc: 00[0m
+[0;33mW (9487) wifi:[ADDBA]rx delba, code:39, delete tid:0[0m
+[0;32mI (9487) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (9507) ENCODER_SERVICE: L count: 572 vel: 3602.1 prevEnc: 11 | R count: 107 vel: 3799.6 prevEnc: 11[0m
+[0;32mI (9557) ENCODER_SERVICE: L count: 753 vel: 3610.9 prevEnc: 01 | R count: 297 vel: 3799.9 prevEnc: 00[0m
+[0;32mI (9607) ENCODER_SERVICE: L count: 933 vel: 3603.6 prevEnc: 00 | R count: 487 vel: 3800.0 prevEnc: 11[0m
+[0;32mI (9657) ENCODER_SERVICE: L count: 1114 vel: 3609.4 prevEnc: 00 | R count: 677 vel: 3800.0 prevEnc: 00[0m
+[0;32mI (9707) ENCODER_SERVICE: L count: 1295 vel: 3613.3 prevEnc: 10 | R count: 868 vel: 3820.0 prevEnc: 01[0m
+[0;32mI (9757) ENCODER_SERVICE: L count: 119 vel: 3620.4 prevEnc: 11 | R count: 1058 vel: 3806.6 prevEnc: 10[0m
+[0;32mI (9807) ENCODER_SERVICE: L count: 300 vel: 3626.7 prevEnc: 01 | R count: 1248 vel: 3802.1 prevEnc: 01[0m
+[0;32mI (9857) ENCODER_SERVICE: L count: 481 vel: 3628.7 prevEnc: 00 | R count: 81 vel: 3800.7 prevEnc: 10[0m
+[0;32mI (9907) ENCODER_SERVICE: L count: 662 vel: 3629.4 prevEnc: 10 | R count: 272 vel: 3808.4 prevEnc: 00[0m
+[0;32mI (9957) ENCODER_SERVICE: L count: 843 vel: 3629.6 prevEnc: 11 | R count: 462 vel: 3802.8 prevEnc: 11[0m
+[0;32mI (10007) ENCODER_SERVICE: L count: 1024 vel: 3621.6 prevEnc: 01 | R count: 653 vel: 3805.0 prevEnc: 10[0m
+[0;32mI (10057) ENCODER_SERVICE: L count: 1205 vel: 3619.9 prevEnc: 00 | R count: 843 vel: 3801.6 prevEnc: 01[0m
+[0;32mI (10107) ENCODER_SERVICE: L count: 30 vel: 3634.7 prevEnc: 11 | R count: 1033 vel: 3800.5 prevEnc: 10[0m
+[0;32mI (10157) ENCODER_SERVICE: L count: 211 vel: 3624.2 prevEnc: 01 | R count: 1224 vel: 3810.4 prevEnc: 00[0m
+[0;32mI (10207) ENCODER_SERVICE: L count: 393 vel: 3628.9 prevEnc: 10 | R count: 57 vel: 3803.4 prevEnc: 11[0m
+[0;32mI (10257) ENCODER_SERVICE: L count: 576 vel: 3650.5 prevEnc: 00 | R count: 247 vel: 3801.1 prevEnc: 10[0m
+[0;32mI (10307) ENCODER_SERVICE: L count: 758 vel: 3649.3 prevEnc: 11 | R count: 437 vel: 3800.4 prevEnc: 11[0m
+[0;32mI (10357) ENCODER_SERVICE: L count: 938 vel: 3609.0 prevEnc: 11 | R count: 626 vel: 3780.1 prevEnc: 01[0m
+[0;32mI (10407) ENCODER_SERVICE: L count: 980 vel: 1555.3 prevEnc: 00 | R count: 633 vel: 1296.0 prevEnc: 00[0m
+[0;32mI (10457) ENCODER_SERVICE: L count: 980 vel: 509.6 prevEnc: 00 | R count: 633 vel: 424.7 prevEnc: 00[0m
+[0;32mI (10507) ENCODER_SERVICE: L count: 980 vel: 167.0 prevEnc: 00 | R count: 633 vel: 139.2 prevEnc: 00[0m
+[0;32mI (10557) ENCODER_SERVICE: L count: 980 vel: 54.7 prevEnc: 00 | R count: 633 vel: 45.6 prevEnc: 00[0m
+[0;32mI (10607) ENCODER_SERVICE: L count: 980 vel: 17.9 prevEnc: 00 | R count: 633 vel: 14.9 prevEnc: 00[0m
+[0;32mI (10657) ENCODER_SERVICE: L count: 980 vel: 5.9 prevEnc: 00 | R count: 633 vel: 4.9 prevEnc: 00[0m
+[0;32mI (10707) ENCODER_SERVICE: L count: 980 vel: 1.9 prevEnc: 00 | R count: 633 vel: 1.6 prevEnc: 00[0m
+[0;32mI (10757) ENCODER_SERVICE: L count: 980 vel: 0.6 prevEnc: 00 | R count: 633 vel: 0.5 prevEnc: 00[0m
+[0;32mI (10807) ENCODER_SERVICE: L count: 980 vel: 0.2 prevEnc: 00 | R count: 633 vel: 0.2 prevEnc: 00[0m
+[0;32mI (10857) ENCODER_SERVICE: L count: 980 vel: 0.1 prevEnc: 00 | R count: 633 vel: 0.1 prevEnc: 00[0m
+[0;32mI (10907) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (10957) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11007) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11057) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11107) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11157) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11207) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11257) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11307) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11357) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11407) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11457) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11507) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11557) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11607) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11657) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11707) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11757) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11807) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11857) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11907) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (11957) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (12007) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (12057) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (12107) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (12157) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (12207) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m
+[0;32mI (12257) ENCODER_SERVICE: L count: 980 vel: 0.0 prevEnc: 00 | R count: 633 vel: 0.0 prevEnc: 00[0m

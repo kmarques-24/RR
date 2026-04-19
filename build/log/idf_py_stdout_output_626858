@@ -1,0 +1,2848 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2b (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40048dfc
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3818,len:0x1758
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xc00
+load:0x403cc700,len:0x2e04
+entry 0x403c9908
+[0;32mI (26) boot: ESP-IDF v5.1.2-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr 18 2026 20:54:45[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 4MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (72) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (80) boot:  2 factory          factory app      00 00 00010000 00180000[0m
+[0;32mI (87) boot:  3 storage          Unknown data     01 82 00190000 00100000[0m
+[0;32mI (95) boot: End of partition table[0m
+[0;32mI (99) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=424e8h (271592) map[0m
+[0;32mI (156) esp_image: segment 1: paddr=00052510 vaddr=3fc9b100 size=057ach ( 22444) load[0m
+[0;32mI (161) esp_image: segment 2: paddr=00057cc4 vaddr=40374000 size=08354h ( 33620) load[0m
+[0;32mI (169) esp_image: segment 3: paddr=00060020 vaddr=42000020 size=ae82ch (714796) map[0m
+[0;32mI (298) esp_image: segment 4: paddr=0010e854 vaddr=4037c354 size=0ed10h ( 60688) load[0m
+[0;32mI (322) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (322) boot: Disabling RNG early entropy source...[0m
+[0;32mI (334) cpu_start: Multicore app[0m
+[0;32mI (334) cpu_start: Pro cpu up.[0m
+[0;32mI (334) cpu_start: Starting app cpu, entry point is 0x40375794[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+D (345) clk: RTC_SLOW_CLK calibration value: 3559270[0m
+[0;32mI (357) cpu_start: Pro cpu start user code[0m
+[0;32mI (357) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (357) cpu_start: Application information:[0m
+[0;32mI (360) cpu_start: Project name:     RR_OS[0m
+[0;32mI (365) cpu_start: App version:      3947e86-dirty[0m
+[0;32mI (370) cpu_start: Compile time:     Apr 18 2026 21:32:53[0m
+[0;32mI (376) cpu_start: ELF file SHA256:  77181df1500b9d41...[0m
+[0;32mI (382) cpu_start: ESP-IDF:          v5.1.2-dirty[0m
+[0;32mI (388) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (392) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (397) cpu_start: Chip rev:         v0.2[0m
+D (402) memory_layout: Checking 6 reserved memory ranges:[0m
+D (407) memory_layout: Reserved memory range 0x3fc84000 - 0x3fc9b100[0m
+D (414) memory_layout: Reserved memory range 0x3fc9b100 - 0x3fcaa3f0[0m
+D (420) memory_layout: Reserved memory range 0x3fceee34 - 0x3fcf0000[0m
+D (427) memory_layout: Reserved memory range 0x40374000 - 0x4038b100[0m
+D (433) memory_layout: Reserved memory range 0x600fe000 - 0x600fe010[0m
+D (440) memory_layout: Reserved memory range 0x600fffe8 - 0x60100000[0m
+D (446) memory_layout: Building list of available memory regions:[0m
+D (452) memory_layout: Available memory region 0x3fcaa3f0 - 0x3fcb0000[0m
+D (459) memory_layout: Available memory region 0x3fcb0000 - 0x3fcc0000[0m
+D (465) memory_layout: Available memory region 0x3fcc0000 - 0x3fcd0000[0m
+D (472) memory_layout: Available memory region 0x3fcd0000 - 0x3fce0000[0m
+D (479) memory_layout: Available memory region 0x3fce0000 - 0x3fce9710[0m
+D (485) memory_layout: Available memory region 0x3fce9710 - 0x3fceee34[0m
+D (492) memory_layout: Available memory region 0x3fcf0000 - 0x3fcf8000[0m
+D (498) memory_layout: Available memory region 0x600fe010 - 0x600fffe8[0m
+[0;32mI (505) heap_init: Initializing. RAM available for dynamic allocation:[0m
+D (512) heap_init: New heap initialised at 0x3fcaa3f0[0m
+[0;32mI (517) heap_init: At 3FCAA3F0 len 0003F320 (252 KiB): DRAM[0m
+[0;32mI (524) heap_init: At 3FCE9710 len 00005724 (21 KiB): STACK/DRAM[0m
+D (530) heap_init: New heap initialised at 0x3fcf0000[0m
+[0;32mI (535) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+D (542) heap_init: New heap initialised at 0x600fe010[0m
+[0;32mI (547) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+D (553) intr_alloc: Connected src 39 to int 2 (cpu 0)[0m
+D (559) spi_flash: trying chip: issi[0m
+D (562) spi_flash: trying chip: gd[0m
+D (565) spi_flash: trying chip: mxic[0m
+D (569) spi_flash: trying chip: winbond[0m
+D (573) spi_flash: trying chip: boya[0m
+D (576) spi_flash: trying chip: th[0m
+D (580) spi_flash: trying chip: mxic (opi)[0m
+D (584) spi_flash: trying chip: generic[0m
+[0;32mI (588) spi_flash: detected chip: generic[0m
+[0;32mI (593) spi_flash: flash io: dio[0m
+[0;33mW (596) spi_flash: Detected size(16384k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+D (610) cpu_start: calling init function: 0x4208fa28[0m
+D (615) cpu_start: calling init function: 0x4208f878[0m
+D (620) cpu_start: calling init function: 0x42052080[0m
+D (625) cpu_start: calling init function: 0x42033390[0m
+D (630) cpu_start: calling init function: 0x420329f4[0m
+D (635) cpu_start: calling init function: 0x4201fdf4[0m
+D (640) cpu_start: calling init function: 0x4201f6c0[0m
+D (645) cpu_start: calling init function: 0x4201f69c[0m
+D (650) cpu_start: calling init function: 0x4201ca8c[0m
+D (655) cpu_start: calling init function: 0x4201a67c[0m
+D (660) cpu_start: calling init function: 0x4200c07c[0m
+D (666) cpu_start: calling init function: 0x420030e8[0m
+D (670) cpu_start: calling init function: 0x42008d5c on core: 0[0m
+D (676) intr_alloc: Connected src 59 to int 3 (cpu 0)[0m
+D (681) cpu_start: calling init function: 0x42005d00 on core: 0[0m
+[0;32mI (687) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (694) sleep: Enable automatic switching of GPIO sleep configuration[0m
+D (701) cpu_start: calling init function: 0x42004264 on core: 0[0m
+D (707) intr_alloc: Connected src 79 to int 9 (cpu 0)[0m
+[0;32mI (712) app_start: Starting scheduler on CPU0[0m
+D (717) intr_alloc: Connected src 57 to int 12 (cpu 0)[0m
+D (717) intr_alloc: Connected src 80 to int 2 (cpu 1)[0m
+[0;32mI (727) app_start: Starting scheduler on CPU1[0m
+D (727) intr_alloc: Connected src 58 to int 3 (cpu 1)[0m
+[0;32mI (717) main_task: Started on CPU0[0m
+D (737) heap_init: New heap initialised at 0x3fce9710[0m
+D (737) intr_alloc: Connected src 52 to int 13 (cpu 0)[0m
+[0;32mI (747) main_task: Calling app_main()[0m
+[0;32mI (747) MAIN: Starting app_main[0m
+[0;32mI (757) RESET: reset reason: 0[0m
+[0;32mI (847) MAIN: Motor setup starting[0m
+D (847) Drivetrain: Initialising LEDC[0m
+D (847) ledc: Using clock source 4 (in slow mode), divisor: 0xfa0[0m
+D (847) ledc: In slow speed mode, global clk set: 4[0m
+D (847) Drivetrain: Initialising motors[0m
+D (857) ledc: LEDC_PWM CHANNEL 1|GPIO 42|Duty 0000|Time 0[0m
+D (857) ledc: LEDC_PWM CHANNEL 0|GPIO 04|Duty 0000|Time 0[0m
+D (867) ledc: LEDC_PWM CHANNEL 2|GPIO 40|Duty 0000|Time 0[0m
+D (877) ledc: LEDC_PWM CHANNEL 3|GPIO 41|Duty 0000|Time 0[0m
+D (877) intr_alloc: Connected src 16 to int 17 (cpu 0)[0m
+[0;32mI (887) ENCODER_SERVICE: Setting up pins 38 and 43[0m
+[0;32mI (887) gpio: GPIO[38]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (897) gpio: GPIO[43]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (907) ENCODER_SERVICE: Setting up pins 39 and 44[0m
+[0;32mI (917) gpio: GPIO[39]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (917) gpio: GPIO[44]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:3 [0m
+[0;32mI (927) ENCODER_SERVICE: Encoder service started[0m
+[0;32mI (937) MAIN: Encoder service starting[0m
+[0;32mI (937) MAIN: MicroROS service starting[0m
+[0;32mI (967) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (967) wifi_station_netif: ESP_WIFI_MODE_STA[0m
+D (967) esp_netif_lwip: LwIP stack has been initialized[0m
+D (967) esp_netif_lwip: esp-netif has been successfully initialized[0m
+D (977) event: running task for loop 0x3fcb3488[0m
+D (977) event: created task for loop 0x3fcb3488[0m
+D (977) event: created event loop 0x3fcb3488[0m
+D (987) esp_netif_objects: esp_netif_add_to_list 0x3fcb43b0[0m
+D (987) esp_netif_objects: esp_netif_add_to_list netif added successfully (total netifs: 1)[0m
+D (997) esp_netif_lwip: check: remote, if=0x0 fn=0x4204f6f4
+[0m
+D (1007) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+[0;32mI (1017) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (1017) pp: pp rom version: e7ae62f[0m
+[0;32mI (1017) net80211: net80211 rom version: e7ae62f[0m
+D (1027) nvs: nvs_open_from_partition misc 1[0m
+[0;32mI (1037) wifi:wifi driver task: 3fcb6da8, prio:23, stack:6656, core=0[0m
+D (1037) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (1047) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (1047) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (1057) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (1067) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (1067) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (1077) nvs: nvs_open_from_partition nvs.net80211 1[0m
+D (1087) nvs: nvs_get opmode 1[0m
+D (1087) nvs: nvs_get_str_or_blob sta.ssid[0m
+D (1097) nvs: nvs_get sta.authmode 1[0m
+D (1097) nvs: nvs_get_str_or_blob sta.pswd[0m
+D (1097) nvs: nvs_get_str_or_blob sta.pmk[0m
+D (1107) nvs: nvs_get sta.chan 1[0m
+D (1107) nvs: nvs_get auto.conn 1[0m
+D (1107) nvs: nvs_get bssid.set 1[0m
+D (1117) nvs: nvs_get_str_or_blob sta.bssid[0m
+D (1117) nvs: nvs_get sta.lis_intval 2[0m
+D (1117) nvs: nvs_get sta.phym 1[0m
+D (1127) nvs: nvs_get sta.phybw 1[0m
+D (1127) nvs: nvs_get_str_or_blob sta.apsw[0m
+D (1137) nvs: nvs_get_str_or_blob sta.apinfo[0m
+D (1137) nvs: nvs_get sta.scan_method 1[0m
+D (1137) nvs: nvs_get sta.sort_method 1[0m
+D (1147) nvs: nvs_get sta.minrssi 1[0m
+D (1147) nvs: nvs_get sta.minauth 1[0m
+D (1147) nvs: nvs_get sta.pmf_e 1[0m
+D (1157) nvs: nvs_get sta.pmf_r 1[0m
+D (1157) nvs: nvs_get sta.btm_e 1[0m
+D (1157) nvs: nvs_get sta.rrm_e 1[0m
+D (1167) nvs: nvs_get sta.mbo_e 1[0m
+D (1167) nvs: nvs_get_str_or_blob ap.ssid[0m
+D (1177) nvs: nvs_get_str_or_blob ap.passwd[0m
+D (1177) nvs: nvs_get_str_or_blob ap.pmk[0m
+D (1177) nvs: nvs_get ap.chan 1[0m
+D (1187) nvs: nvs_get ap.authmode 1[0m
+D (1187) nvs: nvs_get ap.hidden 1[0m
+D (1187) nvs: nvs_get ap.max.conn 1[0m
+D (1197) nvs: nvs_get bcn.interval 2[0m
+D (1197) nvs: nvs_get ap.phym 1[0m
+D (1197) nvs: nvs_get ap.phybw 1[0m
+D (1207) nvs: nvs_get ap.sndchan 1[0m
+D (1207) nvs: nvs_get ap.pmf_e 1[0m
+D (1207) nvs: nvs_get ap.pmf_r 1[0m
+D (1217) nvs: nvs_get ap.p_cipher 1[0m
+D (1217) nvs: nvs_get lorate 1[0m
+D (1217) nvs: nvs_get_str_or_blob country[0m
+D (1227) nvs: nvs_get ap.ftm_r 1[0m
+D (1227) nvs: nvs_get sta.ft 1[0m
+D (1227) nvs: nvs_get sta.owe 1[0m
+D (1237) nvs: nvs_get sta.trans_d 1[0m
+D (1237) nvs: nvs_get sta.sae_h2e 1[0m
+D (1247) nvs: nvs_get sta.sae_pk_mode 1[0m
+D (1247) nvs: nvs_get sta.bss_retry 1[0m
+D (1247) nvs: nvs_get_str_or_blob sta.owe_data[0m
+D (1257) nvs: nvs_get sta.he_dcm 1[0m
+D (1257) nvs: nvs_get sta.he_dcm_c_tx 1[0m
+D (1257) nvs: nvs_get sta.he_dcm_c_rx 1[0m
+D (1267) nvs: nvs_get sta.he_mcs9_d 1[0m
+D (1267) nvs: nvs_get sta.he_su_b_d 1[0m
+D (1277) nvs: nvs_get sta.he_su_b_f_d 1[0m
+D (1277) nvs: nvs_get sta.he_mu_b_f_d 1[0m
+D (1277) nvs: nvs_get sta.he_cqi_f_d 1[0m
+D (1287) nvs: nvs_get_str_or_blob sta.sae_h2e_id[0m
+D (1287) nvs: nvs_get ap.sae_h2e 1[0m
+D (1297) nvs: nvs_get_str_or_blob ap.pmk_info[0m
+D (1297) nvs: nvs_get nan.phym 1[0m
+D (1297) nvs: nvs_set ap.sndchan 1 1[0m
+[0;32mI (1307) wifi:wifi firmware version: 91b9630[0m
+[0;32mI (1307) wifi:wifi certification version: v7.0[0m
+[0;32mI (1317) wifi:config NVS flash: enabled[0m
+[0;32mI (1317) wifi:config nano formating: disabled[0m
+[0;32mI (1317) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1327) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1327) wifi:Init management short buffer num: 32[0m
+[0;32mI (1337) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1337) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1337) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1347) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1347) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1357) wifi_init: rx ba win: 6[0m
+[0;32mI (1357) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1357) wifi_init: udp mbox: 6[0m
+[0;32mI (1367) wifi_init: tcp mbox: 6[0m
+[0;32mI (1367) wifi_init: tcp tx win: 5744[0m
+[0;32mI (1377) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (1377) wifi_init: tcp rx win: 5744[0m
+[0;32mI (1387) wifi_init: tcp mss: 1440[0m
+[0;32mI (1387) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1387) wifi_init: WiFi RX IRAM OP enabled[0m
+D (1397) nvs: nvs_get opmode 1[0m
+D (1397) wifi:clear blacklist
+D (1397) nvs: nvs_get_str_or_blob sta.ssid[0m
+D (1407) nvs: nvs_get sta.pmf_e 1[0m
+[0;32mI (1407) phy_init: phy_version 620,ec7ec30,Sep  5 2023,13:49:13[0m
+D (1417) phy_init: loading PHY init data from application binary[0m
+D (1427) nvs: nvs_open_from_partition phy 0[0m
+D (1427) nvs: nvs_get cal_version 4[0m
+D (1427) nvs: nvs_get_str_or_blob cal_mac[0m
+D (1437) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (1437) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (1447) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (1457) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (1467) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (1467) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (1477) nvs: nvs_get_str_or_blob cal_data[0m
+D (1487) nvs: nvs_close 3[0m
+D (1487) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 8 bit[0m
+D (1487) efuse: In EFUSE_BLK1__DATA1_REG is used 8 bits starting with 0 bit[0m
+D (1497) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 24 bit[0m
+D (1507) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 16 bit[0m
+D (1507) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 8 bit[0m
+D (1517) efuse: In EFUSE_BLK1__DATA0_REG is used 8 bits starting with 0 bit[0m
+D (1537) temperature_sensor: range changed, change to index 2[0m
+D (1547) wifi:filter: set rx policy=0
+[0;32mI (1557) wifi:mode : sta (dc:b4:d9:39:b5:d8)[0m
+[0;32mI (1557) wifi:enable tsf[0m
+D (1557) wifi:filter: set rx policy=1
+D (1557) wifi:connect status 0 -> 0
+D (1557) event: running post WIFI_EVENT:2 with handler 0x42052360 and context 0x3fcb4604 on loop 0x3fcb3488[0m
+D (1567) wifi_init_default: wifi_start esp-netif:0x3fcb43b0 event-id2[0m
+D (1577) wifi_init_default: WIFI mac address: dc b4 d9 39 b5 d8[0m
+D (1577) esp_netif_lwip: check: remote, if=0x3fcb43b0 fn=0x4204f704
+[0m
+D (1587) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+[0;32mI (1587) wifi_station_netif: wifi_init_sta finished.[0m
+D (1597) esp_netif_handlers: esp_netif action has started with netif0x3fcb43b0 from event_id=2[0m
+D (1607) esp_netif_lwip: check: remote, if=0x3fcb43b0 fn=0x4204fd7c
+[0m
+D (1617) esp_netif_lwip: esp_netif_start_api 0x3fcb43b0[0m
+[0;32mI (1617) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+D (1617) esp_netif_lwip: esp_netif_get_hostname esp_netif:0x3fcb43b0[0m
+D (1627) esp_netif_lwip: check: local, if=0x3fcb43b0 fn=0x42050734
+[0m
+D (1637) esp_netif_lwip: esp_netif_update_default_netif_lwip 0x3fcb43b0[0m
+D (1647) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (1647) event: running post WIFI_EVENT:2 with handler 0x42012104 and context 0x3fcbd080 on loop 0x3fcb3488[0m
+D (1657) wifi:Start wifi connect
+D (1657) wifi:connect status 0 -> 0
+D (1667) wifi:connect chan=0
+D (1667) wifi:first chan=1
+D (1667) wifi:connect status 0 -> 1
+D (1677) wifi:filter: set rx policy=3
+D (1677) wifi:clear scan ap list
+D (1677) wifi:start scan: type=0x50f, priority=2, cb=0x4206e3f4, arg=0x0, ss_state=0x1, time=1684276, index=0
+D (1687) wifi:perform scan: ss_state=0x9, chan<1,0>, dur<0,120>
+D (1697) wifi:rsn valid: gcipher=3 ucipher=3 akm=5
+
+D (1697) wifi:profile match: ss_state=0x7
+D (1707) wifi:scan end: arg=0x0, status=0, ss_state=0x7
+D (1707) wifi:find first mathched ssid, scan done
+D (1707) wifi:filter: set rx policy=4
+D (1717) wifi:first chan=1
+D (1717) wifi:handoff_cb: status=0
+D (1717) wifi:ap found, mac=94:83:c4:84:b5:c3
+D (1727) wifi:new_bss=0x3fca8a08, cur_bss=0x0, new_chan=<1,0>, cur_chan=1
+D (1727) wifi:filter: set rx policy=5
+[0;32mI (1737) wifi:new:<1,0>, old:<1,0>, ap:<255,255>, sta:<1,0>, prof:1[0m
+D (1737) wifi:connect_op: status=0, auth=5, cipher=3 
+D (1747) wifi:auth mode is not none
+D (1747) wifi:connect_bss: auth=1, reconnect=0
+[0;32mI (1757) wifi:state: init -> auth (b0)[0m
+D (1757) wifi:start 1s AUTH timer
+D (1757) wifi:clear scan ap list
+D (1777) wifi:recv auth: seq=2, status=0
+[0;32mI (1787) wifi:state: auth -> assoc (0)[0m
+D (1787) wifi:restart connect 1s timer for assoc
+[0;32mI (1807) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+D (1837) wifi:recv assoc: type=0x10
+D (1837) wifi:filter: set rx policy=6
+[0;32mI (1837) wifi:state: assoc -> run (10)[0m
+D (1837) wifi:start 10s connect timer for 4 way handshake
+[0;32mI (1857) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+D (1867) gdma: new group (0) at 0x3fcbe4ac[0m
+D (1867) gdma: new pair (0,0) at 0x3fcbd950[0m
+D (1867) gdma: new tx channel (0,0) at 0x3fcbe478[0m
+D (1867) gdma: new rx channel (0,0) at 0x3fcbe4f0[0m
+D (1877) gdma: tx channel (0,0), (1:32) bytes aligned, burst enabled[0m
+D (1877) gdma: rx channel (0,0), (1:32) bytes aligned, burst disabled[0m
+[0;32mI (1897) wifi:connected with RR, aid = 2, channel 1, BW20, bssid = 94:83:c4:84:b5:c3[0m
+[0;32mI (1897) wifi:security: WPA2-PSK, phy: bgn, rssi: -44[0m
+D (1897) wifi:remove all except 94:83:c4:84:b5:c3 from rc list
+D (1907) wifi:clear blacklist
+D (1907) nvs: nvs_set sta.chan 1 1[0m
+D (1917) nvs: nvs_set_blob sta.apinfo 700[0m
+D (1917) wifi:filter: set rx policy=7
+[0;32mI (1917) wifi:pm start, type: 1[0m
+
+[0;32mI (1927) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+D (1927) wifi:Send sta connected event
+D (1937) wifi:connect status 1 -> 5
+D (1937) wifi:obss scan is disabled
+D (1937) wifi:start obss scan: obss scan is stopped
+[0;32mI (1947) wifi:AP's beacon interval = 102400 us, DTIM period = 2[0m
+D (1947) wifi:set max rate: from <rate=130, phy=3, sig=0> to <rate=144, phy=3 sig=0>
+D (1957) wifi:sig_b=1, sig_g=0, sig_n=0, max_b=0, max_g=108, max_n=144
+D (1967) wifi:update trc
+D (1967) event: running post WIFI_EVENT:4 with handler 0x42052390 and context 0x3fcb4664 on loop 0x3fcb3488[0m
+D (1977) esp_netif_handlers: esp_netif action connected with netif0x3fcb43b0 from event_id=4[0m
+D (1987) esp_netif_lwip: check: remote, if=0x3fcb43b0 fn=0x42050148
+[0m
+D (1987) esp_netif_lwip: esp_netif_up_api esp_netif:0x3fcb43b0[0m
+[0;32mI (1997) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+D (1997) esp_netif_lwip: check: local, if=0x3fcb43b0 fn=0x42050734
+[0m
+D (2007) esp_netif_lwip: esp_netif_update_default_netif_lwip 0x3fcb43b0[0m
+D (2017) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (2017) esp_netif_lwip: check: remote, if=0x3fcb43b0 fn=0x42050008
+[0m
+D (2027) esp_netif_lwip: esp_netif_dhcpc_start_api esp_netif:0x3fcb43b0[0m
+D (2037) esp_netif_lwip: esp_netif_start_ip_lost_timer esp_netif:0x3fcb43b0[0m
+D (2037) esp_netif_lwip: if0x3fcb43b0 start ip lost tmr: no need start because netif=0x3fcb4434 interval=120 ip=0[0m
+D (2047) esp_netif_lwip: starting dhcp client[0m
+D (2057) esp_netif_lwip: call api in lwip: ret=0x0, give sem[0m
+D (2057) event: running post WIFI_EVENT:4 with handler 0x42012104 and context 0x3fcbd080 on loop 0x3fcb3488[0m
+[0;32mI (2087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (2987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+D (3057) esp_netif_lwip: esp_netif_internal_dhcpc_cb lwip-netif:0x3fcb4434[0m
+D (3057) esp_netif_lwip: if0x3fcb43b0 ip changed=1[0m
+D (3057) event: running post IP_EVENT:0 with handler 0x420521bc and context 0x3fcb4738 on loop 0x3fcb3488[0m
+D (3067) wifi_init_default: Got IP wifi default handler entered[0m
+D (3067) esp_netif_handlers: esp_netif action got_ip with netif0x3fcb43b0 from event_id=0[0m
+[0;32mI (3077) esp_netif_handlers: sta ip: 192.168.8.167, mask: 255.255.255.0, gw: 192.168.8.1[0m
+D (3087) event: running post IP_EVENT:0 with handler 0x42012104 and context 0x3fcbd0a0 on loop 0x3fcb3488[0m
+[0;32mI (3097) wifi_station_netif: got ip:192.168.8.167[0m
+[0;32mI (3107) wifi_station_netif: connected to ap SSID:RR password:BotT3st![0m
+[0;32mI (3107) uros_service: Started uros service. Status: RUNNING (Connected to WiFi)[0m
+[0;32mI (3137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3167) wifi:<ba-add>idx:0 (ifx:0, 94:83:c4:84:b5:c3), tid:0, ssn:5, winSize:64[0m
+[0;32mI (3187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (3987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (4987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (5987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (6987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (7987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (8987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;33mW (9507) wifi:[ADDBA]rx delba, code:39, delete tid:0[0m
+[0;32mI (9507) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (9537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (9987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (10987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (11987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (12987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (13987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (14987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (15987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (16987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (17987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (18987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (19987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (20987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (21987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (22987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (23987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (24987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (25987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (26987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (27987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (28987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (29987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (30987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (31987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (32987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (33987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (34987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (35987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (36987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (37987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (38987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (39987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (40987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (41987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (42987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (43987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (44987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (45987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (46987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (47987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (48987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (49987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (50987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (51987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (52987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (53987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (54987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (55987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (56987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (57987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (58987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (59987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (60987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (61987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (62987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (63987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (64987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (65987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (66987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (67987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (68987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (69987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (70987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (71987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (72987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (73987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (74987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (75987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (76987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (77987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (78987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (79987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (80987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (81987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (82987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (83987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (84987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (85987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (86987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (87987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (88987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (89987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (90987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (91987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (92987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (93987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (94987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (95987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (96987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (97987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (98987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (99987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (100987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (101987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (102987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (103987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (104987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (105987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (106987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (107987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (108987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (109987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (110987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (111987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (112987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (113987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (114987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (115987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (116987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (117987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (118987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (119987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (120987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (121987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (122987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (123987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124637) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124687) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124737) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124787) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124837) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124887) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124937) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (124987) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125037) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125087) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125137) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125187) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125237) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125287) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125337) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125387) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125437) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125487) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125537) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m
+[0;32mI (125587) ENC_RAW: L: A=1 B=1 | R: A=1 B=1[0m

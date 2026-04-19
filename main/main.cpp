@@ -82,8 +82,8 @@ extern "C" void app_main(void)
     rr_status.imu_enabled = false;      // verified working
     rr_status.drive_enabled = true;     // verified working
 
-    rr_status.encoder_enabled = true;
-    rr_status.key_control_enabled = false;
+    rr_status.encoder_enabled = true;   // verified working
+    rr_status.key_control_enabled = false; 
     rr_status.estimator_enabled = false;
     rr_status.uros_enabled = true;
 
@@ -100,18 +100,12 @@ extern "C" void app_main(void)
     //uros_service(); // just test this for now
 
     // Debug motor test - must call after initializing
-    //speed_callback(800, 800); // success
+    speed_callback(512, 512); // success
 
     // Loop forever to keep spiffs mounted
     while (1) {
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
-}
-
-void test_drive_code() {
-    while(1){
-        speed_callback(512, 512);
-    } 
 }
 
 void mount_spiffs() {
@@ -130,39 +124,38 @@ void mount_spiffs() {
 
 void initialise(void)
 {
+    // ToF
     if (rr_status.tof_enabled)
     {
         init_tof_sensor();
-        if (tof_service() != pdPASS)
-        {
-            // disable so uros doesn't try to publish
-            rr_status.tof_enabled = false;  
-        }
-        else
-        {
-            ESP_LOGI(TAG, "ToF service starting");
-        }
+        if (tof_service() != pdPASS) rr_status.tof_enabled = false; // disable so uros doesn't try to publish
+        else ESP_LOGI(TAG, "ToF service starting");
     }
 
+    // IMU
     if (rr_status.imu_enabled)
     {
         init_imu();
-        if (imu_service() != pdPASS)
-        {
-            rr_status.imu_enabled = false;
-        }
-        else
-        {
-            ESP_LOGI(TAG, "IMU service starting");
-        }
+        if (imu_service() != pdPASS) rr_status.imu_enabled = false;
+        else ESP_LOGI(TAG, "IMU service starting");
     }
 
+    // Motor drive
     if (rr_status.drive_enabled)
     {
         ESP_LOGI(TAG, "Motor setup starting");
-        initialise_drivetrain();
+        initialise_drivetrain(); // no check, not a task
     }
 
+    // Encoders
+    if (rr_status.encoder_enabled)
+    {
+        init_encoders();
+        if (encoder_service() != pdPASS) rr_status.encoder_enabled = false;
+        else ESP_LOGI(TAG, "Encoder service starting");
+    }
+
+    // Keyboard control with PID
     if (rr_status.key_control_enabled)
     {
         ESP_LOGI(TAG, "Controller service starting");
@@ -170,12 +163,7 @@ void initialise(void)
         start_controller();
     }
 
-        if (rr_status.encoder_enabled)
-    {
-        ESP_LOGI(TAG, "Encoder service starting");
-        init_encoders();
-        encoder_service();
-    }
+    // Estimator for odometry
     if (rr_status.estimator_enabled)
     {
         init_estimator();
@@ -183,24 +171,28 @@ void initialise(void)
         ESP_LOGI(TAG, "Estimator service starting");
     }
 
-    // Not using these
+    // LED (not using rn)
     if (rr_status.led_enabled)
     {
         initialise_led();
         set_led_color(INDEPENDENT_COLOR);
         twai_interrupt_init();
     }
+
+    // Radio (not using rn)
     if (rr_status.radio_enabled)
     { 
         //initialise_radio();
     } 
 
-    // MicroROS enabled last
+    // MicroROS - enable last
     if (rr_status.uros_enabled)
     {
         ESP_LOGI(TAG, "MicroROS service starting");
         uros_service();
     }
     
+    // Event handler - high level state machine logic
+        // Most recently used to debug TWAI in Spring 2025
     //launch_rr_os_service(); // calls initialize_events()
 }

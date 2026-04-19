@@ -66,34 +66,36 @@ void get_latest_imu(imu_data_t *imu_data)
 
 void init_imu(void)
 {
-    ESP_LOGI(TAG, "IMU enabled");
-
-    // initialize imu
     if (!imu.initialize())
     {
-        ESP_LOGE(TAG, "Init failure, returning from main.");
-        imu_initialized = false;
+        ESP_LOGE(TAG, "IMU failed to initialize.");
         return;
     }
 
+    if (imu.rpt.rv_gyro_integrated.enable(REPORT_PERIOD_US) != ESP_OK) 
+    {
+        ESP_LOGE(TAG, "rv_gyro_integrated failed"); 
+        return;
+    }
+    if (imu.rpt.linear_accelerometer.enable(REPORT_PERIOD_US) != ESP_OK) 
+    { 
+        ESP_LOGE(TAG, "linear_accelerometer failed"); 
+        return; 
+    }
+    if (imu.rpt.accelerometer.enable(REPORT_PERIOD_US) != ESP_OK) 
+    { 
+        ESP_LOGE(TAG, "accelerometer failed"); 
+        return; 
+    }
+    if (imu.rpt.cal_magnetometer.enable(REPORT_PERIOD_US) != ESP_OK) 
+    { 
+        ESP_LOGE(TAG, "cal_magnetometer failed"); 
+        return; 
+    }
+
     dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
-    // 10000 us = 10 ms report interval (100 Hz)
-        // changed from 100,000us == 100ms report interval
-    esp_err_t ret;
-    ret = imu.rpt.rv_gyro_integrated.enable(REPORT_PERIOD_US);
-    ESP_LOGI(TAG, "rv_gyro_integrated enable: %d", ret);
-
-    ret = imu.rpt.linear_accelerometer.enable(REPORT_PERIOD_US);
-    ESP_LOGI(TAG, "linear_accelerometer enable: %d", ret);
-
-    ret = imu.rpt.accelerometer.enable(REPORT_PERIOD_US);
-    ESP_LOGI(TAG, "accelerometer enable: %d", ret);
-
-    ret = imu.rpt.cal_magnetometer.enable(REPORT_PERIOD_US);
-    ESP_LOGI(TAG, "cal_magnetometer enable: %d", ret);
-
-    ESP_LOGI(TAG, "IMU enabled");
     imu_initialized = true;
+    ESP_LOGI(TAG, "IMU initialized successfully");
 }
 
 void imu_task(void *pvParameter)
