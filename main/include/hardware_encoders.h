@@ -19,6 +19,8 @@ typedef struct encoder_t {
     int8_t invert;                  // for back-to-back motors
 } encoder_t; // Variables that ISR writes to should be volatile
 
+extern bool encoders_initialized; // TODO: Check this elsewhere before dependent code runs
+
 extern portMUX_TYPE enc_mux;
 extern encoder_t left_encoder;
 extern encoder_t right_encoder; 

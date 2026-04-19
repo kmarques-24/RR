@@ -1,0 +1,101 @@
+[0/2] Re-checking globbed directories...
+[1/17] Performing build step for 'bootloader'
+[1/1] cd /home/km/Desktop/TestFolder/RR/build/bootloader/esp-idf/esptool_py && /home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/km/esp/v5.1.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/km/Desktop/TestFolder/RR/build/bootloader/bootloader.bin
+Bootloader binary size 0x51c0 bytes. 0x2e40 bytes (36%) free.
+[2/15] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/hardware_motors.cpp.obj
+[3/15] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/estimator.cpp.obj
+[4/15] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/controller.cpp.obj
+[5/15] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/hardware_encoders.cpp.obj
+[6/15] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/tof_service.cpp.obj
+[7/15] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/imu_service.cpp.obj
+[8/15] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/uros_service.cpp.obj
+[9/15] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/main.cpp.obj
+[10/15] Linking C static library esp-idf/main/libmain.a
+[11/15] Generating ld/sections.ld
+[12/15] Linking CXX executable RR_OS.elf
+[13/15] Generating binary image from built executable
+esptool.py v4.10.0
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /home/km/Desktop/TestFolder/RR/build/RR_OS.bin
+[14/15] cd /home/km/Desktop/TestFolder/RR/build/esp-idf/esptool_py && /home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python /home/km/esp/v5.1.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/km/Desktop/TestFolder/RR/build/partition_table/partition-table.bin /home/km/Desktop/TestFolder/RR/build/RR_OS.bin
+RR_OS.bin binary size 0x10d9f0 bytes. Smallest app partition is 0x180000 bytes. 0x72610 bytes (30%) free.
+[14/15] cd /home/km/esp/v5.1.2/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/km/esp/v5.1.2/esp-idf -D "SERIAL_TOOL=/home/km/.espressif/python_env/idf5.1_py3.10_env/bin/python;;/home/km/esp/v5.1.2/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32s3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/km/Desktop/TestFolder/RR/build -P /home/km/esp/v5.1.2/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32s3 -p /dev/ttyACM0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 4MB 0x0 bootloader/bootloader.bin 0x10000 RR_OS.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.10.0
+Serial port /dev/ttyACM0
+Connecting...
+Chip is ESP32-S3 (QFN56) (revision v0.2)
+Features: WiFi, BLE, Embedded PSRAM 8MB (AP_3v3)
+Crystal is 40MHz
+USB mode: USB-Serial/JTAG
+MAC: dc:b4:d9:39:b5:d8
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00000000 to 0x00005fff...
+Flash will be erased from 0x00010000 to 0x0011dfff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+SHA digest in image updated
+Compressed 20928 bytes to 13297...
+Writing at 0x00000000... (100 %)
+Wrote 20928 bytes (13297 compressed) at 0x00000000 in 0.5 seconds (effective 371.6 kbit/s)...
+Hash of data verified.
+Compressed 1104368 bytes to 705203...
+Writing at 0x00010000... (2 %)
+Writing at 0x00019dd3... (4 %)
+Writing at 0x0001e5df... (6 %)
+Writing at 0x00023105... (9 %)
+Writing at 0x00028804... (11 %)
+Writing at 0x0002e03c... (13 %)
+Writing at 0x0003bcf9... (15 %)
+Writing at 0x00044dd2... (18 %)
+Writing at 0x00049e21... (20 %)
+Writing at 0x00054318... (22 %)
+Writing at 0x0005c351... (25 %)
+Writing at 0x00062140... (27 %)
+Writing at 0x00068526... (29 %)
+Writing at 0x0006e3f2... (31 %)
+Writing at 0x000747ce... (34 %)
+Writing at 0x0007a00d... (36 %)
+Writing at 0x00081289... (38 %)
+Writing at 0x00086ce9... (40 %)
+Writing at 0x0008cb71... (43 %)
+Writing at 0x00092c1d... (45 %)
+Writing at 0x00098d11... (47 %)
+Writing at 0x0009e2b4... (50 %)
+Writing at 0x000a3b19... (52 %)
+Writing at 0x000a92d5... (54 %)
+Writing at 0x000aec2d... (56 %)
+Writing at 0x000b4919... (59 %)
+Writing at 0x000ba34c... (61 %)
+Writing at 0x000bf232... (63 %)
+Writing at 0x000c4441... (65 %)
+Writing at 0x000c9233... (68 %)
+Writing at 0x000ce636... (70 %)
+Writing at 0x000d394f... (72 %)
+Writing at 0x000d943c... (75 %)
+Writing at 0x000dea08... (77 %)
+Writing at 0x000e4413... (79 %)
+Writing at 0x000e9d64... (81 %)
+Writing at 0x000eff27... (84 %)
+Writing at 0x000f5625... (86 %)
+Writing at 0x000faeaa... (88 %)
+Writing at 0x00104459... (90 %)
+Writing at 0x0010bf43... (93 %)
+Writing at 0x00111c5f... (95 %)
+Writing at 0x00117e6a... (97 %)
+Writing at 0x0011d669... (100 %)
+Wrote 1104368 bytes (705203 compressed) at 0x00010000 in 7.6 seconds (effective 1160.5 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 119...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (119 compressed) at 0x00008000 in 0.1 seconds (effective 390.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...

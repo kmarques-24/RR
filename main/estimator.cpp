@@ -19,6 +19,7 @@
 // circumference travelled = distance travelled (no slip)
 
 static const char *TAG = "Estimator";
+bool estimator_initialized = false;
 
 static SemaphoreHandle_t dataMutex; // protect while writing
 static StaticSemaphore_t dataMutexBuffer;
@@ -68,14 +69,19 @@ void init_estimator(void)
     prevCountRight = right_encoder.count;
 
     dataMutex = xSemaphoreCreateMutexStatic(&dataMutexBuffer);
+    // simple for now, but may need to more checks like ToF and IMU when filtering added
+    estimator_initialized = true;
 }
 
 void estimator_task(void *pvParameter)
 {
     while(1)
     {
-        imu_data_t imu_data;
-        get_latest_imu(&imu_data);
+        imu_data_t imu_data = {};  // zero initialize as fallback
+        if (imu_initialized)
+        {
+            get_latest_imu(&imu_data);
+        }
 
         // Grab both to avoid encoder ISR updating right as I'm reading left for example
         taskENTER_CRITICAL(&enc_mux);
@@ -139,6 +145,12 @@ void estimator_task(void *pvParameter)
 
 BaseType_t start_estimator(void)
 {
+    if (!estimator_initialized)
+    {
+        ESP_LOGE(TAG, "Estimator not initialized, cannot start service");
+        return pdFAIL;
+    }
+
     BaseType_t status;
     status = xTaskCreate(
         estimator_task,

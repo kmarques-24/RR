@@ -154,17 +154,18 @@ void controller_task(void *pvParameter)
         // speed function already pwm capped
         speed_callback(left_duty, right_duty);
 
+        // Use to tune
         log_counter = log_counter + 1;
         if (log_counter >= LOG_EVERY_N)
         {
             log_counter = 0;
             // Sense check: motors move normally around duty = 512
-            ESP_LOGI(TAG, "L vel des: %.1f vel curr: %.1f err %.1f prevErr %.1f errSum %.1f leftDuty %ld",
-                vel_left_des, vel_left_curr, left_motor_ctrl.error, left_motor_ctrl.prevError, 
-                left_motor_ctrl.errorSum, left_duty);
-            ESP_LOGI(TAG, "R vel des: %.1f vel curr: %.1f err %.1f prevErr %.1f errSum %.1f rightDuty %ld",
-                vel_right_des, vel_right_curr, right_motor_ctrl.error, right_motor_ctrl.prevError, 
-                right_motor_ctrl.errorSum, right_duty);
+            // ESP_LOGI(TAG, "L vel des: %.1f vel curr: %.1f err %.1f prevErr %.1f errSum %.1f leftDuty %ld",
+            //     vel_left_des, vel_left_curr, left_motor_ctrl.error, left_motor_ctrl.prevError, 
+            //     left_motor_ctrl.errorSum, left_duty);
+            // ESP_LOGI(TAG, "R vel des: %.1f vel curr: %.1f err %.1f prevErr %.1f errSum %.1f rightDuty %ld",
+            //     vel_right_des, vel_right_curr, right_motor_ctrl.error, right_motor_ctrl.prevError, 
+            //     right_motor_ctrl.errorSum, right_duty);
         }
         
         vTaskDelay(pdMS_TO_TICKS(CTRL_INTERVAL)); // prev 20 (50 Hz)

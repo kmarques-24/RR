@@ -108,16 +108,6 @@ void tof_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
     }
 }
 
-void odom_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
-{
-    RCLC_UNUSED(last_call_time);
-    if (timer != NULL)
-    {
-        update_odometry_msg(&odom_msg); // pass as pointer to modify multiple fields
-        RCSOFTCHECK(rcl_publish(&odom_pub, &odom_msg, NULL));
-    }
-}
-
 void imu_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
 {
     // "uses" the variable to suppressed unused variable complier warning
@@ -142,6 +132,26 @@ void imu_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
                 ESP_LOGE("IMU_CB", "publish failed: %ld | %s", (long)r, err.str);
             } else {
                 ESP_LOGE("IMU_CB", "publish failed: %ld | no error string set", (long)r);
+            }
+            rcl_reset_error();
+        }
+    }
+}
+
+void odom_timer_callback(rcl_timer_t *timer, int64_t last_call_time)
+{
+    RCLC_UNUSED(last_call_time);
+    if (timer != NULL)
+    {
+        update_odometry_msg(&odom_msg); // pass as pointer to modify multiple fields
+        //RCSOFTCHECK(rcl_publish(&odom_pub, &odom_msg, NULL));
+        rcl_ret_t r = rcl_publish(&odom_pub, &odom_msg, NULL);
+        if (r != RCL_RET_OK) {
+            if (rcl_error_is_set()) {
+                rcl_error_string_t err = rcl_get_error_string();
+                ESP_LOGE("ODOM_CB", "publish failed: %ld | %s", (long)r, err.str);
+            } else {
+                ESP_LOGE("ODOM_CB", "publish failed: %ld | no error string set", (long)r);
             }
             rcl_reset_error();
         }
@@ -211,12 +221,15 @@ void micro_ros_task(void *arg)
     if (rr_status.tof_enabled) 
     {
         // used init_default (reliable) to allow message to be broken into packets
+        // too large otherwise which failed to publish
         RCCHECK(rclc_publisher_init_default(&tof_pub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, PointCloud2), "points"));
     }
     if (rr_status.estimator_enabled) 
     {
-        RCCHECK(rclc_publisher_init_best_effort(&odom_pub, &node,
+        // used init_default (reliable) to allow message to be broken into packets
+        // too large otherwise which failed to publish
+        RCCHECK(rclc_publisher_init_default(&odom_pub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(nav_msgs, msg, Odometry), "odom"));
     }
     if (rr_status.imu_enabled) 
@@ -224,7 +237,6 @@ void micro_ros_task(void *arg)
         RCCHECK(rclc_publisher_init_best_effort(&imu_pub, &node,
             ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Imu), "imu/data"));
     }
-    ESP_LOGI(TAG, "key_control_enabled: %d", rr_status.key_control_enabled);
     if (rr_status.key_control_enabled) 
     {
         // used init_default (reliable) for compatibility with reliable teleop_twist_keyboard publisher
@@ -312,6 +324,7 @@ void micro_ros_task(void *arg)
     vTaskDelete(NULL);
 }
 
+// Publish will fail if every field here isn't set correctly. Check here first
 void initialize_message_data(void)
 {
     // fields auto intialized to 0 unless changed. Some 0s listed for visible redundancy
@@ -378,14 +391,14 @@ void initialize_message_data(void)
     static char child_frame_id[] = "base_link";
 
     odom_msg.header.frame_id.data = frame_id_odom; // world frame, defined when bot first powered on
-    odom_msg.header.frame_id.size = strlen("odom");
-    odom_msg.header.frame_id.capacity = strlen("odom") + 1;
+    odom_msg.header.frame_id.size = sizeof(frame_id_odom) - 1;
+    odom_msg.header.frame_id.capacity = sizeof(frame_id_odom);
     odom_msg.header.stamp.sec = 0;
     odom_msg.header.stamp.nanosec = 0;
     
     odom_msg.child_frame_id.data = child_frame_id;         // body frame (center of rotation of robot frame) 
-    odom_msg.child_frame_id.size = sizeof(frame_id_odom) - 1; // want to know body frame expressed in world frame
-    odom_msg.child_frame_id.capacity = sizeof(frame_id_odom);
+    odom_msg.child_frame_id.size = sizeof(child_frame_id) - 1; // want to know body frame expressed in world frame
+    odom_msg.child_frame_id.capacity = sizeof(child_frame_id);
 
     // position of body in world in m
     odom_msg.pose.pose.position.x = 0; 

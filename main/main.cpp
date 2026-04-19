@@ -78,15 +78,16 @@ extern "C" void app_main(void)
     // rr_status defined in rr_os_service.cpp
     rr_status.wifi_enabled = true;
 
-    rr_status.tof_enabled = false;      // verified working
-    rr_status.imu_enabled = false;      // verified working
-    rr_status.drive_enabled = true;     // verified working
-    rr_status.encoder_enabled = true;   // verified working
-
-    rr_status.key_control_enabled = true; 
-    rr_status.estimator_enabled = false;
+    // All verified working independently
+    rr_status.tof_enabled = false;
+    rr_status.imu_enabled = false;
+    rr_status.drive_enabled = true;
+    rr_status.encoder_enabled = true;
+    rr_status.key_control_enabled = true;
+    rr_status.estimator_enabled = true;
     rr_status.uros_enabled = true;
 
+    // Unused - twai and radio unverified
     rr_status.connected = false;
     rr_status.twai_active = false;
     rr_status.led_enabled = false;
@@ -167,8 +168,8 @@ void initialise(void)
     if (rr_status.estimator_enabled)
     {
         init_estimator();
-        start_estimator();
-        ESP_LOGI(TAG, "Estimator service starting");
+        if (start_estimator() != pdPASS) rr_status.estimator_enabled = false;
+        else ESP_LOGI(TAG, "Estimator service starting");
     }
 
     // LED (not using rn)
