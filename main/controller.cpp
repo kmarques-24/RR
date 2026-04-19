@@ -22,7 +22,6 @@
 
 #define CTRL_INTERVAL 10 // prev 5 // interval in ms to calculate count speed
 
-
 // Tuned experimentally
 #define Kp 3000.0f      // originally 0.2 for RPM -> 0.2 * 60 / (2*pi*0.03) = 64
 #define Kd 200.0f       // originally 0 for RPM
