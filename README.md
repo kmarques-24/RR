@@ -1,4 +1,5 @@
 # Source code for RESCUE Roller Operating system built atop the ESP-IDF and microROS.
+## TODO: Update for this fork. ReadMe is from old fork.
 
 ## Requirements
 ESP-IDF 
