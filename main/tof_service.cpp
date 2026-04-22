@@ -58,10 +58,10 @@ void update_tof_msg(sensor_msgs__msg__PointCloud2 *tof_msg)
             float theta_x = (c - TOF_GRID_CENTER) * TOF_CELL_ANGLE_RAD; // horizontal angle from center in rad
             float theta_y = (r - TOF_GRID_CENTER) * TOF_CELL_ANGLE_RAD; // vertical angle from center in rad
 
-            // ROS convention: z forward, x right, y up
-            float z = d * cosf(theta_x) * cosf(theta_y); // depth (forward)
-            float x = d * sinf(theta_x); // horizontal
-            float y = d * sinf(theta_y); // vertical
+            // ROS convention: x forward, y left, z up
+            float x = d * cosf(theta_x) * cosf(theta_y); // depth (forward)
+            float y = d * sinf(theta_x); // horizontal
+            float z = d * sinf(theta_y); // vertical
 
             memcpy(ptr + 0 * TOF_BYTES_PER_FIELD, &x, TOF_BYTES_PER_FIELD);
             memcpy(ptr + 1 * TOF_BYTES_PER_FIELD, &y, TOF_BYTES_PER_FIELD);

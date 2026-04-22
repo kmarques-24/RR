@@ -12,10 +12,8 @@ extern "C" {
 typedef struct {
     struct {float x, y, z;} position;       // Position
     struct {float w, x, y, z;} quat;        // Orientation (quat)
-
     struct {float x, y, z;} twist_lin;      // Velocity (linear)
     struct {float x, y, z;} twist_ang;      // Velocity (angular)
-
     timespec_t timestamp;
 } odom_data_t;
 

@@ -298,14 +298,20 @@ void micro_ros_task(void *arg)
         rclc_executor_spin_some(&executor, RCL_MS_TO_NS(5)); 
             // check for work and wait up to 5 ms
             // 5 ms must be shorter than fastest timer period
-        
         // rclc_executor is a checker. spin_some waits for a ROS event and checks out after 100 ms
             // then it microsleeps if someone else has a task before restarting
             // rclc_executor_spin blocks forever and loop never repeats. Use if task only handles ROS events
             // rclc_executor_prepare and rclc_executor_spin_one_period can help sync ROS with non-ROS control loop
             // these are about timing regularity, not preventing transport blocking
-        
         // transport blocking occurs within publish when it's waiting for a handshake
+
+        // Resync with laptop periodically
+        static int64_t last_sync_us = 0; // initialized only once at 0
+        int64_t now_us = esp_timer_get_time();
+        if (now_us - last_sync_us > 10000000LL) {  // every 10 seconds
+            rmw_uros_sync_session(1000);
+            last_sync_us = now_us;
+        }
 
         vTaskDelay(pdMS_TO_TICKS(10)); // wait 10 ms (changed from 1 ms and 5 ms)
             // Need to give enough time to IDLE so that watchdog doesn't trigger
@@ -426,7 +432,7 @@ void initialize_message_data(void)
     odom_msg.pose.covariance[35] = 0.005;    // yaw
 
     odom_msg.twist.covariance[0] = 0.001;    // x rate (velocity uncertainty from encoder calc)
-    odom_msg.twist.covariance[35] = 0.002;   // yaw rate (uncertainty from IMU)
+    odom_msg.twist.covariance[35] = 0.002;   // yaw rate (uncertainty)
 
     //----- imu -----
     static char frame_id_imu[] = "imu_link";

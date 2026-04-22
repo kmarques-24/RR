@@ -71,6 +71,7 @@ void init_imu(void)
         ESP_LOGE(TAG, "IMU failed to initialize.");
         return;
     }
+    ESP_LOGI(TAG, "initialize() returned, starting report enables");
     // Returns true on enable success - check the documentation! ESP_OK doesn't work (0)
     if (!imu.rpt.rv_gyro_integrated.enable(REPORT_PERIOD_US))
     {

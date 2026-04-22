@@ -65,3 +65,29 @@ void subtract(float a[3], float b[3], float c[3])
     c[1] = a[1] - b[1];
     c[2] = a[2] - b[2];
 }
+
+// Rotate vector v by quaternion q (q * v * conj(q))
+void rotate_vec_by_quat(float vx, float vy, float vz,
+                        float qw, float qx, float qy, float qz,
+                        float *rx, float *ry, float *rz)
+{
+    // t = 2 * cross(q.xyz, v)
+    float tx = 2.0f * (qy * vz - qz * vy);
+    float ty = 2.0f * (qz * vx - qx * vz);
+    float tz = 2.0f * (qx * vy - qy * vx);
+    // v' = v + qw * t + cross(q.xyz, t)
+    *rx = vx + qw * tx + (qy * tz - qz * ty);
+    *ry = vy + qw * ty + (qz * tx - qx * tz);
+    *rz = vz + qw * tz + (qx * ty - qy * tx);
+}
+
+// Hamilton product: q1 * q2
+void quat_multiply(float w1, float x1, float y1, float z1,
+                    float w2, float x2, float y2, float z2,
+                    float *qw, float *qx, float *qy, float *qz)
+{
+    *qw = w1*w2 - x1*x2 - y1*y2 - z1*z2;
+    *qx = w1*x2 + x1*w2 + y1*z2 - z1*y2;
+    *qy = w1*y2 - x1*z2 + y1*w2 + z1*x2;
+    *qz = w1*z2 + x1*y2 - y1*x2 + z1*w2;
+}

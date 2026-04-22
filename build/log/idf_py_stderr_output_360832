@@ -1,0 +1,38 @@
+[0;33m--- esp-idf-monitor 1.8.0 on /dev/ttyACM1 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x400490d5: [0;33musb_uart_device_rx_one_char[0m[0m in [0;32mROM[0m
+[0m--- 0x40375794: [0;33mcall_start_cpu1[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_system/port/cpu_start.c[0m[0m:[1;31m157[0m
+[0;33m--- Warning: Checksum mismatch between flashed and built applications. Checksum of built application is 38745dfe0c576172027a5cdb0f926889230baffae0d454a3441c8403d5f0b1a6[0m
+[0m--- 0x40374000: [0;33m_WindowOverflow4[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/xtensa_vectors.S[0m[0m:[1;31m2027[0m
+[0m--- 0x4208ff64: [0;33m__cxa_end_catch[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/src/gcc/libstdc++-v3/libsupc++/eh_catch.cc[0m[0m:[1;31m130[0m
+[0m--- 0x4208fdb4: [0;33m_ZN12_GLOBAL__N_14pool8allocateEj$constprop$0[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp32s3-elf/src/gcc/libstdc++-v3/libsupc++/eh_alloc.cc[0m[0m:[1;31m170[0m
+[0m--- 0x420525bc: [0;33mesp_wifi_config_info[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/src/wifi_init.c[0m[0m:[1;31m190[0m
+[0m--- 0x420338cc: [0;33mget_reset_reason[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_system/port/soc/esp32s3/reset_reason.c[0m[0m:[1;31m25[0m
+[0m--- 0x42032f30: [0;33mesp_ipc_call_and_wait[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_system/esp_ipc.c[0m[0m:[1;31m145[0m
+[0m--- 0x42020330: [0;33m_PointField__max_serialized_size[0m[0m at [0;32mpoint_field__type_support_c.c[0m[0m:[1;31m?[0m
+[0m--- 0x4201fbfc: [0;33mget_message_typesupport_handle_function[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4201fbd8: [0;33mis_uxrce_rmw_identifier_valid[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4201cfc8: [0;33mucdr_check_final_buffer_behavior_array[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x4201abb8: [0;33mled_strip_new_spi_device[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/managed_components/espressif__led_strip/src/led_strip_spi_dev.c[0m[0m:[1;31m187[0m
+[0m--- 0x4200c5e0: [0;33mget_latest_imu[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/main/imu_service.cpp[0m[0m:[1;31m64[0m
+[0m--- 0x4200318c: [0;33mesp_init_app_elf_sha256[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_app_format/esp_app_desc.c[0m[0m:[1;31m69[0m
+[0m--- 0x42008e00: [0;33m__esp_system_init_fn_esp_timer_startup_init[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_timer/src/esp_timer.c[0m[0m:[1;31m576[0m
+[0m--- 0x42005da4: [0;33m__esp_system_init_fn_esp_sleep_startup_init[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_hw_support/sleep_gpio.c[0m[0m:[1;31m189[0m
+[0m--- 0x42004308: [0;33m__esp_system_init_fn_init_components0[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_system/startup.c[0m[0m:[1;31m486[0m
+[0m--- 0x4204fc30: [0;33mesp_netif_update_default_netif[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m398[0m
+[0m--- 0x4205289c: [0;33mwifi_start[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/src/wifi_default.c[0m[0m:[1;31m51[0m
+[0m--- 0x4204fc40: [0;33mesp_netif_update_default_netif[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m400[0m
+[0m--- 0x420502b8: [0;33mremove_lwip_netif_callback[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m181[0m
+[0m--- 0x42050c70: [0;33mesp_netif_netstack_buf_free[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1196[0m
+[0m--- 0x42012640: [0;33mwifi_init_sta[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/network_interfaces/uros_wlan_netif.c[0m[0m:[1;31m91[0m
+[0m--- 0x4206e930: [0;33mcnx_remove_all_rc[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420528cc: [0;33mwifi_start[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/src/wifi_default.c[0m[0m:[1;31m54[0m
+[0m--- 0x42050684: [0;33mesp_netif_dhcpc_start_api[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1437[0m
+[0m--- 0x42050c70: [0;33mesp_netif_netstack_buf_free[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1196[0m
+[0m--- 0x42050544: [0;33mesp_netif_stop_api[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_netif/lwip/esp_netif_lwip.c[0m[0m:[1;31m1142[0m
+[0m--- 0x42012640: [0;33mwifi_init_sta[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/network_interfaces/uros_wlan_netif.c[0m[0m:[1;31m91[0m
+[0m--- 0x420526f8: [0;33mesp_wifi_init[0m[0m at [0;32m/home/km/esp/v5.1.2/esp-idf/components/esp_wifi/src/wifi_init.c[0m[0m:[1;31m220[0m
+[0m--- 0x42012640: [0;33mwifi_init_sta[0m[0m at [0;32m/home/km/Desktop/TestFolder/RR/components/micro_ros_espidf_component/network_interfaces/uros_wlan_netif.c[0m[0m:[1;31m91[0m
+[1;31m--- Error: device reports readiness to read but returned no data (device disconnected or multiple access on port?)[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0m

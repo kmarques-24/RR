@@ -25,6 +25,7 @@ Instructions:
     - run idf.py set-target esp32s3 to resolve linkage errors
 8. Run idf.py build, idf.py flash, idf.py monitor
     - monitor terminals and debug
+    - run ros2 run teleop_twist_keyboard teleop_twist_keyboard (in ros2_ws terminal to teleop)
 */
 
 // OS and C Headers
