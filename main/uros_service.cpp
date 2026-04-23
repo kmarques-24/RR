@@ -291,6 +291,7 @@ void micro_ros_task(void *arg)
 
     // Sync with microros agent on laptop before spinning. Align timestamps
     rmw_uros_sync_session(1000);
+    int64_t last_sync_us = 0; // initialized only once at 0
     
     // Spin
     while (1)
@@ -306,9 +307,8 @@ void micro_ros_task(void *arg)
         // transport blocking occurs within publish when it's waiting for a handshake
 
         // Resync with laptop periodically
-        static int64_t last_sync_us = 0; // initialized only once at 0
         int64_t now_us = esp_timer_get_time();
-        if (now_us - last_sync_us > 10000000LL) {  // every 10 seconds
+        if (now_us - last_sync_us > 5000000LL) {  // every 5 seconds
             rmw_uros_sync_session(1000);
             last_sync_us = now_us;
         }
@@ -344,7 +344,7 @@ void initialize_message_data(void)
     tof_msg.header.stamp.sec = 0;
     tof_msg.header.stamp.nanosec = 0;
 
-    // point is endpoint of ray relative to sensor. ROS convention is z forward, x right, y up
+    // point is endpoint of ray relative to sensor. ROS convention is x forward, y left, z up
     // pointfield stores column definition like in table where each row is a point
     // float32 is 4 bytes. So a row of x, y, z will have x at byte 0, y at byte 4, z at byte 8
     static sensor_msgs__msg__PointField field_arr[TOF_FIELDS]; // 3 for x, y, z

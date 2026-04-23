@@ -32,6 +32,7 @@ TODO:
 #include "esp_event.h"
 
 #define METERS_PER_COUNT (2.0f * M_PI * (CONFIG_WHEEL_RADIUS_MM / 1000.0f) / CONFIG_CPR)
+// CPR was 1357. Updated to 2988 (12 * 248.98 https://www.pololu.com/product/5197)
 // meters/count = (meters/revolution) / (counts/revolution)
 // circumference travelled = distance travelled (no slip)
 
