@@ -1,4 +1,5 @@
 /managed_components/
+/build
 /utils/build/
 /utils/logs/
 main/build/CMakeFiles/cmake.check_cache
