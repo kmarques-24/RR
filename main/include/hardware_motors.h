@@ -15,8 +15,7 @@ extern "C" {
 #define PWM_FREQ 5000
 #define PWM_RES LEDC_TIMER_10_BIT
 
-// Motor pin configuration
-// from kconfig
+// Motor pin configuration comes from kconfig
 
 // Motor structure definition
 typedef struct {

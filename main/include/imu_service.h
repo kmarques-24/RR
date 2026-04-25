@@ -22,7 +22,7 @@ typedef struct {
     timespec_t timestamp;
 } imu_data_t;
 
-extern bool imu_initialized; // TODO: Check this elsewhere before dependent code runs
+extern bool imu_initialized;
 
 void update_imu_msg(sensor_msgs__msg__Imu *imu_msg);
 void get_latest_imu(imu_data_t *imu_data);

@@ -14,7 +14,7 @@ typedef struct {
     float errorSum;
 } motor_controller_t;
 
-extern bool controller_initialized; // TODO: Check this elsewhere before dependent code runs
+extern bool controller_initialized;
 
 void drive_commanded_twist(const geometry_msgs__msg__Twist *twist_msg);
 void init_controller(void);

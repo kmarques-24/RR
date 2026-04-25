@@ -13,13 +13,13 @@ typedef struct encoder_t {
     volatile int16_t count;      
     volatile int16_t prevCount;
     volatile uint8_t prevEncoding;  
-    volatile float countVelocity;  // counts/sec. sign CW=0, CCW=1 by convention
+    volatile float countVelocity;   // counts/sec. sign CW=0, CCW=1 by convention
     gpio_num_t pin_a;
     gpio_num_t pin_b;
     int8_t invert;                  // for back-to-back motors
 } encoder_t; // Variables that ISR writes to should be volatile
 
-extern bool encoders_initialized; // TODO: Check this elsewhere before dependent code runs
+extern bool encoders_initialized;
 
 extern portMUX_TYPE enc_mux;
 extern encoder_t left_encoder;

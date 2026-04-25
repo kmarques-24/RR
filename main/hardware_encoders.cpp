@@ -59,8 +59,8 @@ void IRAM_ATTR encoder_isr_handler(void *arg)
     int16_t new_count = encoder->count + (delta * encoder->invert); // if motor flipped on bot
 
     // Wrap
-    if (new_count >= CONFIG_CPR)     new_count -= CONFIG_CPR;
-    else if (new_count < 0)          new_count += CONFIG_CPR;
+    if (new_count >= CONFIG_CPR) new_count -= CONFIG_CPR;
+    else if (new_count < 0) new_count += CONFIG_CPR;
 
     encoder->count = new_count;
     encoder->prevEncoding = encoding;

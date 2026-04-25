@@ -20,15 +20,15 @@
 
 #include <geometry_msgs/msg/twist.h> 
 
-#define CTRL_INTERVAL 10 // prev 5 // interval in ms to calculate count speed
+#define CTRL_INTERVAL 10    // interval in ms to calculate count speed
 
 // Tuned experimentally
-#define Kp 3000.0f      // originally 0.2 for RPM -> 0.2 * 60 / (2*pi*0.03) = 64
-#define Kd 200.0f       // originally 0 for RPM
-#define Ki 1000.0f     // originally 1 for RPM -> 1 * 60 / (2*pi*0.03) = 318
+#define Kp 3000.0f
+#define Kd 200.0f  
+#define Ki 1000.0f 
 #define WINDUP_CAP 1.0f
-#define STOP_THRESHOLD 0.1f  // m/s -> below this is considered stopped
-#define DUTY_DEADBAND 400 // Below this just won't do anything, so start at this for baseline
+#define STOP_THRESHOLD 0.1f     // m/s -> below this is considered stopped
+#define DUTY_DEADBAND 400       // Below this just won't do anything, so start at this for baseline
 
 #define METERS_PER_COUNT (2.0f * M_PI * (CONFIG_WHEEL_RADIUS_MM / 1000.0f) / CONFIG_CPR)
 // counts/s * (2*pi*m) * rev/count = m/s

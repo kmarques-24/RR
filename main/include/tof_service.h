@@ -32,7 +32,7 @@ typedef struct {
 void init_tof_sensor(void);
 void update_tof_msg(sensor_msgs__msg__PointCloud2 *tof_msg);
 
-extern bool tof_initialized; // TODO: Check this elsewhere before dependent code runs
+extern bool tof_initialized;
 
 uint8_t start_ranging(void);
 uint8_t stop_ranging(void);

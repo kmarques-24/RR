@@ -32,7 +32,7 @@ TODO:
 #include "esp_event.h"
 
 #define METERS_PER_COUNT (2.0f * M_PI * (CONFIG_WHEEL_RADIUS_MM / 1000.0f) / CONFIG_CPR)
-// CPR was 1357. Updated to 2988 (12 * 248.98 https://www.pololu.com/product/5197)
+// CPR set in menuconfig currently 2988 (12 * 248.98 https://www.pololu.com/product/5197)
 // meters/count = (meters/revolution) / (counts/revolution)
 // circumference travelled = distance travelled (no slip)
 
@@ -242,8 +242,7 @@ void transform_imu_to_base(const imu_data_t *in, imu_data_t *out)
                        &out->ang_vel.x, &out->ang_vel.y, &out->ang_vel.z);
 
     // Rotate linear acceleration: a_base = q_bi * a_imu * conj(q_bi)
-        // Note: ignoring centripetal/tangential terms from IMU offset from base_link origin.
-        // Valid approximation for ground robots at moderate angular rates.
+        // ignores centripetal/tangential terms from IMU offset from base_link origin - good enough approx
     rotate_vec_by_quat(in->lin_accel.x, in->lin_accel.y, in->lin_accel.z,
                        IMU_TO_BASE_QW, IMU_TO_BASE_QX, IMU_TO_BASE_QY, IMU_TO_BASE_QZ,
                        &out->lin_accel.x, &out->lin_accel.y, &out->lin_accel.z);
@@ -260,13 +259,13 @@ void transform_imu_to_base(const imu_data_t *in, imu_data_t *out)
                   &out->quat.w, &out->quat.x, &out->quat.y, &out->quat.z);
 
     // Recompute euler angles from transformed quaternion so they match
-        // Standard ZYX (yaw-pitch-roll) extraction.
     bno08x_quat_t q_transformed;
     q_transformed.real = out->quat.w;
     q_transformed.i    = out->quat.x;
     q_transformed.j    = out->quat.y;
     q_transformed.k    = out->quat.z;
-
+    
+    // Lib uses standard ZYX (yaw-pitch-roll) extraction
     bno08x_euler_angle_t euler_transformed;
     euler_transformed = q_transformed;
     out->euler.roll  = euler_transformed.x;

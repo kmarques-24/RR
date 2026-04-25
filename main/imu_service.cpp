@@ -16,8 +16,8 @@
 #include "esp_event.h"
 
 // Polling and report frequency
-#define POLLING_FREQ_HZ     250
-#define POLLING_PERIOD_MS   (uint32_t)(1000 / POLLING_FREQ_HZ)
+//#define POLLING_FREQ_HZ     250
+//#define POLLING_PERIOD_MS   (uint32_t)(1000 / POLLING_FREQ_HZ)
 #define REPORT_FREQ_HZ      100
 #define REPORT_PERIOD_US    (uint32_t)(1000000 / REPORT_FREQ_HZ) // beware integer div and order of operations
 

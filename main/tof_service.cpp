@@ -21,10 +21,10 @@
 
 static const char *TAG = "ToF";
 
-//VL53L5CX ranging variables
+// VL53L5CX ranging variables
 static uint8_t status, isAlive;
-static VL53L5CX_Configuration 	Dev;			/* Sensor configuration */
-static VL53L5CX_ResultsData 	Results;		/* Results data from VL53L5CX */
+static VL53L5CX_Configuration 	Dev;			// sensor configuration
+static VL53L5CX_ResultsData 	Results;		// results data from VL53L5CX
 
 static SemaphoreHandle_t dataMutex; // protect while writing
 static StaticSemaphore_t dataMutexBuffer;

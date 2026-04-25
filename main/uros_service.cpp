@@ -54,10 +54,10 @@ rcl_subscription_t twist_sub;   // Get linear & angular velocity commands. E.g. 
 
 // Messages
 std_msgs__msg__Float32 float_msg;           // float msg. double underscore is C-naming convention for ROS 2 messages
-sensor_msgs__msg__PointCloud2 tof_msg;    // ToF msg
+sensor_msgs__msg__PointCloud2 tof_msg;      // ToF msg
 nav_msgs__msg__Odometry odom_msg;           // RR state (odometry) msg
 sensor_msgs__msg__Imu imu_msg;              // IMU msg
-geometry_msgs__msg__Twist twist_msg;             // twist msg
+geometry_msgs__msg__Twist twist_msg;        // twist msg
 
 // Timers
 rcl_timer_t float_timer;

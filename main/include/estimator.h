@@ -17,7 +17,7 @@ typedef struct {
     timespec_t timestamp;
 } odom_data_t;
 
-extern bool estimator_initialized; // TODO: Check this elsewhere before dependent code runs
+extern bool estimator_initialized;
 
 void update_odometry_msg(nav_msgs__msg__Odometry *odom_msg);
 void init_estimator(void);
