@@ -24,7 +24,7 @@ To add new sensor, write service script with initialization protections, update 
 
 The forked repos have necessary compatibility edits.
 
-# Partner Repository
+### Partner Repository
 Meant for use with: https://github.com/kmarques-24/rr_py  
 
 Designed to take twist commands from ros2 teleop_twist_keyboard.
@@ -57,7 +57,7 @@ pip3 uninstall empy
 pip3 install empy==3.3.4
 ```
 
-# Router
+### Router
 Plug in router and wait a minute for network RR to become visible. 
 
 Connect and open http://192.168.8.1/ to see connected clients (laptop, esp32) and IPs.
